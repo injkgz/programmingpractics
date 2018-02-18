@@ -1,15 +1,6 @@
 #include <stdio.h>
 #include <iostream>
 using namespace std;
-
-void laba1();
-int main()
-{
-	setlocale(LC_ALL, "russian");
-	laba1();
-	return 0;
-}
-
 void zad23()
 {
 	cout << "Hello, World!\n";
@@ -30,7 +21,7 @@ void zad4()
 	float z = 5.0;
 	float y = 3.0;
 	cout << "Float variables division: \n" << z / y;
-	cout <<endl<< "Integer variables division:\n" << a / b;
+	cout << endl << "Integer variables division:\n" << a / b;
 
 }
 void zad5()
@@ -40,14 +31,14 @@ void zad5()
 	// Вывод текстового сообщения, поясняющего назначение программы
 	// является правилом хорошего тона и помогает пользователю
 	// разобраться в вашей программе
-	cout<<"-- - Program for integer summation-- - ";
+	cout << "-- - Program for integer summation-- - ";
 	// Всегда поясняйте пользователю, какие данные ему нужно ввести
 	cout << "\n\n Enter first integer value: ";
 	cin >> a;
 	cout << "\n\n Enter second integer value: ";
 	cin >> b;
-	cout << " \n Summ of and equals \n" << a <<" "<< b <<" "<< a + b;
-	
+	cout << " \n Summ of and equals \n" << a << " " << b << " " << a + b;
+
 }
 void zad6() {
 	int value;
@@ -68,47 +59,47 @@ void zad6() {
 }
 void zad7() {
 	int a;
-	cout<<"Enter value for check on even/odd: ";
+	cout << "Enter value for check on even/odd: ";
 	cin >> a;
 	if (a % 2 == 0)
 	{
-		cout<<"\n Value is "<<a<<" even!";
+		cout << "\n Value is " << a << " even!";
 	}
 	else
 	{
 		cout << "\n Value is " << a << " odd!";
 	}
 }
-void zad8(){
+void zad8() {
 	int a;
-	cout<<"Enter value for check on even/odd: ";
+	cout << "Enter value for check on even/odd: ";
 	cin >> a;
 	if (a % 5 == 0)
 	{
-		cout << "\n Value " <<a<<" multiples 5!" << endl;;
+		cout << "\n Value " << a << " multiples 5!" << endl;;
 	}
 	else if (a % 2 == 0)
 	{
-		cout << "\n Value "<<a<<" multiples 2!"<<endl;
+		cout << "\n Value " << a << " multiples 2!" << endl;
 	}
 	else
 	{
-		cout << "\n Value "<<a<<" doesn`t multiply 5 or 2!"<<endl;
+		cout << "\n Value " << a << " doesn`t multiply 5 or 2!" << endl;
 	}
 }
-void zad9(){
+void zad9() {
 	int a = 0;
 	while (a < 5) // условный цикл с пред-условием
 	{
-		cout<<"Value is "<<a<<" now \n";
+		cout << "Value is " << a << " now \n";
 		a++;
 	}
 }
-void zad10(){
+void zad10() {
 	int a = 0;
 	do // условный цикл с пост-условием
 	{
-		cout<<"Value is "<<a<<" now \n";
+		cout << "Value is " << a << " now \n";
 		a++;
 	} while (a < 5);
 }
@@ -116,13 +107,13 @@ void zad11() {
 	int a = 10;
 	for (int i = 0; i < 10; i++)
 	{
-		cout<<"Iteration ="<<i<<endl;
+		cout << "Iteration =" << i << endl;
 	}
 	cout << endl << endl;
 	for (int i = 0; i < a; i++)
 	{
 		a--;
-		cout << "Iteration "<< i<<"   Value is " << a <<endl;;
+		cout << "Iteration " << i << "   Value is " << a << endl;;
 	}
 }
 void zad12() {
@@ -136,7 +127,7 @@ void zad12() {
 			break; // этот оператор досрочно завершает цикл
 		}
 	}
-	cout<<"\n A is "<<a;
+	cout << "\n A is " << a;
 }
 void zad13() {
 	int a = 5;
@@ -144,28 +135,28 @@ void zad13() {
 	float z;
 	// Неявное приведение типов
 	z = a;
-	cout<<endl<<"Value of z is "<<z<<endl;
+	cout << endl << "Value of z is " << z << endl;
 	// Явное приведение типов
 	a = (int)z;
-	cout<<endl<<"Value of a is \n"<<a<<endl;
+	cout << endl << "Value of a is \n" << a << endl;
 	// Неявное приведение результата деления
 	// целочисленных переменных
 	z = a / b;
-	cout << endl <<"Value of z is \n"<<z << endl;
+	cout << endl << "Value of z is \n" << z << endl;
 	// Явное приведение а к float и неявное b к float
 	// для выполнения деления
 	z = ((float)a) / b;
-	cout << endl <<"Value of z is \n"<<z << endl;
+	cout << endl << "Value of z is \n" << z << endl;
 }
 void laba1() {
-	bool key=true;
+	bool key = true;
 	int n;
 	while (key)
 	{
 		system("cls");
-		cout << "Выберите задание от 2 до 13" << endl;
+		cout<<endl<< "Выберите 1 для выхода или "<< "выберите задание от 2 до 13" << endl;
 		cin >> n;
-		if (n >= 2 & n <= 13) { cout << "Отлично, поехали!"<<endl; }
+		if (n >= 1 && n <= 13) { cout << "Отлично, поехали!" << endl; }
 		else {
 			system("cls");
 			cout << "Вы ввели некорректное значение, попробуем ещё раз" << endl;
@@ -173,6 +164,11 @@ void laba1() {
 		}
 		switch (n)
 		{
+		case 1: 
+			key = false;
+			cout << endl << "Спасибо, что вы были с нами!" << endl;
+			system("pause");
+			break;
 		case 2:
 			zad23();
 			cout << endl;
@@ -197,56 +193,45 @@ void laba1() {
 			zad6();
 			cout << endl;
 			system("pause");
-			break; 
+			break;
 		case 7:
 			zad7();
 			cout << endl;
 			system("pause");
-			break; 
+			break;
 		case 8:
 			zad8();
 			cout << endl;
 			system("pause");
-			break; 
+			break;
 		case 9:
 			zad9();
 			cout << endl;
 			system("pause");
-			break; 
+			break;
 		case 10:
 			zad10();
 			cout << endl;
 			system("pause");
-			break; 
+			break;
 		case 11:
 			zad11();
 			cout << endl;
 			system("pause");
-			break; 
+			break;
 		case 12:
 			zad12();
 			cout << endl;
 			system("pause");
-			break; 
+			break;
 		case 13:
 			zad13();
 			cout << endl;
 			system("pause");
 			break;
 		default:
-			key = false;
+			
 			break;
 		}
 	}
-	zad23();
-	zad4();
-	zad5();
-	zad6();
-	zad7();
-	zad8();
-	zad9();
-	zad10();
-	zad11();
-	zad12();
-	zad13();
 }
