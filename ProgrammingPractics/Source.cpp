@@ -1,38 +1,55 @@
 #include <stdio.h>
-void Main()
+#include <iostream>
+using namespace std;
+
+void laba1();
+int main()
 {
-	printf("Hello, World!\n");
+	setlocale(LC_ALL, "russian");
+	laba1();
+	return 0;
+}
+
+void zad23()
+{
+	cout << "Hello, World!\n";
 
 	//3
 	int a; // Объявление целочисленной переменной
 	a = 5; // Инициализация переменной значением
 	int b = 3; // Допустимо одновременное объявление и инициализация
-	printf("\n Variable a equals %d", a); // Вывод значения переменной на экран
-	printf("\n Variable b equals %d", b); // Значение переменной подставится вместо %d
-	printf("\n Summ of a and b equals %d", a + b); // Можно выводить сразу
-												   // результат сложения
-	//4
+	cout << "\n Variable a equals " << a;// Вывод значения переменной на экран
+	cout << "\n Variable b equals " << b;// Значение переменной подставится вместо %d
+	cout << "\n Summ of a and b equal = " << a + b; // Можно выводить сразу
+													// результат сложения
+}
+void zad4()
+{
 	int a = 5;
 	int b = 3;
 	float z = 5.0;
 	float y = 3.0;
-	printf("Float variables division: %f \n", z / y);
-	printf("Integer variables division: %d \n", a / b);
-	//5
+	cout << "Float variables division: \n" << z / y;
+	cout <<endl<< "Integer variables division:\n" << a / b;
+
+}
+void zad5()
+{
 	int a;
 	int b;
 	// Вывод текстового сообщения, поясняющего назначение программы
 	// является правилом хорошего тона и помогает пользователю
 	// разобраться в вашей программе
-	printf("---Program for integer summation---");
+	cout<<"-- - Program for integer summation-- - ";
 	// Всегда поясняйте пользователю, какие данные ему нужно ввести
-	printf("\n\n Enter first integer value: ");
-	scanf("%d", &a); // Чтение значения переменной с клавиатуры
-	printf(" Enter second integer value: ");
-	scanf("%d", &b);
-	printf(" \n Summ of %d and %d equals %d \n", a, b, a + b);
-
-	//6
+	cout << "\n\n Enter first integer value: ";
+	cin >> a;
+	cout << "\n\n Enter second integer value: ";
+	cin >> b;
+	cout << " \n Summ of and equals \n" << a <<" "<< b <<" "<< a + b;
+	
+}
+void zad6() {
 	int value;
 	int* pointer; // Объявление указателя на целочисленный тип данных
 	int anotherValue;
@@ -42,106 +59,194 @@ void Main()
 					  // целочисленной переменной
 	anotherValue = *pointer; // Операция разыменования
 							 // Вывод значения, полученного при разыменовании указателя
-	printf("Value, stored in pointer: %d \n", anotherValue);
+	cout << "Value, stored in pointer: " << anotherValue << endl;
 	// Вывод адреса, который хранится в указателе
-	printf("Address in pointer: %p \n", pointer);
+	cout << "Address in pointer: " << pointer << endl;
 	// Вывод результата разыменования указателя
-	printf("Value in pointer: %d \n", *pointer);
+	cout << "Value in pointer:" << *pointer << endl;
 
-	//7
-		int a;
-		printf("Enter value for check on even/odd: ");
-		scanf("%d", &a);
-		if (a % 2 == 0)
+}
+void zad7() {
+	int a;
+	cout<<"Enter value for check on even/odd: ";
+	cin >> a;
+	if (a % 2 == 0)
+	{
+		cout<<"\n Value is "<<a<<" even!";
+	}
+	else
+	{
+		cout << "\n Value is " << a << " odd!";
+	}
+}
+void zad8(){
+	int a;
+	cout<<"Enter value for check on even/odd: ";
+	cin >> a;
+	if (a % 5 == 0)
+	{
+		cout << "\n Value " <<a<<" multiples 5!" << endl;;
+	}
+	else if (a % 2 == 0)
+	{
+		cout << "\n Value "<<a<<" multiples 2!"<<endl;
+	}
+	else
+	{
+		cout << "\n Value "<<a<<" doesn`t multiply 5 or 2!"<<endl;
+	}
+}
+void zad9(){
+	int a = 0;
+	while (a < 5) // условный цикл с пред-условием
+	{
+		cout<<"Value is "<<a<<" now \n";
+		a++;
+	}
+}
+void zad10(){
+	int a = 0;
+	do // условный цикл с пост-условием
+	{
+		cout<<"Value is "<<a<<" now \n";
+		a++;
+	} while (a < 5);
+}
+void zad11() {
+	int a = 10;
+	for (int i = 0; i < 10; i++)
+	{
+		cout<<"Iteration ="<<i<<endl;
+	}
+	cout << endl << endl;
+	for (int i = 0; i < a; i++)
+	{
+		a--;
+		cout << "Iteration "<< i<<"   Value is " << a <<endl;;
+	}
+}
+void zad12() {
+	int a = 10;
+	for (int i = 0; i < 10; i++)
+	{
+		a--;
+		if (i >= a)
 		{
-			printf("\n Value %d is even! \n", a);
+			cout << endl << "I is more or equal A! Break of cycle";
+			break; // этот оператор досрочно завершает цикл
 		}
-		else
-		{
-			printf("\n Value %d is odd! \n", a);
+	}
+	cout<<"\n A is "<<a;
+}
+void zad13() {
+	int a = 5;
+	int b = 3;
+	float z;
+	// Неявное приведение типов
+	z = a;
+	cout<<endl<<"Value of z is "<<z<<endl;
+	// Явное приведение типов
+	a = (int)z;
+	cout<<endl<<"Value of a is \n"<<a<<endl;
+	// Неявное приведение результата деления
+	// целочисленных переменных
+	z = a / b;
+	cout << endl <<"Value of z is \n"<<z << endl;
+	// Явное приведение а к float и неявное b к float
+	// для выполнения деления
+	z = ((float)a) / b;
+	cout << endl <<"Value of z is \n"<<z << endl;
+}
+void laba1() {
+	bool key=true;
+	int n;
+	while (key)
+	{
+		system("cls");
+		cout << "Выберите задание от 2 до 13" << endl;
+		cin >> n;
+		if (n >= 2 & n <= 13) { cout << "Отлично, поехали!"<<endl; }
+		else {
+			system("cls");
+			cout << "Вы ввели некорректное значение, попробуем ещё раз" << endl;
+			cin >> n;
 		}
-
-		//8
-		int a;
-		printf("Enter value for check on even/odd: ");
-		scanf("%d", &a);
-		if (a % 5 == 0)
+		switch (n)
 		{
-			printf("\n Value %d multiples 5! \n", a);
+		case 2:
+			zad23();
+			cout << endl;
+			system("pause");
+			break;
+		case 3:
+			zad23();
+			cout << endl;
+			system("pause");
+			break;
+		case 4:
+			zad4();
+			cout << endl;
+			system("pause");
+			break;
+		case 5:
+			zad5();
+			cout << endl;
+			system("pause");
+			break;
+		case 6:
+			zad6();
+			cout << endl;
+			system("pause");
+			break; 
+		case 7:
+			zad7();
+			cout << endl;
+			system("pause");
+			break; 
+		case 8:
+			zad8();
+			cout << endl;
+			system("pause");
+			break; 
+		case 9:
+			zad9();
+			cout << endl;
+			system("pause");
+			break; 
+		case 10:
+			zad10();
+			cout << endl;
+			system("pause");
+			break; 
+		case 11:
+			zad11();
+			cout << endl;
+			system("pause");
+			break; 
+		case 12:
+			zad12();
+			cout << endl;
+			system("pause");
+			break; 
+		case 13:
+			zad13();
+			cout << endl;
+			system("pause");
+			break;
+		default:
+			key = false;
+			break;
 		}
-		else if (a % 2 == 0)
-		{
-			printf("\n Value %d multiples 2! \n", a);
-		}
-		else
-		{
-			printf("\n Value %d doesn`t multiply 5 or 2! \n", a);
-		}
-
-		//9
-
-		int a = 0;
-		while (a < 5) // условный цикл с пред-условием
-		{
-			printf("Value is %d now \n", a);
-			a++;
-		}
-		//10
-
-		int a = 0;
-		do // условный цикл с пост-условием
-		{
-			printf("Value is %d now \n", a);
-			a++;
-		} while (a < 5);
-		//11
-
-		int a = 10;
-		for (int i = 0; i < 10; i++)
-		{
-			printf("Iteration #%d \n", i);
-		}
-		printf("\n\n");
-		for (int i = 0; i < a; i++)
-		{
-			a--;
-			printf("Iteration #%d Value is %d \n", i, a);
-		}
-		//12
-
-		int a = 10;
-		for (int i = 0; i < 10; i++)
-		{
-			a--;
-			if (i >= a)
-			{
-				printf("I is more or equal A! Break of cycle");
-				break; // этот оператор досрочно завершает цикл
-			}
-		}
-		printf("\n A is %d \n", a);
-		//13
-
-		int a = 5;
-		int b = 3;
-		float z;
-		// Неявное приведение типов
-		z = a;
-		printf("Value of z is %f \n", z);
-		// Ошибка - невозможное приведение типов!
-		a = z;
-		// Явное приведение типов
-		a = (int)z;
-		printf("Value of a is %d \n", a);
-		// Неявное приведение результата деления
-		// целочисленных переменных
-		z = a / b;
-		printf("Value of z is %f \n", z);
-		// Явное приведение а к float и неявное b к float
-		// для выполнения деления
-		z = ((float)a) / b;
-		printf("Value of z is %f \n", z);
-
-
-
+	}
+	zad23();
+	zad4();
+	zad5();
+	zad6();
+	zad7();
+	zad8();
+	zad9();
+	zad10();
+	zad11();
+	zad12();
+	zad13();
 }
