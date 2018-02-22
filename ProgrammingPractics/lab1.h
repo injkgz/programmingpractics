@@ -1,9 +1,7 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <iostream>
 using namespace std;
-//TODO: Этот код не должен располагаться в .h файле!
-//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
-//TODO: и приведите свой код в соответстие со стондартом
+	
 
 void FirstChooseMenu();
 void GetSumm();
