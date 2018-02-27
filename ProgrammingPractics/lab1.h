@@ -1,5 +1,7 @@
-﻿#include <stdio.h>
+﻿#pragma once
+#include <stdio.h>
 #include <iostream>
+#include "CheckCin.h"
 using namespace std;
 	
 
@@ -16,3 +18,4 @@ void IterationCycle();
 void IterationCycle();
 void BreakingCycle();
 void IntegerFloatTransformation();
+void GetPause();

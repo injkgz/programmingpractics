@@ -3,6 +3,12 @@
 #include "lab1.h"
 using namespace std;
 
+void GetPause() 
+{
+	cout << endl;
+	system("pause");
+	
+}
 // Расчёт и вывод суммы непроизвольных чисел
 void GetSumm()
 {
@@ -13,7 +19,6 @@ void GetSumm()
 	cout << "\n Variable a equals " << a;
 	cout << "\n Variable b equals " << b;
 	cout << "\n Summ of a and b equal = " << a + b;
-
 }
 // Расчёт и вывод результата деления непроизвольных чисел
 void GetDivision()
@@ -26,8 +31,8 @@ void GetDivision()
 
 	cout << "Float variables division: \n" << z / y;
 	cout << endl << "Integer variables division:\n" << a / b;
-
 }
+
 // Расчёт и вывод суммы произвольных чисел, вводимых пользователем
 void GetSummArbitrary()
 {
@@ -37,16 +42,16 @@ void GetSummArbitrary()
 
 	cout << "-- - Program for integer summation-- - ";
 	cout << "\n\n Enter first integer value: ";
-	cin >> a;
+	a = CheckCin(true);
 	cout << "\n\n Enter second integer value: ";
-	cin >> b;
+	b = CheckCin(true);
 	cout << " \n Summ of " << a << "+" << b << " and equals=" << a + b;
 
 }
+
 // Работа с указателями и вывод адресов ячеек памяти
 void PointerInstruments()
 {
-
 	int value;
 	int* pointer;
 	int anotherValue;
@@ -59,7 +64,6 @@ void PointerInstruments()
 	cout << "Value, stored in pointer: " << anotherValue << endl;
 	cout << "Address in pointer: " << pointer << endl;
 	cout << "Value in pointer:" << *pointer << endl;
-
 }
 // Проверка произвольных значений, вводимых пользователем, на чётность и нечётность
 void CheckEvenOdd()
@@ -181,18 +185,10 @@ void FirstChooseMenu()
 		system("cls");
 		cout << endl
 			<< "Введите 1 для выхода или выберите задание от 2 до 13"
+			<<endl
+			<<"Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 			<< endl;
-		cin >> n;
-		if (n >= 1 && n <= 13)
-		{
-			cout << "Вы выбрали задание#" << n << endl << endl;
-		}
-		else
-		{
-			system("cls");
-			cout << "Вы ввели некорректное значение, попробуем ещё раз" << endl;
-			cin >> n;
-		}
+		n = CheckCin(true);
 		switch (n)
 		{
 		case 1:
@@ -202,67 +198,54 @@ void FirstChooseMenu()
 			break;
 		case 2:
 			GetSumm();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
+		
 		case 3:
 			GetSumm();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 4:
 			GetDivision();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 5:
 			GetSummArbitrary();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 6:
 			PointerInstruments();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 7:
 			CheckEvenOdd();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 8:
 			MultiplicationCheck();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 9:
 			CycleWithPrecondition();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 10:
 			CycleWithPothcondition();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 11:
 			IterationCycle();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 12:
 			BreakingCycle();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 13:
 			IntegerFloatTransformation();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
-		default:
-
-			break;
+		default: break;
 		}
 	}
 }
