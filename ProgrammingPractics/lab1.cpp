@@ -1,9 +1,15 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <iostream>
 #include "lab1.h"
 using namespace std;
 
-// Расчёт и вывод суммы непроизвольных чисел
+void GetPause() 
+{
+	cout << endl;
+	system("pause");
+	
+}
+// Р Р°СЃС‡С‘С‚ Рё РІС‹РІРѕРґ СЃСѓРјРјС‹ РЅРµРїСЂРѕРёР·РІРѕР»СЊРЅС‹С… С‡РёСЃРµР»
 void GetSumm()
 {
 	int a = 5;
@@ -12,10 +18,9 @@ void GetSumm()
 	cout << "Hello, World!\n";
 	cout << "\n Variable a equals " << a;
 	cout << "\n Variable b equals " << b;
-	cout << "\n Summ of a and b equal = " << a + b; 
-													
+	cout << "\n Summ of a and b equal = " << a + b;
 }
-// Расчёт и вывод результата деления непроизвольных чисел
+// Р Р°СЃС‡С‘С‚ Рё РІС‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚Р° РґРµР»РµРЅРёСЏ РЅРµРїСЂРѕРёР·РІРѕР»СЊРЅС‹С… С‡РёСЃРµР»
 void GetDivision()
 {
 	int a = 5;
@@ -26,43 +31,42 @@ void GetDivision()
 
 	cout << "Float variables division: \n" << z / y;
 	cout << endl << "Integer variables division:\n" << a / b;
-
 }
-// Расчёт и вывод суммы произвольных чисел, вводимых пользователем
+
+// Р Р°СЃС‡С‘С‚ Рё РІС‹РІРѕРґ СЃСѓРјРјС‹ РїСЂРѕРёР·РІРѕР»СЊРЅС‹С… С‡РёСЃРµР», РІРІРѕРґРёРјС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј
 void GetSummArbitrary()
 {
-	// Вводимые пользователем значения
+	// Р’РІРѕРґРёРјС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј Р·РЅР°С‡РµРЅРёСЏ
 	int a;
 	int b;
-	
+
 	cout << "-- - Program for integer summation-- - ";
 	cout << "\n\n Enter first integer value: ";
-	cin >> a;
+	a = CheckCin(true);
 	cout << "\n\n Enter second integer value: ";
-	cin >> b;
-	cout << " \n Summ of " << a << "+" << b <<" and equals="<< a + b;
+	b = CheckCin(true);
+	cout << " \n Summ of " << a << "+" << b << " and equals=" << a + b;
 
 }
-// Работа с указателями и вывод адресов ячеек памяти
-void PointerInstruments() 
-{
 
+// Р Р°Р±РѕС‚Р° СЃ СѓРєР°Р·Р°С‚РµР»СЏРјРё Рё РІС‹РІРѕРґ Р°РґСЂРµСЃРѕРІ СЏС‡РµРµРє РїР°РјСЏС‚Рё
+void PointerInstruments()
+{
 	int value;
-	int* pointer; 
+	int* pointer;
 	int anotherValue;
 
 
 	value = 5;
-	pointer = &value; // для просмотра адреса ячейки переменной value
-	anotherValue = *pointer; //  для вывода значения хранящегося по адресу указателя
-							 
+	pointer = &value; // РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° Р°РґСЂРµСЃР° СЏС‡РµР№РєРё РїРµСЂРµРјРµРЅРЅРѕР№ value
+	anotherValue = *pointer; //  РґР»СЏ РІС‹РІРѕРґР° Р·РЅР°С‡РµРЅРёСЏ С…СЂР°РЅСЏС‰РµРіРѕСЃСЏ РїРѕ Р°РґСЂРµСЃСѓ СѓРєР°Р·Р°С‚РµР»СЏ
+
 	cout << "Value, stored in pointer: " << anotherValue << endl;
 	cout << "Address in pointer: " << pointer << endl;
 	cout << "Value in pointer:" << *pointer << endl;
-
 }
-// Проверка произвольных значений, вводимых пользователем, на чётность и нечётность
-void CheckEvenOdd() 
+// РџСЂРѕРІРµСЂРєР° РїСЂРѕРёР·РІРѕР»СЊРЅС‹С… Р·РЅР°С‡РµРЅРёР№, РІРІРѕРґРёРјС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј, РЅР° С‡С‘С‚РЅРѕСЃС‚СЊ Рё РЅРµС‡С‘С‚РЅРѕСЃС‚СЊ
+void CheckEvenOdd()
 {
 	int a;
 
@@ -78,8 +82,8 @@ void CheckEvenOdd()
 		cout << "\n Value is " << a << " odd!";
 	}
 }
-// Проверка на кратность 5 и 2 значений, введённых пользователем
-void MultiplicationCheck() 
+// РџСЂРѕРІРµСЂРєР° РЅР° РєСЂР°С‚РЅРѕСЃС‚СЊ 5 Рё 2 Р·РЅР°С‡РµРЅРёР№, РІРІРµРґС‘РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј
+void MultiplicationCheck()
 {
 	int a;
 
@@ -91,38 +95,37 @@ void MultiplicationCheck()
 	}
 	else if (a % 2 == 0)
 	{
-	cout << "\n Value " << a << " multiples 2!" << endl;
+		cout << "\n Value " << a << " multiples 2!" << endl;
 	}
 	else
 	{
-	cout << "\n Value " << a << " doesn`t multiply 5 or 2!" << endl;
+		cout << "\n Value " << a << " doesn`t multiply 5 or 2!" << endl;
 	}
 }
-// Использование цикла с предусловием
-void CycleWithPrecondition() 
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ С†РёРєР»Р° СЃ РїСЂРµРґСѓСЃР»РѕРІРёРµРј
+void CycleWithPrecondition()
 {
 	int a = 0;
 
-	while (a < 5) 
+	while (a < 5)
 	{
 		cout << "Value is " << a << " now \n";
 		a++;
 	}
 }
-// Использование цикла с постусловием
-void CycleWithPothcondition() 
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ С†РёРєР»Р° СЃ РїРѕСЃС‚СѓСЃР»РѕРІРёРµРј
+void CycleWithPothcondition()
 {
 	int a = 0;
 
-	do 
+	do
 	{
 		cout << "Value is " << a << " now \n";
 		a++;
-	} 
-	while (a < 5);
+	} while (a < 5);
 }
-// Использование цикла с итерацией
-void IterationCycle() 
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ С†РёРєР»Р° СЃ РёС‚РµСЂР°С†РёРµР№
+void IterationCycle()
 {
 	int a = 10;
 	for (int i = 0; i < 10; i++)
@@ -131,15 +134,15 @@ void IterationCycle()
 	}
 
 	cout << endl << endl;
-	
+
 	for (int i = 0; i < a; i++)
 	{
 		a--;
 		cout << "Iteration " << i << "   Value is " << a << endl;;
 	}
 }
-// Использование оператора break для прерывания цикла
-void BreakingCycle() 
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РѕРїРµСЂР°С‚РѕСЂР° break РґР»СЏ РїСЂРµСЂС‹РІР°РЅРёСЏ С†РёРєР»Р°
+void BreakingCycle()
 {
 	int a = 10;
 
@@ -149,13 +152,13 @@ void BreakingCycle()
 		if (i >= a)
 		{
 			cout << endl << "I is more or equal A! Break of cycle";
-			break; 
+			break;
 		}
 	}
 	cout << "\n A is " << a;
 }
-// Преобразование float и integer в друг друга
-void IntegerFloatTransformation() 
+// РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ float Рё integer РІ РґСЂСѓРі РґСЂСѓРіР°
+void IntegerFloatTransformation()
 {
 	int a = 5;
 	int b = 3;
@@ -171,8 +174,8 @@ void IntegerFloatTransformation()
 	z = ((float)a) / b;
 	cout << endl << "Value of z is \n" << z << endl;
 }
-// Функция выбора заданий из лабораторной работы #1
-void FirstChooseMenu() 
+// Р¤СѓРЅРєС†РёСЏ РІС‹Р±РѕСЂР° Р·Р°РґР°РЅРёР№ РёР· Р»Р°Р±РѕСЂР°С‚РѕСЂРЅРѕР№ СЂР°Р±РѕС‚С‹ #1
+void FirstChooseMenu()
 {
 	bool key = true;
 	int n;
@@ -180,90 +183,69 @@ void FirstChooseMenu()
 	while (key)
 	{
 		system("cls");
-		cout << endl 
-			 << "Введите 1 для выхода или выберите задание от 2 до 13" 
-			 << endl;
-		cin >> n;
-		if (n >= 1 && n <= 13) 
-		{ 
-			cout << "Вы выбрали задание#" << n << endl <<endl; 
-		}
-		else 
-		{
-			system("cls");
-			cout << "Вы ввели некорректное значение, попробуем ещё раз" << endl;
-			cin >> n;
-		}
+		cout << endl
+			<< "Р’РІРµРґРёС‚Рµ 1 РґР»СЏ РІС‹С…РѕРґР° РёР»Рё РІС‹Р±РµСЂРёС‚Рµ Р·Р°РґР°РЅРёРµ РѕС‚ 2 РґРѕ 13"
+			<<endl
+			<<"РџСЂРѕРіСЂР°РјРјР° Р±СѓРґРµС‚ Р·Р°РїСЂР°С€РёРІР°С‚СЊ РІРІРѕРґ РґРѕ С‚РµС… РїРѕСЂ, РїРѕРєР° РІС‹ РЅРµ РІРІРµРґС‘С‚Рµ РєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ!"
+			<< endl;
+		n = CheckCin(true);
 		switch (n)
 		{
 		case 1:
 			key = false;
-			cout << endl << "Выход из программы." << endl;
+			cout << endl << "Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹." << endl;
 			system("pause");
 			break;
 		case 2:
 			GetSumm();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
+		
 		case 3:
 			GetSumm();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 4:
 			GetDivision();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 5:
 			GetSummArbitrary();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 6:
 			PointerInstruments();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 7:
 			CheckEvenOdd();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 8:
 			MultiplicationCheck();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 9:
 			CycleWithPrecondition();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 10:
 			CycleWithPothcondition();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 11:
 			IterationCycle();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 12:
 			BreakingCycle();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
 		case 13:
 			IntegerFloatTransformation();
-			cout << endl;
-			system("pause");
+			GetPause();
 			break;
-		default:
-
-			break;
+		default: break;
 		}
 	}
 }
