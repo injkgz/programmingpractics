@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "CheckCin.h"
 namespace Laboratornaya2 
 {
@@ -15,6 +15,10 @@ namespace Laboratornaya2
 	void GlobalEqualsOne();
 	void GameRandomNumbers();
 	void SecondChooseMenu();
-	void MultiplyMatr(double *array1, double *array2, int a1x, int a1y, int a2x, int a2y);
+	void MultiplyMatrices(int** matrixA, int sizex1, int sizey1, int** matrixB, int sizex2, int sizey2, int** matrixResult);
+	void PrintMatrix(int** matrix, int columns, int rows);
+	void InsertionSort1(int integerArray[5]);
+	void InsertionSort2(int integerArray[], int arraySize);
+	void InsertionSort3(int* arrayPointer, int arraySize);
 }
 

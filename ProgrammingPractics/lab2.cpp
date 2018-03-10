@@ -1,15 +1,15 @@
-#include "lab2.h"
+п»ї#include "lab2.h"
 namespace Laboratornaya2
 {
 	int globalVariable = 7;
 
-	//Функция вывода на экран "Hello, World!"
+	//Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РЅР° СЌРєСЂР°РЅ "Hello, World!"
 	void PrintHelloWorld()
 	{
 		cout << "Hello, World!";
 	}
 
-	//Функция различных математических операций с двумя значениями.
+	//Р¤СѓРЅРєС†РёСЏ СЂР°Р·Р»РёС‡РЅС‹С… РјР°С‚РµРјР°С‚РёС‡РµСЃРєРёС… РѕРїРµСЂР°С†РёР№ СЃ РґРІСѓРјСЏ Р·РЅР°С‡РµРЅРёСЏРјРё.
 	double MakeCalculation(int value1, int value2, char operationKey)
 	{
 		switch (operationKey)
@@ -23,7 +23,7 @@ namespace Laboratornaya2
 		}
 	}
 
-	//Проверяет символ на корректность для функции MakeCalculation
+	//РџСЂРѕРІРµСЂСЏРµС‚ СЃРёРјРІРѕР» РЅР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ РґР»СЏ С„СѓРЅРєС†РёРё MakeCalculation
 	char CheckMathSymbol()
 	{
 		char key;
@@ -38,7 +38,7 @@ namespace Laboratornaya2
 		return key;
 	}
 
-	//Вычисляет корни квадратного уравнения(передача переменной по указателю)
+	//Р’С‹С‡РёСЃР»СЏРµС‚ РєРѕСЂРЅРё РєРІР°РґСЂР°С‚РЅРѕРіРѕ СѓСЂР°РІРЅРµРЅРёСЏ(РїРµСЂРµРґР°С‡Р° РїРµСЂРµРјРµРЅРЅРѕР№ РїРѕ СѓРєР°Р·Р°С‚РµР»СЋ)
 	int GetRoots1(int a, int b, int c, double *x1, double *x2)
 	{
 		if (a == 0)
@@ -79,7 +79,7 @@ namespace Laboratornaya2
 		}
 	}
 
-	//Вычисляет корни квадратного уравнения(передача переменной по ссылке)
+	//Р’С‹С‡РёСЃР»СЏРµС‚ РєРѕСЂРЅРё РєРІР°РґСЂР°С‚РЅРѕРіРѕ СѓСЂР°РІРЅРµРЅРёСЏ(РїРµСЂРµРґР°С‡Р° РїРµСЂРµРјРµРЅРЅРѕР№ РїРѕ СЃСЃС‹Р»РєРµ)
 	int GetRoots2(int a, int b, int c, double &x1, double &x2)
 	{
 		if (a == 0)
@@ -118,7 +118,7 @@ namespace Laboratornaya2
 		return 2;
 	}
 
-	//Тест функций GetRoots
+	//РўРµСЃС‚ С„СѓРЅРєС†РёР№ GetRoots
 	void TestGetRoots()
 	{
 		double root1 = NULL;
@@ -142,17 +142,17 @@ namespace Laboratornaya2
 
 	}
 
-	//Проверка и вывод корней из функции GetRoots
+	//РџСЂРѕРІРµСЂРєР° Рё РІС‹РІРѕРґ РєРѕСЂРЅРµР№ РёР· С„СѓРЅРєС†РёРё GetRoots
 	void PrintRoots(double& value1, double& value2, int& value3)
 	{
 		if (value3 == 1)
-			cout << "Всего 1 корень = " << value1 << endl;
+			cout << "Р’СЃРµРіРѕ 1 РєРѕСЂРµРЅСЊ = " << value1 << endl;
 		else if (value3 == 2)
-			cout << "Найдено 2 корня: " << value1 << " и " << value2 << endl;
-		else cout << "Корней не найдено!" << endl;
+			cout << "РќР°Р№РґРµРЅРѕ 2 РєРѕСЂРЅСЏ: " << value1 << " Рё " << value2 << endl;
+		else cout << "РљРѕСЂРЅРµР№ РЅРµ РЅР°Р№РґРµРЅРѕ!" << endl;
 	}
 
-	//Функции работы с глобальной переменной
+	//Р¤СѓРЅРєС†РёРё СЂР°Р±РѕС‚С‹ СЃ РіР»РѕР±Р°Р»СЊРЅРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№
 	void GlobalPlusTwo()
 	{
 		globalVariable += 2;
@@ -165,7 +165,7 @@ namespace Laboratornaya2
 	{
 		globalVariable = 1;
 	}
-	//Вычисление любой степени любого числа(в пределах int)
+	//Р’С‹С‡РёСЃР»РµРЅРёРµ Р»СЋР±РѕР№ СЃС‚РµРїРµРЅРё Р»СЋР±РѕРіРѕ С‡РёСЃР»Р°(РІ РїСЂРµРґРµР»Р°С… int)
 	int GetPower(double base, int power)
 	{
 		if (power == 0)
@@ -177,7 +177,7 @@ namespace Laboratornaya2
 
 	}
 
-	//Игра "Угадай число".
+	//РРіСЂР° "РЈРіР°РґР°Р№ С‡РёСЃР»Рѕ".
 	void GameRandomNumbers()
 	{
 		srand(time(NULL)); 
@@ -185,40 +185,40 @@ namespace Laboratornaya2
 		int enteredNumber = -1; 
 		int shots = 3; 
 
-		cout << "Игра \"Угадай число\" " << endl
-			<< "Введите число, которое, как вы думаете, загадал компьютер: ";
+		cout << "РРіСЂР° \"РЈРіР°РґР°Р№ С‡РёСЃР»Рѕ\" " << endl
+			<< "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ, РєРѕС‚РѕСЂРѕРµ, РєР°Рє РІС‹ РґСѓРјР°РµС‚Рµ, Р·Р°РіР°РґР°Р» РєРѕРјРїСЊСЋС‚РµСЂ: ";
 		enteredNumber = CheckCin(true);
 		while (guessNumber != enteredNumber)
 		{
 			shots = shots - 1;
-			cout << endl << "Неверно! Попробуйте ещё раз! Осталось попыток :" << shots << endl;
+			cout << endl << "РќРµРІРµСЂРЅРѕ! РџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰С‘ СЂР°Р·! РћСЃС‚Р°Р»РѕСЃСЊ РїРѕРїС‹С‚РѕРє :" << shots << endl;
 			if (shots == 0)
 			{
-				cout << endl << "!!!Вы проиграли!!!";
+				cout << endl << "!!!Р’С‹ РїСЂРѕРёРіСЂР°Р»Рё!!!";
 				break;
 			}
 			enteredNumber = CheckCin(true);
 		}
-		cout << endl << "Вы победили!";
+		cout << endl << "Р’С‹ РїРѕР±РµРґРёР»Рё!";
 	}
 
-	//Рассчитать сумму двух целочисленных переменных
+	//Р Р°СЃСЃС‡РёС‚Р°С‚СЊ СЃСѓРјРјСѓ РґРІСѓС… С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 	void SummNumbers(int value1, int value2)
 	{
-		cout << endl << "Сумма int-ов = " << value1 + value2;
+		cout << endl << "РЎСѓРјРјР° int-РѕРІ = " << value1 + value2;
 	}
 
-	//Рассчитать сумму двух целочисленных переменных
+	//Р Р°СЃСЃС‡РёС‚Р°С‚СЊ СЃСѓРјРјСѓ РґРІСѓС… С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 	void SummNumbers(double value1, double value2)
 	{
-		cout << endl << "Сумма double-ов = " << value1 + value2;
+		cout << endl << "РЎСѓРјРјР° double-РѕРІ = " << value1 + value2;
 	}
 
-	//Рассчитать сумму двух целочисленных переменных
+	//Р Р°СЃСЃС‡РёС‚Р°С‚СЊ СЃСѓРјРјСѓ РґРІСѓС… С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 	void SummNumbers(int value1, double value2)
 	{
-		cout << endl << "Сумма int'а и double'a = " << value1 + value2;
-	}	//Сортировка массива. Разные реализации передачи массива в функцию	void InsertionSort1(int integerArray[5])
+		cout << endl << "РЎСѓРјРјР° int'Р° Рё double'a = " << value1 + value2;
+	}	//РЎРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР°. Р Р°Р·РЅС‹Рµ СЂРµР°Р»РёР·Р°С†РёРё РїРµСЂРµРґР°С‡Рё РјР°СЃСЃРёРІР° РІ С„СѓРЅРєС†РёСЋ	void InsertionSort1(int integerArray[5])
 	{
 		for (int i = 1; i < 5; i++)
 			for (int j = i; j > 0 && integerArray[j - 1] > integerArray[j]; j--)
@@ -238,7 +238,7 @@ namespace Laboratornaya2
 				swap(arrayPointer[j - 1], arrayPointer[j]);
 			}
 	}
-	//Умножение матриц
+	//РЈРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†
 	void MultiplyMatrices(int** matrixA, int sizex1, int sizey1, int** matrixB, int sizex2, int sizey2, int** matrixResult)
 	{
 		for (int i = 0; i < sizex1; i++)
@@ -254,7 +254,7 @@ namespace Laboratornaya2
 		}
 	}
 
-	//Вывод матрицы
+	//Р’С‹РІРѕРґ РјР°С‚СЂРёС†С‹
 	void PrintMatrix(int** matrix, int columns, int rows)
 	{
 		for (int i = 0; i < rows; i++)
@@ -268,7 +268,7 @@ namespace Laboratornaya2
 		}
 	}
 
-	//Меню выбора заданий
+	//РњРµРЅСЋ РІС‹Р±РѕСЂР° Р·Р°РґР°РЅРёР№
 	void SecondChooseMenu()
 	{
 		bool key = true;
@@ -278,16 +278,16 @@ namespace Laboratornaya2
 		{
 			system("cls");
 			cout << endl
-				<< "Введите 0 для выхода в меню выбора лабораторной или выберите задание от 2 до 13"
+				<< "Р’РІРµРґРёС‚Рµ 0 РґР»СЏ РІС‹С…РѕРґР° РІ РјРµРЅСЋ РІС‹Р±РѕСЂР° Р»Р°Р±РѕСЂР°С‚РѕСЂРЅРѕР№ РёР»Рё РІС‹Р±РµСЂРёС‚Рµ Р·Р°РґР°РЅРёРµ РѕС‚ 2 РґРѕ 13"
 				<< endl
-				<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
+				<< "РџСЂРѕРіСЂР°РјРјР° Р±СѓРґРµС‚ Р·Р°РїСЂР°С€РёРІР°С‚СЊ РІРІРѕРґ РґРѕ С‚РµС… РїРѕСЂ, РїРѕРєР° РІС‹ РЅРµ РІРІРµРґС‘С‚Рµ РєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ!"
 				<< endl;
 			n = CheckCin(true);
 			switch (n)
 			{
 			case 0:
 				key = false;
-				cout << endl << "Выход из программы." << endl;
+				cout << endl << "Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹." << endl;
 				system("pause");
 				break;
 			case 1: PrintHelloWorld(); break;
@@ -299,15 +299,15 @@ namespace Laboratornaya2
 			}
 			case 3: TestGetRoots(); break;
 			case 4:
-				cout << "Глобальная переменная: " << globalVariable << endl;
+				cout << "Р“Р»РѕР±Р°Р»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ: " << globalVariable << endl;
 				GlobalPlusTwo();
-				cout << "Глобальная переменная: " << globalVariable << endl;
+				cout << "Р“Р»РѕР±Р°Р»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ: " << globalVariable << endl;
 				GlobalMultiplyThree();
-				cout << "Глобальная переменная: " << globalVariable << endl;
+				cout << "Р“Р»РѕР±Р°Р»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ: " << globalVariable << endl;
 				GlobalEqualsOne();
-				cout << "Глобальная переменная: " << globalVariable << endl;
+				cout << "Р“Р»РѕР±Р°Р»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ: " << globalVariable << endl;
 				globalVariable = 5;
-				cout << "Глобальная переменная: " << globalVariable << endl;				break;			case 5:			{				cout << endl << "Введите число: ";				int number = CheckCin(true);				cout << endl << "Введите степень, в которую будем возводить число: ";				int power = CheckCin(true);				cout << endl << "Результат = " << GetPower(number, power) << endl;				break;			}			case 6: GameRandomNumbers(); break;
+				cout << "Р“Р»РѕР±Р°Р»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ: " << globalVariable << endl;				break;			case 5:			{				cout << endl << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ: ";				int number = CheckCin(true);				cout << endl << "Р’РІРµРґРёС‚Рµ СЃС‚РµРїРµРЅСЊ, РІ РєРѕС‚РѕСЂСѓСЋ Р±СѓРґРµРј РІРѕР·РІРѕРґРёС‚СЊ С‡РёСЃР»Рѕ: ";				int power = CheckCin(true);				cout << endl << "Р РµР·СѓР»СЊС‚Р°С‚ = " << GetPower(number, power) << endl;				break;			}			case 6: GameRandomNumbers(); break;
 			case 7:
 			{
 				int a = 1;
@@ -324,13 +324,13 @@ namespace Laboratornaya2
 			}
 			case 8:
 			{
-				cout << "Введите количество строк в матрице А: ";
+				cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РІ РјР°С‚СЂРёС†Рµ Рђ: ";
 				int sizex1 = CheckCin(true);
-				cout << "Введите количество столбцов в матрице А: ";
+				cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РІ РјР°С‚СЂРёС†Рµ Рђ: ";
 				int sizey1 = CheckCin(true);
-				cout << "Введите количество строк в матрице В: ";
+				cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РІ РјР°С‚СЂРёС†Рµ Р’: ";
 				int sizex2 = CheckCin(true);
-				cout << "Введите количество столбцов в матрице В: ";
+				cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РІ РјР°С‚СЂРёС†Рµ Р’: ";
 				int sizey2 = CheckCin(true);
 
 				if (sizey1 == sizex2)
@@ -360,13 +360,13 @@ namespace Laboratornaya2
 
 					MultiplyMatrices(matrixA, sizex1, sizey1, matrixB, sizex2, sizey2, matrixResult);
 
-					cout << "Матрица А:" << endl;
+					cout << "РњР°С‚СЂРёС†Р° Рђ:" << endl;
 					PrintMatrix(matrixA, sizey1, sizex1);
 					cout << "-----------------------------------" << endl;
-					cout << "Матрица В:" << endl;
+					cout << "РњР°С‚СЂРёС†Р° Р’:" << endl;
 					PrintMatrix(matrixB, sizey2, sizex2);
 					cout << "-----------------------------------" << endl;
-					cout << "Результат:" << endl;
+					cout << "Р РµР·СѓР»СЊС‚Р°С‚:" << endl;
 					PrintMatrix(matrixResult, sizeyResult, sizexResult);
 
 					for (int i = 0; i < sizex1; i++)
@@ -378,7 +378,7 @@ namespace Laboratornaya2
 					delete[] matrixA, matrixB, matrixResult;
 				}
 				else
-					cout << endl << "Матрицу А нельзя умножить на матрицу В" << endl;
+					cout << endl << "РњР°С‚СЂРёС†Сѓ Рђ РЅРµР»СЊР·СЏ СѓРјРЅРѕР¶РёС‚СЊ РЅР° РјР°С‚СЂРёС†Сѓ Р’" << endl;
 				break;
 			}
 			case 9:
@@ -386,7 +386,7 @@ namespace Laboratornaya2
 				const int arraySize = 5;
 				int integerArray[arraySize];
 
-				cout << "Массив до сортировки:" << endl;
+				cout << "РњР°СЃСЃРёРІ РґРѕ СЃРѕСЂС‚РёСЂРѕРІРєРё:" << endl;
 				for (int i = 0; i < arraySize; i++)
 				{
 					integerArray[i] = rand() % 100;
@@ -395,7 +395,7 @@ namespace Laboratornaya2
 				InsertionSort1(integerArray);
 				//InsertionSort2(integerArray, arraySize);
 				//InsertionSort3(integerArray, arraySize);
-				cout << endl << "Массив после сортировки" << endl;
+				cout << endl << "РњР°СЃСЃРёРІ РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё" << endl;
 				for (int i = 0; i < arraySize; i++)
 				{
 					cout << integerArray[i] << " ";
