@@ -1,9 +1,5 @@
-﻿#pragma once
-#include <stdio.h>
-#include <iostream>
-#include "CheckCin.h"
-using namespace std;
-	
+﻿#include "CheckCin.h"
+
 
 void FirstChooseMenu();
 void GetSumm();
@@ -18,4 +14,4 @@ void IterationCycle();
 void IterationCycle();
 void BreakingCycle();
 void IntegerFloatTransformation();
-void GetPause();
+

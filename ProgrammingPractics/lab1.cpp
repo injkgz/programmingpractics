@@ -1,14 +1,6 @@
-﻿#include <stdio.h>
-#include <iostream>
-#include "lab1.h"
-using namespace std;
+﻿#include "lab1.h"
 
-void GetPause() 
-{
-	cout << endl;
-	system("pause");
-	
-}
+
 // Расчёт и вывод суммы непроизвольных чисел
 void GetSumm()
 {
@@ -46,7 +38,6 @@ void GetSummArbitrary()
 	cout << "\n\n Enter second integer value: ";
 	b = CheckCin(true);
 	cout << " \n Summ of " << a << "+" << b << " and equals=" << a + b;
-
 }
 
 // Работа с указателями и вывод адресов ячеек памяти
@@ -128,6 +119,7 @@ void CycleWithPothcondition()
 void IterationCycle()
 {
 	int a = 10;
+
 	for (int i = 0; i < 10; i++)
 	{
 		cout << "Iteration =" << i << endl;
@@ -146,7 +138,7 @@ void BreakingCycle()
 {
 	int a = 10;
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 10; ++i)
 	{
 		a--;
 		if (i >= a)
@@ -184,9 +176,9 @@ void FirstChooseMenu()
 	{
 		system("cls");
 		cout << endl
-			<< "Введите 1 для выхода или выберите задание от 2 до 13"
-			<<endl
-			<<"Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
+			<< "Введите 1 для выхода в меню выбора лабораторной работы или выберите задание от 2 до 13"
+			<< endl
+			<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 			<< endl;
 		n = CheckCin(true);
 		switch (n)
@@ -196,56 +188,22 @@ void FirstChooseMenu()
 			cout << endl << "Выход из программы." << endl;
 			system("pause");
 			break;
-		case 2:
-			GetSumm();
-			GetPause();
-			break;
-		
-		case 3:
-			GetSumm();
-			GetPause();
-			break;
-		case 4:
-			GetDivision();
-			GetPause();
-			break;
-		case 5:
-			GetSummArbitrary();
-			GetPause();
-			break;
-		case 6:
-			PointerInstruments();
-			GetPause();
-			break;
-		case 7:
-			CheckEvenOdd();
-			GetPause();
-			break;
-		case 8:
-			MultiplicationCheck();
-			GetPause();
-			break;
-		case 9:
-			CycleWithPrecondition();
-			GetPause();
-			break;
-		case 10:
-			CycleWithPothcondition();
-			GetPause();
-			break;
-		case 11:
-			IterationCycle();
-			GetPause();
-			break;
-		case 12:
-			BreakingCycle();
-			GetPause();
-			break;
-		case 13:
-			IntegerFloatTransformation();
-			GetPause();
-			break;
+		case 2: GetSumm(); break;
+		case 3: GetSumm(); break;
+		case 4: GetDivision(); break;
+		case 5: GetSummArbitrary(); break;
+		case 6: PointerInstruments(); break;
+		case 7: CheckEvenOdd(); break;
+		case 8: MultiplicationCheck(); break;
+		case 9: CycleWithPrecondition(); break;
+		case 10: CycleWithPothcondition(); break;
+		case 11: IterationCycle(); break;
+		case 12: BreakingCycle(); break;
+		case 13: IntegerFloatTransformation(); break;
 		default: break;
 		}
+		if (n>1)
+			GetPause();
+
 	}
 }
