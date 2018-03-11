@@ -17,22 +17,22 @@ namespace Laboratornaya2
 			//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
 			//TODO: и приведите свой код в соответстие со стандартом
 			//сделано!
-		case '+':
-			return value1 + value2;
-			break;
-		case '-':
-			return value1 - value2;
-			break;
-		case '*':
-			return value1 * value2;
-			break;
-		case '/':
-			return value1 / value2;
-			break;
-		case '%':
-			return value1 % value2;
-			break;
-		default: break;
+			case '+':
+				return value1 + value2;
+				break;
+			case '-':
+				return value1 - value2;
+				break;
+			case '*':
+				return value1 * value2;
+				break;
+			case '/':
+				return value1 / value2;
+				break;
+			case '%':
+				return value1 % value2;
+				break;
+			default: break;
 		}
 	}
 
@@ -328,6 +328,7 @@ namespace Laboratornaya2
 		}
 	}
 
+	//Удаление матрицы
 	void DeleteMatrix(int size, int** matrix)
 	{
 		for (int i = 0; i < size; i++)
@@ -335,6 +336,8 @@ namespace Laboratornaya2
 			delete[] matrix[i];
 		}
 	}
+
+	//Создание матрицы
 	void MakeMatrix(int sizex, int sizey, int** matrix)
 	{
 		for (int i = 0; i < sizex; i++)
@@ -342,6 +345,8 @@ namespace Laboratornaya2
 			matrix[i] = new int[sizey];
 		}
 	}
+	
+	//Заполнение матрицы
 	void FillMatrix(int sizex, int sizey, int** matrix)
 	{
 		for (int i = 0; i < sizex; i++)

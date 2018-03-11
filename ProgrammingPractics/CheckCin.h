@@ -21,8 +21,9 @@ inline double CheckCin(bool isWhole)
 		if (n == "0") { return 0; }
 		m = atof(n.c_str());
 		if (isWhole)
-			m = nearbyint(m);
-	} while (m == 0);
+		m = nearbyint(m);
+	} 
+	while (m == 0);
 	return m;
 }
 

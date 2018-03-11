@@ -19,14 +19,18 @@ int main()
 		{
 			//TODO: Поправьте форматирование по RSDN.
 			//сделано
-		case 0:
-			key = false;
-			cout << endl << "Выход из программы." << endl;
-			system("pause");
-			break;
-		case 1: FirstChooseMenu(); break;
-		case 2: Laboratornaya2::SecondChooseMenu(); break;
-		default: break;
+			case 0:
+				key = false;
+				cout << endl << "Выход из программы." << endl;
+				system("pause");
+				break;
+			case 1: 
+				FirstChooseMenu(); 
+				break;
+			case 2: 
+				Laboratornaya2::SecondChooseMenu(); 
+				break;
+			default: break;
 		}
 		if (n > 1)//TODO: Для if-else всегда надо расставлять скобки! //Сделано!
 		{
