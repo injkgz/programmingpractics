@@ -18,6 +18,7 @@ int main()
 		switch (n)
 		{
 			//TODO: Поправьте форматирование по RSDN.
+			//сделано
 		case 0:
 			key = false;
 			cout << endl << "Выход из программы." << endl;
@@ -27,8 +28,10 @@ int main()
 		case 2: Laboratornaya2::SecondChooseMenu(); break;
 		default: break;
 		}
-		if (n>1)//TODO: Для if-else всегда надо расставлять скобки!
+		if (n > 1)//TODO: Для if-else всегда надо расставлять скобки! //Сделано!
+		{
 			GetPause();
+		}
 	}
 	return 0;
 }

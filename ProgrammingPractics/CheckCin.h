@@ -14,6 +14,7 @@ inline double CheckCin(bool isWhole)
 	double m;
 //TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
 //TODO: и приведите свой код в соответстие со стандартом
+	//сделано
 	do
 	{
 		cin >> n;

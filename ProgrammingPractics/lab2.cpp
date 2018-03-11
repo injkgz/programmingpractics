@@ -14,13 +14,24 @@ namespace Laboratornaya2
 	{
 		switch (operationKey)
 		{
-//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
-//TODO: и приведите свой код в соответстие со стандартом
-		case '+': return value1 + value2; break;
-		case '-': return value1 - value2; break;
-		case '*': return value1 * value2; break;
-		case '/': return value1 / value2; break;
-		case '%': return value1 % value2; break;
+			//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
+			//TODO: и приведите свой код в соответстие со стандартом
+			//сделано!
+		case '+':
+			return value1 + value2;
+			break;
+		case '-':
+			return value1 - value2;
+			break;
+		case '*':
+			return value1 * value2;
+			break;
+		case '/':
+			return value1 / value2;
+			break;
+		case '%':
+			return value1 % value2;
+			break;
 		default: break;
 		}
 	}
@@ -47,7 +58,9 @@ namespace Laboratornaya2
 		if (a == 0)
 		{
 			if (b == 0)
+			{
 				return 0;
+			}
 			if (c == 0)
 			{
 				x1 = 0;
@@ -119,7 +132,9 @@ namespace Laboratornaya2
 		x1 = ((-b - sqrtD) / (2 * a));
 		x2 = ((-b + sqrtD) / (2 * a));
 		return 2;
+
 	}
+
 
 	//Тест функций GetRoots
 	void TestGetRoots()
@@ -128,32 +143,57 @@ namespace Laboratornaya2
 		double root2 = NULL;
 		double* root1Pointer = &root1;
 		double* root2Pointer = &root2;
-		int quantityOfRoots;
+		int(*getRoots1Pointer)(int, int, int, double *, double *) = NULL;
+		getRoots1Pointer = &GetRoots1;
+		int(*getRoots2Pointer)(int, int, int, double &, double &) = NULL;
+		getRoots2Pointer = &GetRoots2;
 
 		//TODO: Много дублирования кода, упростите.
-		quantityOfRoots = GetRoots1(1, 3, 2, root1Pointer, root2Pointer);
-		PrintRoots(root1, root2, quantityOfRoots);
-		quantityOfRoots = GetRoots1(1, 4, 0, root1Pointer, root2Pointer);
-		PrintRoots(root1, root2, quantityOfRoots);
-		quantityOfRoots = GetRoots1(0, 1, 2, root1Pointer, root2Pointer);
-		PrintRoots(root1, root2, quantityOfRoots);
-		quantityOfRoots = GetRoots2(0, 0, 3, root1, root2);
-		PrintRoots(root1, root2, quantityOfRoots);
-		quantityOfRoots = GetRoots2(0, 1, 0, root1, root2);
-		PrintRoots(root1, root2, quantityOfRoots);
-		quantityOfRoots = GetRoots2(4, 1, 4, root1, root2);
-		PrintRoots(root1, root2, quantityOfRoots);
-
+		//сделано!
+		PrintRoots(1, 3, 2, root1Pointer, root2Pointer, getRoots1Pointer);
+		PrintRoots(1, 4, 0, root1Pointer, root2Pointer, getRoots1Pointer);
+		PrintRoots(0, 1, 2, root1Pointer, root2Pointer, getRoots1Pointer);
+		PrintRoots(0, 0, 3, root1, root2, getRoots2Pointer);
+		PrintRoots(0, 1, 0, root1, root2, getRoots2Pointer);
+		PrintRoots(4, 1, 4, root1, root2, getRoots2Pointer);
 	}
 
 	//Проверка и вывод корней из функции GetRoots
-	void PrintRoots(double& value1, double& value2, int& value3)
+	void PrintRoots(int a, int b, int c, double *x1, double * x2, int(*functionPointer)(int, int, int, double *, double *))
 	{//TODO: Для if-else всегда надо расставлять скобки!
+	 //сделано
+		int value3 = (*functionPointer)(a, b, c, x1, x2);
 		if (value3 == 1)
-			cout << "Всего 1 корень = " << value1 << endl;
+		{
+			cout << "Всего 1 корень = " << *(x1) << endl;
+		}
 		else if (value3 == 2)
-			cout << "Найдено 2 корня: " << value1 << " и " << value2 << endl;
-		else cout << "Корней не найдено!" << endl;
+		{
+			cout << "Найдено 2 корня: " << *(x1) << " и " << *(x2) << endl;
+		}
+
+		else
+		{
+			cout << "Корней не найдено!" << endl;
+		}
+	}
+	void PrintRoots(int a, int b, int c, double &x1, double &x2, int(*functionPointer)(int, int, int, double &, double &))
+	{//TODO: Для if-else всегда надо расставлять скобки!
+	 //сделано
+		int value3 = (*functionPointer)(a, b, c, x1, x2);
+		if (value3 == 1)
+		{
+			cout << "Всего 1 корень = " << x1 << endl;
+		}
+		else if (value3 == 2)
+		{
+			cout << "Найдено 2 корня: " << x1 << " и " << x2 << endl;
+		}
+
+		else
+		{
+			cout << "Корней не найдено!" << endl;
+		}
 	}
 
 	//Функции работы с глобальной переменной
@@ -173,22 +213,28 @@ namespace Laboratornaya2
 	//Вычисление любой степени любого числа(в пределах int)
 	int GetPower(double base, int power)
 	{//TODO: Для if-else всегда надо расставлять скобки!
+	 //сделано
 		if (power == 0)
+		{
 			return 1;
+		}
 		else if (power < 0)
+		{
 			return 1 / GetPower(base, -power);
+		}
 		else
+		{
 			return base * GetPower(base, power - 1);
-
+		}
 	}
 
 	//Игра "Угадай число".
 	void GameRandomNumbers()
 	{
-		srand(time(NULL)); 
-		int guessNumber = rand() % 10; 
-		int enteredNumber = -1; 
-		int shots = 3; 
+		srand(time(NULL));
+		int guessNumber = rand() % 10;
+		int enteredNumber = -1;
+		int shots = 3;
 
 		cout << "Игра \"Угадай число\" " << endl
 			<< "Введите число, которое, как вы думаете, загадал компьютер: ";
@@ -204,7 +250,10 @@ namespace Laboratornaya2
 			}
 			enteredNumber = CheckCin(true);
 		}
-		cout << endl << "Вы победили!";
+		if (guessNumber == enteredNumber)
+		{
+			cout << endl << "Вы победили!";
+		}
 	}
 
 	//Рассчитать сумму двух целочисленных переменных
@@ -225,27 +274,28 @@ namespace Laboratornaya2
 		cout << endl << "Сумма int'а и double'a = " << value1 + value2;
 	}
 
-	//TODO: Используемые ниже сортировки можно упростить, убрав дублирование.
+	//TODO: Используемые ниже сортировки можно упростить, убрав дублирование. 
 	//Сортировка массива. Разные реализации передачи массива в функцию
+	//сделано
 	void InsertionSort1(int integerArray[5])
-	{//TODO: Для for всегда надо расставлять скобки!
-		for (int i = 1; i < 5; i++)
-			for (int j = i; j > 0 && integerArray[j - 1] > integerArray[j]; j--)
-				swap(integerArray[j - 1], integerArray[j]);
+	{//TODO: Для for всегда надо расставлять скобки! 
+	 //сделано
+		InsertionSort2(integerArray, 5);
 	}
 	void InsertionSort2(int integerArray[], int arraySize)
-	{//TODO: Для for всегда надо расставлять скобки!
+	{//TODO: Для for всегда надо расставлять скобки! 
+	 //сделано
 		for (int i = 1; i < arraySize; i++)
+		{
 			for (int j = i; j > 0 && integerArray[j - 1] > integerArray[j]; j--)
+			{
 				swap(integerArray[j - 1], integerArray[j]);
+			}
+		}
 	}
 	void InsertionSort3(int* arrayPointer, int arraySize)
 	{
-		for (int i = 1; i < arraySize; i++)
-			for (int j = i; j > 0 && arrayPointer[j - 1] > arrayPointer[j]; j--)
-			{
-				swap(arrayPointer[j - 1], arrayPointer[j]);
-			}
+		InsertionSort2(arrayPointer, arraySize);
 	}
 
 	//Умножение матриц
@@ -278,6 +328,31 @@ namespace Laboratornaya2
 		}
 	}
 
+	void DeleteMatrix(int size, int** matrix)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			delete[] matrix[i];
+		}
+	}
+	void MakeMatrix(int sizex, int sizey, int** matrix)
+	{
+		for (int i = 0; i < sizex; i++)
+		{
+			matrix[i] = new int[sizey];
+		}
+	}
+	void FillMatrix(int sizex, int sizey, int** matrix)
+	{
+		for (int i = 0; i < sizex; i++)
+		{
+			for (int j = 0; j < sizey; j++)
+			{
+				matrix[i][j] = rand() % 100;
+			}
+		}
+	}
+
 	//Меню выбора заданий
 	void SecondChooseMenu()
 	{
@@ -296,6 +371,7 @@ namespace Laboratornaya2
 			switch (n)
 			{
 				//TODO: Поправьте форматирование в соответствии с RSDN.
+				//сделано
 			case 0:
 				key = false;
 				cout << endl << "Выход из программы." << endl;
@@ -360,29 +436,18 @@ namespace Laboratornaya2
 					int sizexResult = sizex1;
 					int sizeyResult = sizey2;
 					//TODO: Ниже много дублирования - можно сократить.
-//TODO: Для for всегда надо расставлять скобки!
+					//TODO: Для for всегда надо расставлять скобки!
+					//сделано!
 					int** matrixA = new int*[sizex1];
-					for (int i = 0; i < sizex1; i++)
-						matrixA[i] = new int[sizey1];
-
-					int** matrixB = new int*[sizex2];
-					for (int i = 0; i < sizex2; i++)
-						matrixB[i] = new int[sizey2];
-
 					int** matrixResult = new int*[sizexResult];
-					for (int i = 0; i < sizexResult; i++)
-						matrixResult[i] = new int[sizeyResult];
+					int** matrixB = new int*[sizex2];
 
-					for (int i = 0; i < sizex1; i++)
-						for (int j = 0; j < sizey1; j++)
-							matrixA[i][j] = rand() % 100;
-
-					for (int i = 0; i < sizex2; i++)
-						for (int j = 0; j < sizey2; j++)
-							matrixB[i][j] = rand() % 100;
-
+					MakeMatrix(sizex1, sizey1, matrixA);
+					MakeMatrix(sizex2, sizey2, matrixB);
+					MakeMatrix(sizexResult, sizeyResult, matrixResult);
+					FillMatrix(sizex1, sizey1, matrixA);
+					FillMatrix(sizex2, sizey2, matrixB);
 					MultiplyMatrices(matrixA, sizex1, sizey1, matrixB, sizex2, sizey2, matrixResult);
-
 					cout << "Матрица А:" << endl;
 					PrintMatrix(matrixA, sizey1, sizex1);
 					cout << "-----------------------------------" << endl;
@@ -391,17 +456,15 @@ namespace Laboratornaya2
 					cout << "-----------------------------------" << endl;
 					cout << "Результат:" << endl;
 					PrintMatrix(matrixResult, sizeyResult, sizexResult);
-
-					for (int i = 0; i < sizex1; i++)
-						delete[] matrixA[i];
-					for (int i = 0; i < sizex2; i++)
-						delete[] matrixB[i];
-					for (int i = 0; i < sizexResult; i++)
-						delete[] matrixResult[i];
+					DeleteMatrix(sizex1, matrixA);
+					DeleteMatrix(sizex2, matrixB);
+					DeleteMatrix(sizexResult, matrixResult);
 					delete[] matrixA, matrixB, matrixResult;
 				}
 				else
+				{
 					cout << endl << "Матрицу А нельзя умножить на матрицу В" << endl;
+				}
 				break;
 			}
 			case 9:
@@ -415,9 +478,9 @@ namespace Laboratornaya2
 					integerArray[i] = rand() % 100;
 					cout << integerArray[i] << " ";
 				}
-				InsertionSort1(integerArray);
+				//InsertionSort1(integerArray);
 				//InsertionSort2(integerArray, arraySize);
-				//InsertionSort3(integerArray, arraySize);
+				InsertionSort3(integerArray, arraySize);
 				cout << endl << "Массив после сортировки" << endl;
 				for (int i = 0; i < arraySize; i++)
 				{
@@ -429,7 +492,9 @@ namespace Laboratornaya2
 			default: break;
 			}
 			if (n >= 1)//TODO: Для if-else всегда надо расставлять скобки!
+			{
 				GetPause();
+			}
 		}
 	}
 }
