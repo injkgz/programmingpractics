@@ -14,6 +14,8 @@ namespace Laboratornaya2
 	{
 		switch (operationKey)
 		{
+//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
+//TODO: и приведите свой код в соответстие со стандартом
 		case '+': return value1 + value2; break;
 		case '-': return value1 - value2; break;
 		case '*': return value1 * value2; break;
@@ -34,7 +36,8 @@ namespace Laboratornaya2
 		{
 			cout << endl << "INCORRECT SYMBOL!!!" << endl
 				<< "Please, enter(+, -, *, / , %): ";
-			cin >> key;		}
+			cin >> key;
+		}
 		return key;
 	}
 
@@ -127,6 +130,7 @@ namespace Laboratornaya2
 		double* root2Pointer = &root2;
 		int quantityOfRoots;
 
+		//TODO: Много дублирования кода, упростите.
 		quantityOfRoots = GetRoots1(1, 3, 2, root1Pointer, root2Pointer);
 		PrintRoots(root1, root2, quantityOfRoots);
 		quantityOfRoots = GetRoots1(1, 4, 0, root1Pointer, root2Pointer);
@@ -144,7 +148,7 @@ namespace Laboratornaya2
 
 	//Проверка и вывод корней из функции GetRoots
 	void PrintRoots(double& value1, double& value2, int& value3)
-	{
+	{//TODO: Для if-else всегда надо расставлять скобки!
 		if (value3 == 1)
 			cout << "Всего 1 корень = " << value1 << endl;
 		else if (value3 == 2)
@@ -164,10 +168,11 @@ namespace Laboratornaya2
 	void GlobalEqualsOne()
 	{
 		globalVariable = 1;
-	}
+	}
+
 	//Вычисление любой степени любого числа(в пределах int)
 	int GetPower(double base, int power)
-	{
+	{//TODO: Для if-else всегда надо расставлять скобки!
 		if (power == 0)
 			return 1;
 		else if (power < 0)
@@ -218,14 +223,18 @@ namespace Laboratornaya2
 	void SummNumbers(int value1, double value2)
 	{
 		cout << endl << "Сумма int'а и double'a = " << value1 + value2;
-	}	//Сортировка массива. Разные реализации передачи массива в функцию	void InsertionSort1(int integerArray[5])
-	{
+	}
+
+	//TODO: Используемые ниже сортировки можно упростить, убрав дублирование.
+	//Сортировка массива. Разные реализации передачи массива в функцию
+	void InsertionSort1(int integerArray[5])
+	{//TODO: Для for всегда надо расставлять скобки!
 		for (int i = 1; i < 5; i++)
 			for (int j = i; j > 0 && integerArray[j - 1] > integerArray[j]; j--)
 				swap(integerArray[j - 1], integerArray[j]);
 	}
 	void InsertionSort2(int integerArray[], int arraySize)
-	{
+	{//TODO: Для for всегда надо расставлять скобки!
 		for (int i = 1; i < arraySize; i++)
 			for (int j = i; j > 0 && integerArray[j - 1] > integerArray[j]; j--)
 				swap(integerArray[j - 1], integerArray[j]);
@@ -237,7 +246,8 @@ namespace Laboratornaya2
 			{
 				swap(arrayPointer[j - 1], arrayPointer[j]);
 			}
-	}
+	}
+
 	//Умножение матриц
 	void MultiplyMatrices(int** matrixA, int sizex1, int sizey1, int** matrixB, int sizex2, int sizey2, int** matrixResult)
 	{
@@ -285,6 +295,7 @@ namespace Laboratornaya2
 			n = CheckCin(true);
 			switch (n)
 			{
+				//TODO: Поправьте форматирование в соответствии с RSDN.
 			case 0:
 				key = false;
 				cout << endl << "Выход из программы." << endl;
@@ -307,7 +318,18 @@ namespace Laboratornaya2
 				GlobalEqualsOne();
 				cout << "Глобальная переменная: " << globalVariable << endl;
 				globalVariable = 5;
-				cout << "Глобальная переменная: " << globalVariable << endl;				break;			case 5:			{				cout << endl << "Введите число: ";				int number = CheckCin(true);				cout << endl << "Введите степень, в которую будем возводить число: ";				int power = CheckCin(true);				cout << endl << "Результат = " << GetPower(number, power) << endl;				break;			}			case 6: GameRandomNumbers(); break;
+				cout << "Глобальная переменная: " << globalVariable << endl;
+				break;
+			case 5:
+			{
+				cout << endl << "Введите число: ";
+				int number = CheckCin(true);
+				cout << endl << "Введите степень, в которую будем возводить число: ";
+				int power = CheckCin(true);
+				cout << endl << "Результат = " << GetPower(number, power) << endl;
+				break;
+			}
+			case 6: GameRandomNumbers(); break;
 			case 7:
 			{
 				int a = 1;
@@ -337,7 +359,8 @@ namespace Laboratornaya2
 				{
 					int sizexResult = sizex1;
 					int sizeyResult = sizey2;
-
+					//TODO: Ниже много дублирования - можно сократить.
+//TODO: Для for всегда надо расставлять скобки!
 					int** matrixA = new int*[sizex1];
 					for (int i = 0; i < sizex1; i++)
 						matrixA[i] = new int[sizey1];
@@ -405,7 +428,7 @@ namespace Laboratornaya2
 			}
 			default: break;
 			}
-			if (n >= 1)
+			if (n >= 1)//TODO: Для if-else всегда надо расставлять скобки!
 				GetPause();
 		}
 	}

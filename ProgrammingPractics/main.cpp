@@ -17,6 +17,7 @@ int main()
 		n = CheckCin(true);
 		switch (n)
 		{
+			//TODO: Поправьте форматирование по RSDN.
 		case 0:
 			key = false;
 			cout << endl << "Выход из программы." << endl;
