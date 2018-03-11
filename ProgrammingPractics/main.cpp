@@ -27,7 +27,7 @@ int main()
 		case 2: Laboratornaya2::SecondChooseMenu(); break;
 		default: break;
 		}
-		if (n>1)
+		if (n>1)//TODO: Для if-else всегда надо расставлять скобки!
 			GetPause();
 	}
 	return 0;
