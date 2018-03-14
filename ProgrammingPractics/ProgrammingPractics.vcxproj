@@ -125,6 +125,9 @@
     <ClInclude Include="lab1.h" />
     <ClInclude Include="lab2.h" />
     <ClInclude Include="lab3.h" />
+    <ClInclude Include="MenuEnum.h" />
+    <ClInclude Include="SexEnum.h" />
+    <ClInclude Include="structPerson.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

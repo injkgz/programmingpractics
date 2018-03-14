@@ -7,7 +7,8 @@ namespace Laboratornaya2
 	char CheckMathSymbol();
 	int GetRoots1(int a, int b, int c, double *x1, double *x2);
 	//TODO: Нет такого метода.
-	int GetRoots2(double a, double b, double c, double &x1, double &x2);
+	//сделано
+	int GetRoots2(int a, int b, int c, double &x1, double &x2);
 	void TestGetRoots();
 	void PrintRoots(int a, int b, int c, double *x1, double * x2, int(*getRoots1Pointer)(int, int, int, double *, double *));
 	void PrintRoots(int a, int b, int c, double &x1, double &x2, int(*getRoots1Pointer)(int, int, int, double &, double &));

@@ -159,36 +159,24 @@ namespace Laboratornaya2
 		int value3 = (*functionPointer)(a, b, c, x1, x2);
 		//TODO: Код ниже можно было не дублировать.
 		//TODO: Правильнее использовать switch-case
-		if (value3 == 1)
+		//сделано
+		switch (value3)
 		{
-			cout << "Всего 1 корень = " << *(x1) << endl;
-		}
-		else if (value3 == 2)
-		{
-			cout << "Найдено 2 корня: " << *(x1) << " и " << *(x2) << endl;
-		}//TODO: Зачем пустая строка?
-		
-		else
-		{
-			cout << "Корней не найдено!" << endl;
+		case 1: cout << "Всего 1 корень = " << *(x1) << endl; break;
+		case 2: cout << "Найдено 2 корня: " << *(x1) << " и " << *(x2) << endl; break;
+		default: cout << "Корней не найдено!" << endl; break;
 		}
 	}
 	void PrintRoots(int a, int b, int c, double &x1, double &x2, int(*functionPointer)(int, int, int, double &, double &))
 	{
 		int value3 = (*functionPointer)(a, b, c, x1, x2);
 		//TODO: Правильнее использовать switch-case
-		if (value3 == 1)
+		//сделано
+		switch (value3)
 		{
-			cout << "Всего 1 корень = " << x1 << endl;
-		}
-		else if (value3 == 2)
-		{
-			cout << "Найдено 2 корня: " << x1 << " и " << x2 << endl;
-		}//TODO: Зачем пустая строка?
-
-		else
-		{
-			cout << "Корней не найдено!" << endl;
+		case 1: cout << "Всего 1 корень = " << x1 << endl; break;
+		case 2: cout << "Найдено 2 корня: " << x1 << " и " << x2 << endl; break;
+		default: cout << "Корней не найдено!" << endl; break;
 		}
 	}
 
@@ -290,8 +278,10 @@ namespace Laboratornaya2
 	}
 
 	//TODO: Много аргументов - лучше переносить.
+	//сделано
 	//Умножение матриц
-	void MultiplyMatrices(int** matrixA, int sizex1, int sizey1, int** matrixB, int sizex2, int sizey2, int** matrixResult)
+	void MultiplyMatrices(int** matrixA, int sizex1, int sizey1, 
+	int** matrixB, int sizex2, int sizey2, int** matrixResult)
 	{
 		for (int i = 0; i < sizex1; i++)
 		{
@@ -354,36 +344,42 @@ namespace Laboratornaya2
 	void SecondChooseMenu()
 	{
 		bool key = true;
-		int n;
+		int choosedFunction;
 
 		while (key)
 		{
 			system("cls");
 			cout << endl
-				<< "Введите 0 для выхода в меню выбора лабораторной или выберите задание от 2 до 13"
+				<< "Введите 0 для выхода в меню выбора лабораторной или выберите задание от 2 до 9"
 				<< endl
 				<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 				<< endl;
-			n = CheckCin(true);
-			switch (n)
+			choosedFunction = CheckCin(true);
+			switch (choosedFunction)
 			{
 				//TODO: Поправьте форматирование в соответствии с RSDN.
 				//сделано
 				//TODO: Где-то стоят скобки, где-то нет, сделайте единообразно.
+				//сделано
 				case 0:
+				{
 					key = false;
+
 					cout << endl << "Выход из программы." << endl;
 					system("pause");
 					break;
-				case 1: PrintHelloWorld(); break;
+				}
+				case 1: { PrintHelloWorld(); break; }
 				case 2:
 				{
 					char operationKey = CheckMathSymbol();
+
 					cout << endl << MakeCalculation(10, 10, operationKey);
 					break;
 				}
-				case 3: TestGetRoots(); break;
+				case 3:	{ TestGetRoots(); break; }
 				case 4:
+				{
 					cout << "Глобальная переменная: " << globalVariable << endl;
 					GlobalPlusTwo();
 					cout << "Глобальная переменная: " << globalVariable << endl;
@@ -394,29 +390,31 @@ namespace Laboratornaya2
 					globalVariable = 5;
 					cout << "Глобальная переменная: " << globalVariable << endl;
 					break;
+				}
 				case 5:
 				{
 					cout << endl << "Введите число: ";
 					int number = CheckCin(true);
+
 					cout << endl << "Введите степень, в которую будем возводить число: ";
 					int power = CheckCin(true);
+
 					cout << endl << "Результат = " << GetPower(number, power) << endl;
 					break;
 				}
-				case 6: 
-					GameRandomNumbers(); 
-					break;
+				case 6: { GameRandomNumbers(); break; }
 				case 7:
 				{
 					int a = 1;
 					int b = 2;
-					SummNumbers(a, b);
 					double x = 3.0;
 					double y = 4.0;
-					SummNumbers(x, y);
-					SummNumbers(a, y);
 					float m = 5.0;
 					float n = 6.0;
+
+					SummNumbers(a, b);
+					SummNumbers(x, y);
+					SummNumbers(a, y);
 					SummNumbers(m, n);
 					break;
 				}
@@ -471,6 +469,7 @@ namespace Laboratornaya2
 					int integerArray[arraySize];
 
 					cout << "Массив до сортировки:" << endl;
+
 					for (int i = 0; i < arraySize; i++)
 					{
 						integerArray[i] = rand() % 100;
@@ -480,6 +479,7 @@ namespace Laboratornaya2
 					//InsertionSort2(integerArray, arraySize);
 					InsertionSort3(integerArray, arraySize);
 					cout << endl << "Массив после сортировки" << endl;
+
 					for (int i = 0; i < arraySize; i++)
 					{
 						cout << integerArray[i] << " ";
@@ -487,9 +487,9 @@ namespace Laboratornaya2
 					cout << endl;
 					break;
 				}
-				default: break;
+				default: { break; }
 			}
-			if (n >= 1)
+			if (choosedFunction >= 1)
 			{
 				GetPause();
 			}

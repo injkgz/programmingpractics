@@ -170,7 +170,7 @@ void IntegerFloatTransformation()
 void FirstChooseMenu()
 {
 	bool key = true;
-	int n;
+	int choosedFunction;
 
 	while (key)
 	{
@@ -180,8 +180,8 @@ void FirstChooseMenu()
 			<< endl
 			<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 			<< endl;
-		n = CheckCin(true);
-		switch (n)
+		choosedFunction = CheckCin(true);
+		switch (choosedFunction)
 		{
 		case 1:
 			key = false;
@@ -202,7 +202,7 @@ void FirstChooseMenu()
 		case 13: IntegerFloatTransformation(); break;
 		default: break;
 		}
-		if (n>1)
+		if (choosedFunction>1)
 			GetPause();
 
 	}

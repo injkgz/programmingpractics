@@ -11,22 +11,27 @@ using namespace std;
 // isWhole нужен для того, чтобы программист выбирал тип возвращаемого значения; 
 inline double CheckCin(bool isWhole)
 {
-	string n;
-	double m;
+	string stringForCheck;
+	double correctValue;
 //TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
 //TODO: и приведите свой код в соответстие со стандартом
 	//сделано
 	//TODO: Нет. Всё ещё непонятное именование переменных. Есть ошибки форматирования по RSDN.
 	do
 	{
-		cin >> n;
-		if (n == "0") { return 0; }
-		m = atof(n.c_str());
+		cin >> stringForCheck;
+		if (stringForCheck == "0")
+		{ 
+			return 0; 
+		}
+		correctValue = atof(stringForCheck.c_str());
 		if (isWhole)
-		m = nearbyint(m);
+		{
+			correctValue = nearbyint(correctValue);
+		}
 	} 
-	while (m == 0);
-	return m;
+	while (correctValue == 0);
+	return correctValue;
 }
 
 inline void GetPause()

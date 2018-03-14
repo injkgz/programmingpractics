@@ -2,8 +2,7 @@
 
 namespace Lab3
 {//TODO: Зачем глобальная переменная? Убрать!
-	int j = 0;
-
+	//сделано
 	//Функция, возвращающая длину char
 	int GetLength(char* string)
 	{
@@ -27,13 +26,14 @@ namespace Lab3
 		char* mergedString = new char [200];
 		int j = 0;
 		int& jReference = j;
+
 		CopyStringToString(string1, mergedString, jReference);
 		CopyStringToString(string2, mergedString, jReference);
 		mergedString[jReference] = '\0';
-
 		return mergedString;
 	}
 
+	//Функция копирования одной строки в другую
 	void CopyStringToString(char* string, char* stringResult, int& k)
 	{
 		for (int i = 0; i < GetLength(string); i++)
@@ -46,6 +46,7 @@ namespace Lab3
 	//Функция,  возвращающая подстроку, состоящую из charCount символов и начинающуюся с startIndex позиции в строке string
 	char* GetSubstring(char* string, int startIndex, int charCount)
 	{
+		int j = 0;
 		char* newString = new char[200];
 
 		if (startIndex < 0 || startIndex + charCount > GetLength(string))
@@ -65,23 +66,26 @@ namespace Lab3
 		}
 	}
 
-
+	//Функция поиска подстроки в строке
 	int FindSubstring(char* string, char* substring)
 	{
 		if (GetLength(string) < GetLength(substring))
 		{
 			return -1;
 		}
+
 		for (int i = 0; i < GetLength(string); i++)
 		{
 			if (string[i] == substring[0])
 			{
 				bool isSimilar = true;
 				int pointer = ++i;
+
 				if (pointer > GetLength(string))
 				{
 					return -1;
 				}
+
 				for (int subPointer = 1; subPointer < GetLength(substring); subPointer++)
 				{
 					if (string[pointer] != substring[subPointer])
@@ -90,6 +94,7 @@ namespace Lab3
 					}
 					pointer++;
 				}
+
 				if (isSimilar)
 				{
 					return --i;
@@ -100,8 +105,9 @@ namespace Lab3
 	}
 
 	//TODO: Плохое именование метода - должен быть глагол.
+	//сделано
 	//Функция, превращающая все символы в верхний регистр
-	char * Uppercase(char * string)
+	char * TransformToUppercase(char * string)
 	{
 		if (&string != nullptr)
 		{
@@ -128,8 +134,9 @@ namespace Lab3
 		}
 	}
 //TODO: Плохое именование метода - должен быть глагол.
+	//сделано
 	//Функция преобразования всех символов в нижний регистр.
-	char * Lowercase(char * string)
+	char * TransformToLowercase(char * string)
 	{
 		if (&string != nullptr)
 		{
@@ -170,11 +177,11 @@ namespace Lab3
 		{
 			int i = GetLength(source) - 1;
 
-			if (FindDot(source, extension, i, stopPointer))
+			if (FindSymbol(source, extension, i, stopPointer, 0))
 			{
-				if (FindSlash(source, name, i, stopPointer))
+				if (FindSymbol(source, name, i, stopPointer,1 ))
 				{
-					if (FindTwoDots(source, path,i, stopPointer))
+					if (FindSymbol(source, path,i, stopPointer,2))
 					{
 						cout << endl << "Путь: " << path << endl;
 						cout << "Имя: " << name << endl;
@@ -193,9 +200,9 @@ namespace Lab3
 			}
 			else
 			{
-				if (FindSlash(source, name, i, stopPointer))
+				if (FindSymbol(source, name, i, stopPointer,1))
 				{
-					if (FindTwoDots(source, path, i, stopPointer))
+					if (FindSymbol(source, path, i, stopPointer,2))
 					{
 						cout << endl << "Путь: " << path << endl;
 						cout << "Имя: " << name << endl;
@@ -213,10 +220,14 @@ namespace Lab3
 		}
 	}
 	//TODO: В методах "Find*" много дублирования. Исправьте!
-	//Функции поиска и выделения различных частей путей файла
-	bool FindDot(char* string1, char* string2, int i, int& pointer)
+	//сделано
+	//Функция поиска символа в строке и возвращения части строки после символа.
+	//whichsymbol переменная отражающая, какой символ мы ищем в строке. 
+	// "." - 0, "\\" - 1, ":" - 2.
+	bool FindSymbol(char* string1, char* string2, int i, int& pointer, int whichsymbol)
 	{
-		while ((string1[i] != '.') && (i))
+		char* symbols = (char*)".\\:";
+		while ((string1[i] != symbols[whichsymbol])&& (i))
 		{
 			i--;
 			if (i == 0)
@@ -229,65 +240,12 @@ namespace Lab3
 		int k = 0;
 		while (string1[j] != '\0')
 		{
-			string2[k]=string1[j];
-			j++;
-			k++;
-		}
-		string2[k] = '\0';
-		return true;
-	}
-
-	bool FindSlash(char* string1, char* string2, int i, int& pointer)
-	{//TODO: Использование прямых ASCII символов плохо читеается.
-		while ((string1[i] != (char)(92)) && (i))
-		{
-			i--;
-			if (i == 0)
-			{
-				return false;
-			}
-		}
-
-		int j = i;
-		int k = 0;
-
-		while (j < pointer)
-		{
 			string2[k] = string1[j];
 			j++;
 			k++;
 		}
-
-		pointer = i;
 		string2[k] = '\0';
 		return true;
-
-	}
-
-	bool FindTwoDots(char* string1, char* string2, int i, int& pointer)
-	{
-		while (string1[i] != ':' && (i))
-		{
-			i--;
-			if (i == 0)
-			{
-				return false;
-			}
-		}
-
-		int j = i-1;
-		int k = 0;
-
-		while (j < pointer)
-		{
-			string2[k] = string1[j];
-			j++;
-			k++;
-		}
-		pointer = i;
-		string2[k] = '\0';
-		return true;
-
 	}
 
 	//Функция замены табуляции на Space
@@ -366,18 +324,14 @@ namespace Lab3
 		do
 		{
 			sex = CheckCin(true);
-		} while (sex != 0 && sex != 1);
+		} 
+		while (sex != 0 && sex != 1);
 
 		switch (sex)
-		{//TODO: Форматирование по RSDN!
-		case Female:
-			newPerson.Sex = Female;
-			break;
-		case Male:
-			newPerson.Sex = Male;
-			break;
-		default:
-			break;
+		{//TODO: Форматирование по RSDN! //сделано
+		case Female: newPerson.Sex = Female; break;
+		case Male: newPerson.Sex = Male; break;
+		default: break;
 		}
 		return newPerson;
 	}
@@ -385,16 +339,16 @@ namespace Lab3
 	//Вывод личности
 	void PrintPerson(Person& person)
 	{
-		cout << "Surname: " << person.Surname << endl;
-		cout << "Name: " << person.Name << endl;
-		cout << "Sex: " << person.Sex << endl;
+		cout << "Фамилия: " << person.Surname << endl;
+		cout << "Имя: " << person.Name << endl;
+		cout << "Пол: " << person.Sex << endl;
 	}
 
 	//Меню выбора заданий
 	void ThirdChooseMenu()
 	{
 		bool key = true;
-		int n;
+		int choosedFunction;
 
 		while (key)
 		{
@@ -414,9 +368,9 @@ namespace Lab3
 				<< "10. Work with struct Person" << endl
 				<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 				<< endl;
-			n = CheckCin(true);
+			choosedFunction = CheckCin(true);
 			cout << endl;
-			switch (n)
+			switch (choosedFunction)
 			{
 				case 0:
 					key = false;
@@ -463,18 +417,18 @@ namespace Lab3
 					cout << FindSubstring(string3, substring10);
 					break;
 					}
-				case UppercaseEnum:
+				case TransformToUppercaseEnum:
 					{
 					char* string4 = (char*)"Different cases in That string, also 1 and 2 numbers!.!#@48";
 
-					cout << Uppercase(string4) << endl;
+					cout << TransformToUppercase(string4) << endl;
 					break;
 					}
-				case LowercaseEnum:
+				case TransformToLowercaseEnum:
 					{
 					char* string5 = (char*)"Different cases in That string, also 1 and 2 numbers!.!#@48";
 
-					cout << Lowercase(string5) << endl;
+					cout << TransformToLowercase(string5) << endl;
 					break;
 					}
 				case SplitFilenameEnum:
@@ -508,9 +462,9 @@ namespace Lab3
 					PrintPerson(person1);
 					break;
 					}
-				default: break;
+				default: { break; }
 			}
-			if (n >= 1)
+			if (choosedFunction >= 1)
 			{
 				GetPause();
 			}

@@ -4,7 +4,7 @@ int main()
 {
 	setlocale(LC_ALL, "russian");
 	bool key = true;
-	int n;
+	int choosedLab;
 
 	while (key)
 	{
@@ -14,8 +14,8 @@ int main()
 			<< endl
 			<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 			<< endl;
-		n = CheckCin(true);
-		switch (n)
+		choosedLab = CheckCin(true);
+		switch (choosedLab)
 		{
 			case 0:
 				key = false;
@@ -33,7 +33,7 @@ int main()
 				break;
 			default: break;
 		}
-		if (n > 1)
+		if (choosedLab > 1)
 		{
 			GetPause();
 		}
