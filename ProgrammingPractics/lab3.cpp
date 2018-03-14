@@ -1,10 +1,10 @@
-#include "lab3.h"
+п»ї#include "lab3.h"
 
 namespace Lab3
 {
 	int j = 0;
 
-	//Функция, возвращающая длину char
+	//Р¤СѓРЅРєС†РёСЏ, РІРѕР·РІСЂР°С‰Р°СЋС‰Р°СЏ РґР»РёРЅСѓ char
 	int GetLength(char* string)
 	{
 		if (&string == nullptr)
@@ -21,7 +21,7 @@ namespace Lab3
 		return length;
 	}
 
-	//Функция объединения двух char
+	//Р¤СѓРЅРєС†РёСЏ РѕР±СЉРµРґРёРЅРµРЅРёСЏ РґРІСѓС… char
 	char* Concatenate(char * string1, char * string2)
 	{
 		char* mergedString = new char [200];
@@ -43,7 +43,7 @@ namespace Lab3
 		}
 	}
 
-	//Функция,  возвращающая подстроку, состоящую из charCount символов и начинающуюся с startIndex позиции в строке string
+	//Р¤СѓРЅРєС†РёСЏ,  РІРѕР·РІСЂР°С‰Р°СЋС‰Р°СЏ РїРѕРґСЃС‚СЂРѕРєСѓ, СЃРѕСЃС‚РѕСЏС‰СѓСЋ РёР· charCount СЃРёРјРІРѕР»РѕРІ Рё РЅР°С‡РёРЅР°СЋС‰СѓСЋСЃСЏ СЃ startIndex РїРѕР·РёС†РёРё РІ СЃС‚СЂРѕРєРµ string
 	char* GetSubstring(char* string, int startIndex, int charCount)
 	{
 		char* newString = new char[200];
@@ -99,7 +99,7 @@ namespace Lab3
 		return -1;
 	}
 
-	//Функция, превращающая все символы в верхний регистр
+	//Р¤СѓРЅРєС†РёСЏ, РїСЂРµРІСЂР°С‰Р°СЋС‰Р°СЏ РІСЃРµ СЃРёРјРІРѕР»С‹ РІ РІРµСЂС…РЅРёР№ СЂРµРіРёСЃС‚СЂ
 	char * Uppercase(char * string)
 	{
 		if (&string != nullptr)
@@ -127,7 +127,7 @@ namespace Lab3
 		}
 	}
 
-	//Функция преобразования всех символов в нижний регистр.
+	//Р¤СѓРЅРєС†РёСЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РІСЃРµС… СЃРёРјРІРѕР»РѕРІ РІ РЅРёР¶РЅРёР№ СЂРµРіРёСЃС‚СЂ.
 	char * Lowercase(char * string)
 	{
 		if (&string != nullptr)
@@ -155,7 +155,7 @@ namespace Lab3
 		}
 	}
 
-	//Функция, которая разделяет исходную строку source на путь path, имя name и расширение файла extension
+	//Р¤СѓРЅРєС†РёСЏ, РєРѕС‚РѕСЂР°СЏ СЂР°Р·РґРµР»СЏРµС‚ РёСЃС…РѕРґРЅСѓСЋ СЃС‚СЂРѕРєСѓ source РЅР° РїСѓС‚СЊ path, РёРјСЏ name Рё СЂР°СЃС€РёСЂРµРЅРёРµ С„Р°Р№Р»Р° extension
 	void SplitFilename(char* source, char* path, char* name, char* extension)
 	{
 		int stopPointer = 1000000;
@@ -175,19 +175,19 @@ namespace Lab3
 				{
 					if (FindTwoDots(source, path,i, stopPointer))
 					{
-						cout << endl << "Путь: " << path << endl;
-						cout << "Имя: " << name << endl;
-						cout << "Расширение: " << extension << endl;
+						cout << endl << "РџСѓС‚СЊ: " << path << endl;
+						cout << "РРјСЏ: " << name << endl;
+						cout << "Р Р°СЃС€РёСЂРµРЅРёРµ: " << extension << endl;
 					}
 					else
 					{
-						cout << "Имя: " << name << endl;
-						cout << "Расширение: " << extension << endl;
+						cout << "РРјСЏ: " << name << endl;
+						cout << "Р Р°СЃС€РёСЂРµРЅРёРµ: " << extension << endl;
 					}
 				}
 				else
 				{
-					cout << endl << "Путь к файлу неверный!";
+					cout << endl << "РџСѓС‚СЊ Рє С„Р°Р№Р»Сѓ РЅРµРІРµСЂРЅС‹Р№!";
 				}
 			}
 			else
@@ -196,23 +196,23 @@ namespace Lab3
 				{
 					if (FindTwoDots(source, path, i, stopPointer))
 					{
-						cout << endl << "Путь: " << path << endl;
-						cout << "Имя: " << name << endl;
+						cout << endl << "РџСѓС‚СЊ: " << path << endl;
+						cout << "РРјСЏ: " << name << endl;
 					}
 					else
 					{
-						cout << "Имя: " << name << endl;
+						cout << "РРјСЏ: " << name << endl;
 					}
 				}
 				else
 				{
-					cout << endl << "Путь к файлу неверный!";
+					cout << endl << "РџСѓС‚СЊ Рє С„Р°Р№Р»Сѓ РЅРµРІРµСЂРЅС‹Р№!";
 				}
 			}
 		}
 	}
 
-	//Функции поиска и выделения различных частей путей файла
+	//Р¤СѓРЅРєС†РёРё РїРѕРёСЃРєР° Рё РІС‹РґРµР»РµРЅРёСЏ СЂР°Р·Р»РёС‡РЅС‹С… С‡Р°СЃС‚РµР№ РїСѓС‚РµР№ С„Р°Р№Р»Р°
 	bool FindDot(char* string1, char* string2, int i, int& pointer)
 	{
 		while ((string1[i] != '.') && (i))
@@ -289,7 +289,7 @@ namespace Lab3
 
 	}
 
-	//Функция замены табуляции на Space
+	//Р¤СѓРЅРєС†РёСЏ Р·Р°РјРµРЅС‹ С‚Р°Р±СѓР»СЏС†РёРё РЅР° Space
 	char* ReplaceTabsOnSpaces(char* string, int countSpace)
 	{
 		char* newString = new char[GetLength(string)];
@@ -317,7 +317,7 @@ namespace Lab3
 		return newString;
 	}
 
-	//Функция замены Space на табуляцию
+	//Р¤СѓРЅРєС†РёСЏ Р·Р°РјРµРЅС‹ Space РЅР° С‚Р°Р±СѓР»СЏС†РёСЋ
 	char* ReplaceSpacesOnTabs(char* string, int countSpace)
 	{
 		char* newString = new char[GetLength(string)];
@@ -350,7 +350,7 @@ namespace Lab3
 		return newString;
 	}
 
-	//Ввод личности
+	//Р’РІРѕРґ Р»РёС‡РЅРѕСЃС‚Рё
 	Person ReadPerson()
 	{
 		Person newPerson;
@@ -381,7 +381,7 @@ namespace Lab3
 		return newPerson;
 	}
 
-	//Вывод личности
+	//Р’С‹РІРѕРґ Р»РёС‡РЅРѕСЃС‚Рё
 	void PrintPerson(Person& person)
 	{
 		cout << "Surname: " << person.Surname << endl;
@@ -389,7 +389,7 @@ namespace Lab3
 		cout << "Sex: " << person.Sex << endl;
 	}
 
-	//Меню выбора заданий
+	//РњРµРЅСЋ РІС‹Р±РѕСЂР° Р·Р°РґР°РЅРёР№
 	void ThirdChooseMenu()
 	{
 		bool key = true;
@@ -399,7 +399,7 @@ namespace Lab3
 		{
 			system("cls");
 			cout << endl
-				<< "Введите 0 для выхода в меню выбора лабораторной или выберите задание от 1 до 10"
+				<< "Р’РІРµРґРёС‚Рµ 0 РґР»СЏ РІС‹С…РѕРґР° РІ РјРµРЅСЋ РІС‹Р±РѕСЂР° Р»Р°Р±РѕСЂР°С‚РѕСЂРЅРѕР№ РёР»Рё РІС‹Р±РµСЂРёС‚Рµ Р·Р°РґР°РЅРёРµ РѕС‚ 1 РґРѕ 10"
 				<< endl
 				<< "1. GetLength()" << endl
 				<< "2. Concatenate()" << endl
@@ -411,7 +411,7 @@ namespace Lab3
 				<< "8. ReplaceTabsOnSpaces()" << endl
 				<< "9. ReplaceSpacesOnTabs()" << endl
 				<< "10. Work with struct Person" << endl
-				<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
+				<< "РџСЂРѕРіСЂР°РјРјР° Р±СѓРґРµС‚ Р·Р°РїСЂР°С€РёРІР°С‚СЊ РІРІРѕРґ РґРѕ С‚РµС… РїРѕСЂ, РїРѕРєР° РІС‹ РЅРµ РІРІРµРґС‘С‚Рµ РєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ!"
 				<< endl;
 			n = CheckCin(true);
 			cout << endl;
@@ -419,7 +419,7 @@ namespace Lab3
 			{
 				case 0:
 					key = false;
-					cout << endl << "Выход из программы." << endl;
+					cout << endl << "Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹." << endl;
 					system("pause");
 					break;
 				case GetLengthEnum:
