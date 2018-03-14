@@ -5,6 +5,7 @@
 #include <cmath>
 #include "lab1.h"
 #include "lab2.h"
+#include "lab3.h"
 
 using namespace std;
 // isWhole нужен для того, чтобы программист выбирал тип возвращаемого значения; 

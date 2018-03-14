@@ -24,5 +24,6 @@ namespace Laboratornaya2
 	void DeleteMatrix(int size, int** matrix);
 	void FillMatrix(int sizex, int sizey, int** matrix);
 	void MakeMatrix(int sizex, int sizey, int** matrix);
+	void SecondChooseMenu();
 }
 

@@ -30,6 +30,9 @@ int main()
 			case 2: 
 				Laboratornaya2::SecondChooseMenu(); 
 				break;
+			case 3:
+				Lab3::ThirdChooseMenu();
+				break;
 			default: break;
 		}
 		if (n > 1)//TODO: Для if-else всегда надо расставлять скобки! //Сделано!

@@ -377,124 +377,126 @@ namespace Laboratornaya2
 			{
 				//TODO: Поправьте форматирование в соответствии с RSDN.
 				//сделано
-			case 0:
-				key = false;
-				cout << endl << "Выход из программы." << endl;
-				system("pause");
-				break;
-			case 1: PrintHelloWorld(); break;
-			case 2:
-			{
-				char operationKey = CheckMathSymbol();
-				cout << endl << MakeCalculation(10, 10, operationKey);
-				break;
-			}
-			case 3: TestGetRoots(); break;
-			case 4:
-				cout << "Глобальная переменная: " << globalVariable << endl;
-				GlobalPlusTwo();
-				cout << "Глобальная переменная: " << globalVariable << endl;
-				GlobalMultiplyThree();
-				cout << "Глобальная переменная: " << globalVariable << endl;
-				GlobalEqualsOne();
-				cout << "Глобальная переменная: " << globalVariable << endl;
-				globalVariable = 5;
-				cout << "Глобальная переменная: " << globalVariable << endl;
-				break;
-			case 5:
-			{
-				cout << endl << "Введите число: ";
-				int number = CheckCin(true);
-				cout << endl << "Введите степень, в которую будем возводить число: ";
-				int power = CheckCin(true);
-				cout << endl << "Результат = " << GetPower(number, power) << endl;
-				break;
-			}
-			case 6: GameRandomNumbers(); break;
-			case 7:
-			{
-				int a = 1;
-				int b = 2;
-				SummNumbers(a, b);
-				double x = 3.0;
-				double y = 4.0;
-				SummNumbers(x, y);
-				SummNumbers(a, y);
-				float m = 5.0;
-				float n = 6.0;
-				SummNumbers(m, n);
-				break;
-			}
-			case 8:
-			{
-				cout << "Введите количество строк в матрице А: ";
-				int sizex1 = CheckCin(true);
-				cout << "Введите количество столбцов в матрице А: ";
-				int sizey1 = CheckCin(true);
-				cout << "Введите количество строк в матрице В: ";
-				int sizex2 = CheckCin(true);
-				cout << "Введите количество столбцов в матрице В: ";
-				int sizey2 = CheckCin(true);
+				case 0:
+					key = false;
+					cout << endl << "Выход из программы." << endl;
+					system("pause");
+					break;
+				case 1: PrintHelloWorld(); break;
+				case 2:
+				{
+					char operationKey = CheckMathSymbol();
+					cout << endl << MakeCalculation(10, 10, operationKey);
+					break;
+				}
+				case 3: TestGetRoots(); break;
+				case 4:
+					cout << "Глобальная переменная: " << globalVariable << endl;
+					GlobalPlusTwo();
+					cout << "Глобальная переменная: " << globalVariable << endl;
+					GlobalMultiplyThree();
+					cout << "Глобальная переменная: " << globalVariable << endl;
+					GlobalEqualsOne();
+					cout << "Глобальная переменная: " << globalVariable << endl;
+					globalVariable = 5;
+					cout << "Глобальная переменная: " << globalVariable << endl;
+					break;
+				case 5:
+				{
+					cout << endl << "Введите число: ";
+					int number = CheckCin(true);
+					cout << endl << "Введите степень, в которую будем возводить число: ";
+					int power = CheckCin(true);
+					cout << endl << "Результат = " << GetPower(number, power) << endl;
+					break;
+				}
+				case 6: 
+					GameRandomNumbers(); 
+					break;
+				case 7:
+				{
+					int a = 1;
+					int b = 2;
+					SummNumbers(a, b);
+					double x = 3.0;
+					double y = 4.0;
+					SummNumbers(x, y);
+					SummNumbers(a, y);
+					float m = 5.0;
+					float n = 6.0;
+					SummNumbers(m, n);
+					break;
+				}
+				case 8:
+				{
+					cout << "Введите количество строк в матрице А: ";
+					int sizex1 = CheckCin(true);
+					cout << "Введите количество столбцов в матрице А: ";
+					int sizey1 = CheckCin(true);
+					cout << "Введите количество строк в матрице В: ";
+					int sizex2 = CheckCin(true);
+					cout << "Введите количество столбцов в матрице В: ";
+					int sizey2 = CheckCin(true);
 
-				if (sizey1 == sizex2)
-				{
-					int sizexResult = sizex1;
-					int sizeyResult = sizey2;
-					//TODO: Ниже много дублирования - можно сократить.
-					//TODO: Для for всегда надо расставлять скобки!
-					//сделано!
-					int** matrixA = new int*[sizex1];
-					int** matrixResult = new int*[sizexResult];
-					int** matrixB = new int*[sizex2];
+					if (sizey1 == sizex2)
+					{
+						int sizexResult = sizex1;
+						int sizeyResult = sizey2;
+						//TODO: Ниже много дублирования - можно сократить.
+						//TODO: Для for всегда надо расставлять скобки!
+						//сделано!
+						int** matrixA = new int*[sizex1];
+						int** matrixResult = new int*[sizexResult];
+						int** matrixB = new int*[sizex2];
 
-					MakeMatrix(sizex1, sizey1, matrixA);
-					MakeMatrix(sizex2, sizey2, matrixB);
-					MakeMatrix(sizexResult, sizeyResult, matrixResult);
-					FillMatrix(sizex1, sizey1, matrixA);
-					FillMatrix(sizex2, sizey2, matrixB);
-					MultiplyMatrices(matrixA, sizex1, sizey1, matrixB, sizex2, sizey2, matrixResult);
-					cout << "Матрица А:" << endl;
-					PrintMatrix(matrixA, sizey1, sizex1);
-					cout << "-----------------------------------" << endl;
-					cout << "Матрица В:" << endl;
-					PrintMatrix(matrixB, sizey2, sizex2);
-					cout << "-----------------------------------" << endl;
-					cout << "Результат:" << endl;
-					PrintMatrix(matrixResult, sizeyResult, sizexResult);
-					DeleteMatrix(sizex1, matrixA);
-					DeleteMatrix(sizex2, matrixB);
-					DeleteMatrix(sizexResult, matrixResult);
-					delete[] matrixA, matrixB, matrixResult;
+						MakeMatrix(sizex1, sizey1, matrixA);
+						MakeMatrix(sizex2, sizey2, matrixB);
+						MakeMatrix(sizexResult, sizeyResult, matrixResult);
+						FillMatrix(sizex1, sizey1, matrixA);
+						FillMatrix(sizex2, sizey2, matrixB);
+						MultiplyMatrices(matrixA, sizex1, sizey1, matrixB, sizex2, sizey2, matrixResult);
+						cout << "Матрица А:" << endl;
+						PrintMatrix(matrixA, sizey1, sizex1);
+						cout << "-----------------------------------" << endl;
+						cout << "Матрица В:" << endl;
+						PrintMatrix(matrixB, sizey2, sizex2);
+						cout << "-----------------------------------" << endl;
+						cout << "Результат:" << endl;
+						PrintMatrix(matrixResult, sizeyResult, sizexResult);
+						DeleteMatrix(sizex1, matrixA);
+						DeleteMatrix(sizex2, matrixB);
+						DeleteMatrix(sizexResult, matrixResult);
+						delete[] matrixA, matrixB, matrixResult;
+					}
+					else
+					{
+						cout << endl << "Матрицу А нельзя умножить на матрицу В" << endl;
+					}
+					break;
 				}
-				else
+				case 9:
 				{
-					cout << endl << "Матрицу А нельзя умножить на матрицу В" << endl;
-				}
-				break;
-			}
-			case 9:
-			{
-				const int arraySize = 5;
-				int integerArray[arraySize];
+					const int arraySize = 5;
+					int integerArray[arraySize];
 
-				cout << "Массив до сортировки:" << endl;
-				for (int i = 0; i < arraySize; i++)
-				{
-					integerArray[i] = rand() % 100;
-					cout << integerArray[i] << " ";
+					cout << "Массив до сортировки:" << endl;
+					for (int i = 0; i < arraySize; i++)
+					{
+						integerArray[i] = rand() % 100;
+						cout << integerArray[i] << " ";
+					}
+					//InsertionSort1(integerArray);
+					//InsertionSort2(integerArray, arraySize);
+					InsertionSort3(integerArray, arraySize);
+					cout << endl << "Массив после сортировки" << endl;
+					for (int i = 0; i < arraySize; i++)
+					{
+						cout << integerArray[i] << " ";
+					}
+					cout << endl;
+					break;
 				}
-				//InsertionSort1(integerArray);
-				//InsertionSort2(integerArray, arraySize);
-				InsertionSort3(integerArray, arraySize);
-				cout << endl << "Массив после сортировки" << endl;
-				for (int i = 0; i < arraySize; i++)
-				{
-					cout << integerArray[i] << " ";
-				}
-				cout << endl;
-				break;
-			}
-			default: break;
+				default: break;
 			}
 			if (n >= 1)//TODO: Для if-else всегда надо расставлять скобки!
 			{

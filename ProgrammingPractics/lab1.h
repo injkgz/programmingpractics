@@ -1,4 +1,5 @@
-﻿#include "CheckCin.h"
+﻿#pragma once
+#include "CheckCin.h"
 
 
 void FirstChooseMenu();
