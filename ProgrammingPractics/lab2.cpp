@@ -14,9 +14,6 @@ namespace Laboratornaya2
 	{
 		switch (operationKey)
 		{
-			//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
-			//TODO: и приведите свой код в соответстие со стандартом
-			//сделано!
 			case '+':
 				return value1 + value2;
 				break;
@@ -148,8 +145,6 @@ namespace Laboratornaya2
 		int(*getRoots2Pointer)(int, int, int, double &, double &) = NULL;
 		getRoots2Pointer = &GetRoots2;
 
-		//TODO: Много дублирования кода, упростите.
-		//сделано!
 		PrintRoots(1, 3, 2, root1Pointer, root2Pointer, getRoots1Pointer);
 		PrintRoots(1, 4, 0, root1Pointer, root2Pointer, getRoots1Pointer);
 		PrintRoots(0, 1, 2, root1Pointer, root2Pointer, getRoots1Pointer);
@@ -160,9 +155,10 @@ namespace Laboratornaya2
 
 	//Проверка и вывод корней из функции GetRoots
 	void PrintRoots(int a, int b, int c, double *x1, double * x2, int(*functionPointer)(int, int, int, double *, double *))
-	{//TODO: Для if-else всегда надо расставлять скобки!
-	 //сделано
+	{
 		int value3 = (*functionPointer)(a, b, c, x1, x2);
+		//TODO: Код ниже можно было не дублировать.
+		//TODO: Правильнее использовать switch-case
 		if (value3 == 1)
 		{
 			cout << "Всего 1 корень = " << *(x1) << endl;
@@ -170,17 +166,17 @@ namespace Laboratornaya2
 		else if (value3 == 2)
 		{
 			cout << "Найдено 2 корня: " << *(x1) << " и " << *(x2) << endl;
-		}
-
+		}//TODO: Зачем пустая строка?
+		
 		else
 		{
 			cout << "Корней не найдено!" << endl;
 		}
 	}
 	void PrintRoots(int a, int b, int c, double &x1, double &x2, int(*functionPointer)(int, int, int, double &, double &))
-	{//TODO: Для if-else всегда надо расставлять скобки!
-	 //сделано
+	{
 		int value3 = (*functionPointer)(a, b, c, x1, x2);
+		//TODO: Правильнее использовать switch-case
 		if (value3 == 1)
 		{
 			cout << "Всего 1 корень = " << x1 << endl;
@@ -188,7 +184,7 @@ namespace Laboratornaya2
 		else if (value3 == 2)
 		{
 			cout << "Найдено 2 корня: " << x1 << " и " << x2 << endl;
-		}
+		}//TODO: Зачем пустая строка?
 
 		else
 		{
@@ -212,8 +208,7 @@ namespace Laboratornaya2
 
 	//Вычисление любой степени любого числа(в пределах int)
 	int GetPower(double base, int power)
-	{//TODO: Для if-else всегда надо расставлять скобки!
-	 //сделано
+	{
 		if (power == 0)
 		{
 			return 1;
@@ -274,17 +269,13 @@ namespace Laboratornaya2
 		cout << endl << "Сумма int'а и double'a = " << value1 + value2;
 	}
 
-	//TODO: Используемые ниже сортировки можно упростить, убрав дублирование. 
 	//Сортировка массива. Разные реализации передачи массива в функцию
-	//сделано
 	void InsertionSort1(int integerArray[5])
-	{//TODO: Для for всегда надо расставлять скобки! 
-	 //сделано
+	{
 		InsertionSort2(integerArray, 5);
 	}
 	void InsertionSort2(int integerArray[], int arraySize)
-	{//TODO: Для for всегда надо расставлять скобки! 
-	 //сделано
+	{
 		for (int i = 1; i < arraySize; i++)
 		{
 			for (int j = i; j > 0 && integerArray[j - 1] > integerArray[j]; j--)
@@ -298,6 +289,7 @@ namespace Laboratornaya2
 		InsertionSort2(arrayPointer, arraySize);
 	}
 
+	//TODO: Много аргументов - лучше переносить.
 	//Умножение матриц
 	void MultiplyMatrices(int** matrixA, int sizex1, int sizey1, int** matrixB, int sizex2, int sizey2, int** matrixResult)
 	{
@@ -377,6 +369,7 @@ namespace Laboratornaya2
 			{
 				//TODO: Поправьте форматирование в соответствии с RSDN.
 				//сделано
+				//TODO: Где-то стоят скобки, где-то нет, сделайте единообразно.
 				case 0:
 					key = false;
 					cout << endl << "Выход из программы." << endl;
@@ -442,9 +435,7 @@ namespace Laboratornaya2
 					{
 						int sizexResult = sizex1;
 						int sizeyResult = sizey2;
-						//TODO: Ниже много дублирования - можно сократить.
-						//TODO: Для for всегда надо расставлять скобки!
-						//сделано!
+						
 						int** matrixA = new int*[sizex1];
 						int** matrixResult = new int*[sizexResult];
 						int** matrixB = new int*[sizex2];
@@ -498,7 +489,7 @@ namespace Laboratornaya2
 				}
 				default: break;
 			}
-			if (n >= 1)//TODO: Для if-else всегда надо расставлять скобки!
+			if (n >= 1)
 			{
 				GetPause();
 			}

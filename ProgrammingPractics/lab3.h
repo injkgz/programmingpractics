@@ -3,6 +3,7 @@
 
 namespace Lab3
 {
+	//TODO: Все сущности (структуры, перечисления, классы) должны быть в отдельных файлах!
 	enum Sex
 	{
 		Female, Male
@@ -14,7 +15,7 @@ namespace Lab3
 		char Name[20];
 		Sex Sex;
 	};
-
+	
 	enum MenuEnum
 	{
 		GetLengthEnum = 1, ConcatenateEnum, GetSubstringEnum,

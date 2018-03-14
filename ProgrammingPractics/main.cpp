@@ -17,8 +17,6 @@ int main()
 		n = CheckCin(true);
 		switch (n)
 		{
-			//TODO: Поправьте форматирование по RSDN.
-			//сделано
 			case 0:
 				key = false;
 				cout << endl << "Выход из программы." << endl;
@@ -35,7 +33,7 @@ int main()
 				break;
 			default: break;
 		}
-		if (n > 1)//TODO: Для if-else всегда надо расставлять скобки! //Сделано!
+		if (n > 1)
 		{
 			GetPause();
 		}

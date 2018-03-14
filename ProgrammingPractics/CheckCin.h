@@ -16,6 +16,7 @@ inline double CheckCin(bool isWhole)
 //TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
 //TODO: и приведите свой код в соответстие со стандартом
 	//сделано
+	//TODO: Нет. Всё ещё непонятное именование переменных. Есть ошибки форматирования по RSDN.
 	do
 	{
 		cin >> n;

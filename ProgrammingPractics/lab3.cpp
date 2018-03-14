@@ -1,7 +1,7 @@
 ﻿#include "lab3.h"
 
 namespace Lab3
-{
+{//TODO: Зачем глобальная переменная? Убрать!
 	int j = 0;
 
 	//Функция, возвращающая длину char
@@ -99,6 +99,7 @@ namespace Lab3
 		return -1;
 	}
 
+	//TODO: Плохое именование метода - должен быть глагол.
 	//Функция, превращающая все символы в верхний регистр
 	char * Uppercase(char * string)
 	{
@@ -126,7 +127,7 @@ namespace Lab3
 			return nullptr;
 		}
 	}
-
+//TODO: Плохое именование метода - должен быть глагол.
 	//Функция преобразования всех символов в нижний регистр.
 	char * Lowercase(char * string)
 	{
@@ -211,7 +212,7 @@ namespace Lab3
 			}
 		}
 	}
-
+	//TODO: В методах "Find*" много дублирования. Исправьте!
 	//Функции поиска и выделения различных частей путей файла
 	bool FindDot(char* string1, char* string2, int i, int& pointer)
 	{
@@ -237,7 +238,7 @@ namespace Lab3
 	}
 
 	bool FindSlash(char* string1, char* string2, int i, int& pointer)
-	{
+	{//TODO: Использование прямых ASCII символов плохо читеается.
 		while ((string1[i] != (char)(92)) && (i))
 		{
 			i--;
@@ -368,7 +369,7 @@ namespace Lab3
 		} while (sex != 0 && sex != 1);
 
 		switch (sex)
-		{
+		{//TODO: Форматирование по RSDN!
 		case Female:
 			newPerson.Sex = Female;
 			break;
