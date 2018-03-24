@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "CheckCin.h"
-#include "MenuEnum.h"
-#include "SexEnum.h"
-# include "structPerson.h"
+#include "Menu.h"
+#include "Sex.h"
+# include "Person.h"
 namespace Lab3
 {
 	//TODO: Все сущности (структуры, перечисления, классы) должны быть в отдельных файлах!
@@ -16,8 +16,8 @@ namespace Lab3
 	int FindSubstring(char* string, char* substring);
 	char * TransformToUppercase(char * string);
 	char * TransformToLowercase(char * string);
-	char* ReplaceTabsOnSpaces(char* string, int countSpace);
-	char* ReplaceSpacesOnTabs(char* string, int countSpace);
+	char* ReplaceTabsOnSpaces(char* string);
+	char* ReplaceSpacesOnTabs(char* string);
 	Person ReadPerson();
 	void PrintPerson(Person& person);
 	void ThirdChooseMenu();

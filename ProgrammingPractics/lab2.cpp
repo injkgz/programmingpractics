@@ -14,21 +14,11 @@ namespace Laboratornaya2
 	{
 		switch (operationKey)
 		{
-			case '+':
-				return value1 + value2;
-				break;
-			case '-':
-				return value1 - value2;
-				break;
-			case '*':
-				return value1 * value2;
-				break;
-			case '/':
-				return value1 / value2;
-				break;
-			case '%':
-				return value1 % value2;
-				break;
+			case '+': return value1 + value2;
+			case '-': return value1 - value2;
+			case '*': return value1 * value2;
+			case '/': return value1 / value2;
+			case '%': return value1 % value2;
 			default: break;
 		}
 	}
@@ -38,11 +28,12 @@ namespace Laboratornaya2
 	{
 		char key;
 
-		cout << "Enter mathematic operation (+, -, *, /, %): ";
+		cout << "Есть два значения: 10 и 10" << endl;
+		cout << "Выберите арифметическую операцию (+, -, *, /, %): ";
 		cin >> key;
 		while ((key != '+') && (key != '-') && (key != '*') && (key != '/') && (key != '%'))
 		{
-			cout << endl << "INCORRECT SYMBOL!!!" << endl
+			cout << endl << "Некорректный символ!!!" << endl
 				<< "Please, enter(+, -, *, / , %): ";
 			cin >> key;
 		}
@@ -50,7 +41,7 @@ namespace Laboratornaya2
 	}
 
 	//Вычисляет корни квадратного уравнения(передача переменной по указателю)
-	int GetRoots1(int a, int b, int c, double *x1, double *x2)
+	int GetRootsPointer(int a, int b, int c, double *x1, double *x2)
 	{
 		if (a == 0)
 		{
@@ -93,7 +84,7 @@ namespace Laboratornaya2
 	}
 
 	//Вычисляет корни квадратного уравнения(передача переменной по ссылке)
-	int GetRoots2(int a, int b, int c, double &x1, double &x2)
+	int GetRootsReference(int a, int b, int c, double &x1, double &x2)
 	{
 		if (a == 0)
 		{
@@ -132,7 +123,6 @@ namespace Laboratornaya2
 
 	}
 
-
 	//Тест функций GetRoots
 	void TestGetRoots()
 	{
@@ -141,43 +131,43 @@ namespace Laboratornaya2
 		double* root1Pointer = &root1;
 		double* root2Pointer = &root2;
 		int(*getRoots1Pointer)(int, int, int, double *, double *) = NULL;
-		getRoots1Pointer = &GetRoots1;
+		getRoots1Pointer = &GetRootsPointer;
 		int(*getRoots2Pointer)(int, int, int, double &, double &) = NULL;
-		getRoots2Pointer = &GetRoots2;
+		getRoots2Pointer = &GetRootsReference;
 
-		PrintRoots(1, 3, 2, root1Pointer, root2Pointer, getRoots1Pointer);
-		PrintRoots(1, 4, 0, root1Pointer, root2Pointer, getRoots1Pointer);
-		PrintRoots(0, 1, 2, root1Pointer, root2Pointer, getRoots1Pointer);
-		PrintRoots(0, 0, 3, root1, root2, getRoots2Pointer);
-		PrintRoots(0, 1, 0, root1, root2, getRoots2Pointer);
-		PrintRoots(4, 1, 4, root1, root2, getRoots2Pointer);
+		PrintRootsPointer(1, 3, 2, root1Pointer, root2Pointer, getRoots1Pointer);
+		PrintRootsPointer(1, 4, 0, root1Pointer, root2Pointer, getRoots1Pointer);
+		PrintRootsPointer(0, 1, 2, root1Pointer, root2Pointer, getRoots1Pointer);
+		PrintRootsReference(0, 0, 3, root1, root2, getRoots2Pointer);
+		PrintRootsReference(0, 1, 0, root1, root2, getRoots2Pointer);
+		PrintRootsReference(4, 1, 4, root1, root2, getRoots2Pointer);
 	}
-
-	//Проверка и вывод корней из функции GetRoots
-	void PrintRoots(int a, int b, int c, double *x1, double * x2, int(*functionPointer)(int, int, int, double *, double *))
+	//Функция вывода корней
+	void PrintRoots(int value3, int x1, int x2) 
+	{
+		switch (value3)
+		{
+			case 1: cout << "Всего 1 корень = " << x1 << endl; break;
+			case 2: cout << "Найдено 2 корня: " << x1 << " и " << x2 << endl; break;
+			default: cout << "Корней не найдено!" << endl; break;
+		}
+	}
+	//Проверка и вывод корней из функции GetRoots(различные варианты передачи параметров)
+	void PrintRootsPointer(int a, int b, int c, double *x1, double * x2, 
+		int(*functionPointer)(int, int, int, double *, double *))
 	{
 		int value3 = (*functionPointer)(a, b, c, x1, x2);
+		int x1Pointer = (*x1);
+		int x2Pointer = (*x2);
 		//TODO: Код ниже можно было не дублировать.
-		//TODO: Правильнее использовать switch-case
 		//сделано
-		switch (value3)
-		{
-		case 1: cout << "Всего 1 корень = " << *(x1) << endl; break;
-		case 2: cout << "Найдено 2 корня: " << *(x1) << " и " << *(x2) << endl; break;
-		default: cout << "Корней не найдено!" << endl; break;
-		}
+		PrintRoots(value3, x1Pointer, x2Pointer);
 	}
-	void PrintRoots(int a, int b, int c, double &x1, double &x2, int(*functionPointer)(int, int, int, double &, double &))
+	void PrintRootsReference(int a, int b, int c, double &x1, double &x2, 
+		int(*functionPointer)(int, int, int, double &, double &))
 	{
 		int value3 = (*functionPointer)(a, b, c, x1, x2);
-		//TODO: Правильнее использовать switch-case
-		//сделано
-		switch (value3)
-		{
-		case 1: cout << "Всего 1 корень = " << x1 << endl; break;
-		case 2: cout << "Найдено 2 корня: " << x1 << " и " << x2 << endl; break;
-		default: cout << "Корней не найдено!" << endl; break;
-		}
+		PrintRoots(value3, x1, x2);
 	}
 
 	//Функции работы с глобальной переменной
@@ -242,27 +232,27 @@ namespace Laboratornaya2
 	//Рассчитать сумму двух целочисленных переменных
 	void SummNumbers(int value1, int value2)
 	{
-		cout << endl << "Сумма int-ов = " << value1 + value2;
+		cout << endl << "Сумма int-ов: " << value1 << " + " << value2 << " = " << value1 + value2;
 	}
 
 	//Рассчитать сумму двух целочисленных переменных
 	void SummNumbers(double value1, double value2)
 	{
-		cout << endl << "Сумма double-ов = " << value1 + value2;
+		cout << endl << "Сумма double-ов: " << value1 << " + " << value2 << " = " << value1 + value2;
 	}
 
 	//Рассчитать сумму двух целочисленных переменных
 	void SummNumbers(int value1, double value2)
 	{
-		cout << endl << "Сумма int'а и double'a = " << value1 + value2;
+		cout << endl << "Сумма int'а и double'a: " << value1 << " + " << value2 << " = " << value1 + value2;
 	}
 
 	//Сортировка массива. Разные реализации передачи массива в функцию
-	void InsertionSort1(int integerArray[5])
+	void InsertionSortValue(int integerArray[5])
 	{
-		InsertionSort2(integerArray, 5);
+		InsertionSortReference(integerArray, 5);
 	}
-	void InsertionSort2(int integerArray[], int arraySize)
+	void InsertionSortReference(int integerArray[], int arraySize)
 	{
 		for (int i = 1; i < arraySize; i++)
 		{
@@ -272,14 +262,11 @@ namespace Laboratornaya2
 			}
 		}
 	}
-	void InsertionSort3(int* arrayPointer, int arraySize)
+	void InsertionSortPointer(int* arrayPointer, int arraySize)
 	{
-		InsertionSort2(arrayPointer, arraySize);
+		InsertionSortReference(arrayPointer, arraySize);
 	}
 
-	//TODO: Много аргументов - лучше переносить.
-	//сделано
-	//Умножение матриц
 	void MultiplyMatrices(int** matrixA, int sizex1, int sizey1, 
 	int** matrixB, int sizex2, int sizey2, int** matrixResult)
 	{
@@ -350,8 +337,17 @@ namespace Laboratornaya2
 		{
 			system("cls");
 			cout << endl
-				<< "Введите 0 для выхода в меню выбора лабораторной или выберите задание от 2 до 9"
+				<< "Введите 0 для выхода в меню выбора лабораторной или выберите задание от 1 до 9"
 				<< endl
+				<< "1. PrintHelloWorld()" << endl
+				<< "2. MakeCalculation()" << endl
+				<< "3. Вычисление корней уравнения()" << endl
+				<< "4. Работа с глобальной переменной()" << endl
+				<< "5. Возведение числа в степень()" << endl
+				<< "6. Игра угадай число!" << endl
+				<< "7. Сложение int и double()" << endl
+				<< "8. Перемножение произвольных матриц()" << endl
+				<< "9. Сортировка массива()" << endl
 				<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 				<< endl;
 			choosedFunction = CheckCin(true);
@@ -369,7 +365,11 @@ namespace Laboratornaya2
 					system("pause");
 					break;
 				}
-				case 1: { PrintHelloWorld(); break; }
+				case 1: 
+				{ 
+					PrintHelloWorld(); 
+					break; 
+				}
 				case 2:
 				{
 					char operationKey = CheckMathSymbol();
@@ -377,7 +377,11 @@ namespace Laboratornaya2
 					cout << endl << MakeCalculation(10, 10, operationKey);
 					break;
 				}
-				case 3:	{ TestGetRoots(); break; }
+				case 3:	
+				{ 
+					TestGetRoots(); 
+					break; 
+				}
 				case 4:
 				{
 					cout << "Глобальная переменная: " << globalVariable << endl;
@@ -402,7 +406,11 @@ namespace Laboratornaya2
 					cout << endl << "Результат = " << GetPower(number, power) << endl;
 					break;
 				}
-				case 6: { GameRandomNumbers(); break; }
+				case 6: 
+				{ 
+					GameRandomNumbers(); 
+					break; 
+				}
 				case 7:
 				{
 					int a = 1;
@@ -475,9 +483,9 @@ namespace Laboratornaya2
 						integerArray[i] = rand() % 100;
 						cout << integerArray[i] << " ";
 					}
-					//InsertionSort1(integerArray);
-					//InsertionSort2(integerArray, arraySize);
-					InsertionSort3(integerArray, arraySize);
+					//InsertionSortValue(integerArray);
+					//InsertionSortReference(integerArray, arraySize);
+					InsertionSortPointer(integerArray, arraySize);
 					cout << endl << "Массив после сортировки" << endl;
 
 					for (int i = 0; i < arraySize; i++)

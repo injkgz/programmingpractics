@@ -1,8 +1,7 @@
 ﻿#include "lab3.h"
 
 namespace Lab3
-{//TODO: Зачем глобальная переменная? Убрать!
-	//сделано
+{
 	//Функция, возвращающая длину char
 	int GetLength(char* string)
 	{
@@ -104,8 +103,6 @@ namespace Lab3
 		return -1;
 	}
 
-	//TODO: Плохое именование метода - должен быть глагол.
-	//сделано
 	//Функция, превращающая все символы в верхний регистр
 	char * TransformToUppercase(char * string)
 	{
@@ -133,8 +130,7 @@ namespace Lab3
 			return nullptr;
 		}
 	}
-//TODO: Плохое именование метода - должен быть глагол.
-	//сделано
+
 	//Функция преобразования всех символов в нижний регистр.
 	char * TransformToLowercase(char * string)
 	{
@@ -219,14 +215,14 @@ namespace Lab3
 			}
 		}
 	}
-	//TODO: В методах "Find*" много дублирования. Исправьте!
-	//сделано
+
 	//Функция поиска символа в строке и возвращения части строки после символа.
 	//whichsymbol переменная отражающая, какой символ мы ищем в строке. 
 	// "." - 0, "\\" - 1, ":" - 2.
 	bool FindSymbol(char* string1, char* string2, int i, int& pointer, int whichsymbol)
 	{
 		char* symbols = (char*)".\\:";
+
 		while ((string1[i] != symbols[whichsymbol])&& (i))
 		{
 			i--;
@@ -235,77 +231,101 @@ namespace Lab3
 				return false;
 			}
 		}
+
 		pointer = i;
 		int j = i;
 		int k = 0;
+
 		while (string1[j] != '\0')
 		{
 			string2[k] = string1[j];
 			j++;
 			k++;
 		}
+
 		string2[k] = '\0';
 		return true;
 	}
 
 	//Функция замены табуляции на Space
-	char* ReplaceTabsOnSpaces(char* string, int countSpace)
+	char* ReplaceTabsOnSpaces(char* string)
 	{
 		char* newString = new char[GetLength(string)];
-		int endSymbol = 0;
-		int currentSymbolNewString = 0;
+		int j = 0;
+		//нумерация элементов начинается с 0, так выходит, что 4-ый элемент имеет позицию счётчика j=3
+		//а пятый соответственно 4, для исправления данной проблемы вводится дополнительная переменная tempj
+		int tempj = 0;
 
-		for (int i = 0; i < GetLength(string); i++)
+		for (int i = 0; i < GetLength(string); j++)
 		{
 			if (string[i] == '\t')
 			{
-				for (int i = 0; i < countSpace; i++)
+				tempj = j + 1;
+				if (tempj % 4 != 0)
 				{
-					newString[currentSymbolNewString++] = ':';
-					endSymbol++;
+					newString[j] = ':';
+				}
+				else
+				{
+					newString[j] = ':';
+					i++;
 				}
 			}
 			else
 			{
-				newString[currentSymbolNewString] = string[i];
-				currentSymbolNewString++;
-				endSymbol++;
+				newString[j] = string[i];
+				i++;
 			}
 		}
-		newString[endSymbol] = '\0';
+		newString[j++] = '\0';
 		return newString;
 	}
 
 	//Функция замены Space на табуляцию
-	char* ReplaceSpacesOnTabs(char* string, int countSpace)
+	char* ReplaceSpacesOnTabs(char* string)
 	{
 		char* newString = new char[GetLength(string)];
-		int endSymbol = 0;
-		int currentSymbolNewString = 0;
+		int j = 0;
+		int twoDotsPointer = 0;
+		bool isTabulation = false;
 
 		for (int i = 0; i < GetLength(string); i++)
 		{
-			currentSymbolNewString = i;
-			bool isTab = true;
-			for (int i = 0; i < countSpace; i++)
+			if (string[i] == ':')
 			{
-				if (string[currentSymbolNewString++] != ':')
-				{
-					isTab = false;
-				}
-			}
+				twoDotsPointer = i;
 
-			if (isTab)
-			{
-				newString[i] = '\t';
+				while (string[twoDotsPointer] == ':')
+				{
+					if ((twoDotsPointer + 1) % 4 == 0)
+					{
+						isTabulation = true;
+						break;
+					}
+					twoDotsPointer++;
+				}
+
+				if (isTabulation)
+				{
+					i = twoDotsPointer;
+					newString[j] = '\t';
+					isTabulation = false;
+					j++;
+				}
+				else
+				{
+					newString[j] = string[i];
+					j++;
+				}
 			}
 			else
 			{
-				newString[i] = string[i];
+				newString[j] = string[i];
+				j++;
 			}
-			endSymbol++;
 		}
-		newString[endSymbol] = '\0';
+		
+		newString[j++] = '\0';
 		return newString;
 	}
 
@@ -328,10 +348,10 @@ namespace Lab3
 		while (sex != 0 && sex != 1);
 
 		switch (sex)
-		{//TODO: Форматирование по RSDN! //сделано
-		case Female: newPerson.Sex = Female; break;
-		case Male: newPerson.Sex = Male; break;
-		default: break;
+		{
+			case Female: newPerson.Sex = Female; break;
+			case Male: newPerson.Sex = Male; break;
+			default: break;
 		}
 		return newPerson;
 	}
@@ -373,19 +393,21 @@ namespace Lab3
 			switch (choosedFunction)
 			{
 				case 0:
+				{
 					key = false;
 					cout << endl << "Выход из программы." << endl;
 					system("pause");
 					break;
-				case GetLengthEnum:
-					{
+				}
+				case GetLengthItem:
+				{
 					char* string10 = (char*)"123456789";
 
 					cout << GetLength(string10) << endl;
 					break;
-					}
-				case ConcatenateEnum:
-					{
+				}
+				case ConcatenateItem:
+				{
 					char* massMerge1 = (char*)"abc123";
 					char* massMerge2 = (char*)"123abc";
 					char* mergedString1 = Concatenate(massMerge1, massMerge2);
@@ -396,9 +418,9 @@ namespace Lab3
 					}
 					cout << endl;
 					break;
-					}
-				case GetSubstringEnum:
-					{
+				}
+				case GetSubstringItem:
+				{
 					char* string2 = (char*)"123abc\0";
 					char* newSubString = GetSubstring(string2, 3, 3);
 
@@ -406,63 +428,67 @@ namespace Lab3
 					{
 						cout << newSubString[i] << " ";
 					}
+
 					cout << endl;
 					break;
-					}
-				case FindSubstringEnum:
-					{
+				}
+				case FindSubstringItem:
+				{
 					char* string3 = (char*)"Lorem ipsum aset amet ";
 					char* substring10 = (char*)" ipsum a";
 
 					cout << FindSubstring(string3, substring10);
 					break;
-					}
-				case TransformToUppercaseEnum:
-					{
+				}
+				case TransformToUppercaseItem:
+				{
 					char* string4 = (char*)"Different cases in That string, also 1 and 2 numbers!.!#@48";
 
 					cout << TransformToUppercase(string4) << endl;
 					break;
-					}
-				case TransformToLowercaseEnum:
-					{
+				}
+				case TransformToLowercaseItem:
+				{
 					char* string5 = (char*)"Different cases in That string, also 1 and 2 numbers!.!#@48";
 
 					cout << TransformToLowercase(string5) << endl;
 					break;
-					}
-				case SplitFilenameEnum:
-					{
-					char* string6 = (char*)"d:\\folder\\subfolder\\file.exe";
+				}
+				case SplitFilenameItem:
+				{
+					char* string6 = (char*)"d:\\folder\\subfolder\\file.pdf";
 					char extension[50];
 					char path[50];
 					char name[50];
 
 					SplitFilename(string6, path, name, extension);
 					break; 
-					}
-				case ReplaceTabsOnSpacesEnum:
-					{
+				}
+				case ReplaceTabsOnSpacesItem:
+				{
 					char* string7 = (char*)"Cake\tis\ta lie!";
 
-					cout << ReplaceTabsOnSpaces(string7,4) << endl;
+					cout << ReplaceTabsOnSpaces(string7) << endl;
 					break;
-					}
-				case ReplaceSpacesOnTabsEnum:
-					{
-					char* string8 = (char*)"Cake::::is::a:lie!";
+				}
+				case ReplaceSpacesOnTabsItem:
+				{
+					char* string8 = (char*)"Cake::::is::::a:lie!";
 
-					cout << ReplaceSpacesOnTabs(string8,4) << endl;
+					cout << ReplaceSpacesOnTabs(string8) << endl;
 					break;
-					}
-				case PersonEnum:
-					{
+				}
+				case PersonItem:
+				{
 					Person person1 = ReadPerson();
 
 					PrintPerson(person1);
 					break;
-					}
-				default: { break; }
+				}
+				default: 
+				{ 
+					break; 
+				}
 			}
 			if (choosedFunction >= 1)
 			{
@@ -471,12 +497,3 @@ namespace Lab3
 		}
 	}
 }
-
-
-
-
-
-
-
-
-

@@ -1,5 +1,5 @@
-#pragma once
-#include "SexEnum.h"
+﻿#pragma once
+#include "Sex.h"
 
 struct Person
 {

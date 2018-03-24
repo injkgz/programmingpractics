@@ -13,18 +13,22 @@ inline double CheckCin(bool isWhole)
 {
 	string stringForCheck;
 	double correctValue;
-//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
-//TODO: и приведите свой код в соответстие со стандартом
-	//сделано
-	//TODO: Нет. Всё ещё непонятное именование переменных. Есть ошибки форматирования по RSDN.
 	do
 	{
 		cin >> stringForCheck;
+
 		if (stringForCheck == "0")
-		{ 
-			return 0; 
+		{
+			return 0;
 		}
+
 		correctValue = atof(stringForCheck.c_str());
+
+		if (correctValue == 0)
+		{
+			cout << endl << "Вы ввели неверное значение! Попробуйте ещё раз!" << endl;
+		}
+
 		if (isWhole)
 		{
 			correctValue = nearbyint(correctValue);
