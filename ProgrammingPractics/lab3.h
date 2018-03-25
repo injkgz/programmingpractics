@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "CheckCin.h"
-#include "Menu.h"
+#include "MenuLab3.h"
 #include "Sex.h"
 # include "Person.h"
 namespace Lab3

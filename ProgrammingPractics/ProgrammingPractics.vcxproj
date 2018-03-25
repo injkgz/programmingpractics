@@ -84,6 +84,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <UseUnicodeForAssemblerListing>true</UseUnicodeForAssemblerListing>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -115,17 +116,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="lab1.cpp" />
+    <ClCompile Include="lab1.cpp">
+      <UseUnicodeForAssemblerListing Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</UseUnicodeForAssemblerListing>
+    </ClCompile>
     <ClCompile Include="lab2.cpp" />
     <ClCompile Include="lab3.cpp" />
+    <ClCompile Include="lab3UI.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="DoubleLinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheckCin.h" />
+    <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="lab1.h" />
     <ClInclude Include="lab2.h" />
     <ClInclude Include="lab3.h" />
-    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuLab3.h" />
+    <ClInclude Include="MenuLab4.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Sex.h" />
     <ClInclude Include="Person.h" />
   </ItemGroup>

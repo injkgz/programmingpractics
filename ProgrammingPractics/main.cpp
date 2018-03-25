@@ -31,6 +31,9 @@ int main()
 			case 3:
 				Lab3::ThirdChooseMenu();
 				break;
+			case 4:
+				StructChooseMenu();
+				break;
 			default: break;
 		}
 		if (choosedLab > 1)

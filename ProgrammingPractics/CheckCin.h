@@ -3,9 +3,15 @@
 #include <string>
 #include <ctime>
 #include <cmath>
+#include <Windows.h>
+#include <conio.h>
+#include <tchar.h>
+#include <string.h>
 #include "lab1.h"
 #include "lab2.h"
 #include "lab3.h"
+#include "DoubleLinkedList.h"
+
 
 using namespace std;
 // isWhole нужен для того, чтобы программист выбирал тип возвращаемого значения; 

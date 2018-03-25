@@ -1,54 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Исходные файлы">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="lab1">
+      <UniqueIdentifier>{b3c53cfd-5f7b-4836-90f8-4ca9471dc2f6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="lab2">
+      <UniqueIdentifier>{1de62ed7-0058-4bda-aaff-546c325a2e66}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы ресурсов">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="lab3">
+      <UniqueIdentifier>{0c710807-825e-40d8-aa81-4449fcd52a2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lab4">
+      <UniqueIdentifier>{e7703136-cf03-4074-9cbe-c90aee9e4634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{ea0b1ff8-80aa-4a23-8d08-c16601bd3307}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="lab1.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>lab1</Filter>
     </ClCompile>
     <ClCompile Include="lab2.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>lab2</Filter>
     </ClCompile>
     <ClCompile Include="lab3.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>lab3</Filter>
+    </ClCompile>
+    <ClCompile Include="lab3UI.cpp">
+      <Filter>lab3</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleLinkedList.cpp">
+      <Filter>lab4</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lab1.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="CheckCin.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>lab1</Filter>
     </ClInclude>
     <ClInclude Include="lab2.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>lab2</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckCin.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuLab3.h">
+      <Filter>lab3</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuLab4.h">
+      <Filter>lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleLinkedList.h">
+      <Filter>lab4</Filter>
     </ClInclude>
     <ClInclude Include="lab3.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Sex.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>lab3</Filter>
     </ClInclude>
     <ClInclude Include="Person.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Sex.h">
+      <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
