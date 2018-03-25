@@ -122,8 +122,10 @@
     <ClCompile Include="lab2.cpp" />
     <ClCompile Include="lab3.cpp" />
     <ClCompile Include="lab3UI.cpp" />
+    <ClCompile Include="MenuLab4.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
+    <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheckCin.h" />
@@ -136,6 +138,7 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="Sex.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

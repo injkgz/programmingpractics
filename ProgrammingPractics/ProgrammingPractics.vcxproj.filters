@@ -36,6 +36,12 @@
     <ClCompile Include="DoubleLinkedList.cpp">
       <Filter>lab4</Filter>
     </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>lab4</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuLab4.cpp">
+      <Filter>lab4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lab1.h">
@@ -53,9 +59,6 @@
     <ClInclude Include="MenuLab4.h">
       <Filter>lab4</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>common</Filter>
-    </ClInclude>
     <ClInclude Include="DoubleLinkedList.h">
       <Filter>lab4</Filter>
     </ClInclude>
@@ -67,6 +70,12 @@
     </ClInclude>
     <ClInclude Include="Sex.h">
       <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>lab3</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

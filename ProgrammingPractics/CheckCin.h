@@ -10,7 +10,11 @@
 #include "lab1.h"
 #include "lab2.h"
 #include "lab3.h"
+#include "MenuLab3.h"
 #include "DoubleLinkedList.h"
+#include "Person.h"
+#include "Sex.h"
+#include "MenuLab4.h"
 
 
 using namespace std;

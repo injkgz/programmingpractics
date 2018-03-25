@@ -1,8 +1,13 @@
 ﻿#pragma once
 
+Person* MakeRandomPerson();
+void StructChooseMenu();
+void ListMenu();
+void StackMenu();
+
 namespace lab4
 {
-	enum Menu
+	enum MenuList
 	{
 		Add = 1,
 		ShowList,
@@ -11,5 +16,15 @@ namespace lab4
 		InsertByIndex,
 		ClearList
 
+	};
+
+	enum MenuStack
+	{
+		PushStack = 1,
+		PopStack,
+		GetTopStack,
+		GetFullStack,
+		GetSizeStack,
+		IsEmptyStack
 	};
 }
