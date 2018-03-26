@@ -19,7 +19,9 @@ namespace Lab3
 		return length;
 	}
 
-	//Функция объединения двух char
+	//TODO: Неправильный комментарий, это не два char а два массива char
+	//сделано
+	//Функция объединения двух массивов char
 	char* Concatenate(char * string1, char * string2)
 	{
 		char* mergedString = new char [200];
@@ -42,8 +44,13 @@ namespace Lab3
 		}
 	}
 
+<<<<<<< HEAD
 
 	//Функция,  возвращающая подстроку, состоящую из charCount символов и начинающуюся с startIndex позиции в строке string
+=======
+	//TODO: Длинный комментрий
+	//Возвращающая из string CharCount символов с позиции startIndex
+>>>>>>> features/lab3
 	char* GetSubstring(char* string, int startIndex, int charCount)
 	{
 		int j = 0;
@@ -127,7 +134,15 @@ namespace Lab3
 			return newString;
 		}
 		else
-		{
+		{//TODO: Тут nullptr, ниже NULL
+			//1. Всё должно быть единообразно
+			//2. В чём отличие одного от второго?
+			//NULL - понятие "0" от языка С
+			//препроцессор видит как define 0
+			//nullptr(нулевой указатель) - понятие ОП 
+			//и является константой для компилятора
+			//правильнее использовать nullptr
+			//сделано: заменил на nullptr
 			return nullptr;
 		}
 	}
@@ -166,9 +181,9 @@ namespace Lab3
 		int stopPointer = 1000000;
 		if (GetLength(source) <= 1)
 		{
-			path = NULL;
-			name = NULL;
-			extension = NULL;
+			path = nullptr;
+			name = nullptr;
+			extension = nullptr;
 		}
 		else
 		{
@@ -365,5 +380,161 @@ namespace Lab3
 		cout << "Пол: " << person.Sex << endl;
 	}
 
+<<<<<<< HEAD
 	
+=======
+	//Меню выбора заданий
+	void ThirdChooseMenu()
+	{
+		bool key = true;
+		int choosedFunction;
+
+		while (key)
+		{
+			//TODO: Значительно упростили себе задачу, убрав из расчёта пользовательский ввод и сделав
+			//TODO: весь ввод автоматическим.
+			//?
+			system("cls");
+			cout << endl
+				<< "Введите 0 для выхода в меню выбора лабораторной или выберите задание от 1 до 10"
+				<< endl
+				<< "1. GetLength()" << endl
+				<< "2. Concatenate()" << endl
+				<< "3. GetSubstring()" << endl
+				<< "4. FindSubstring()" << endl
+				<< "5. Uppercase()" << endl
+				<< "6. Lowercase()" << endl
+				<< "7. SplitFilename()" << endl
+				<< "8. ReplaceTabsOnSpaces()" << endl
+				<< "9. ReplaceSpacesOnTabs()" << endl
+				<< "10. Work with struct Person" << endl
+				<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
+				<< endl;
+			choosedFunction = CheckCin(true);
+			cout << endl;
+			switch (choosedFunction)
+			{
+				case 0:
+				{
+					key = false;
+					cout << endl << "Выход из программы." << endl;
+					system("pause");
+					break;
+				}
+				case GetLengthItem:
+				{
+					char* string10 = (char*)"123456789";
+
+					cout << GetLength(string10) << endl;
+					break;
+				}
+				case ConcatenateItem:
+				{
+					char* massMerge1 = (char*)"abc123";
+					char* massMerge2 = (char*)"123abc";
+					char* mergedString1 = Concatenate(massMerge1, massMerge2);
+
+					for (int i = 0; i < GetLength(mergedString1); i++)
+					{
+						cout << mergedString1[i] << " ";
+					}
+					cout << endl;
+					break;
+				}
+				case GetSubstringItem:
+				{
+					char* string2 = (char*)"123abc\0";
+					char* newSubString = GetSubstring(string2, 3, 3);
+
+					for (int i = 0; i < GetLength(newSubString); i++)
+					{
+						cout << newSubString[i] << " ";
+					}
+
+					cout << endl;
+					break;
+				}
+				case FindSubstringItem:
+				{
+					char* string3 = (char*)"Lorem ipsum aset amet ";
+					char* substring10 = (char*)" ipsum a";
+
+					cout << FindSubstring(string3, substring10);
+					break;
+				}
+				case TransformToUppercaseItem:
+				{
+					char* string4 = (char*)"Different cases in That string, also 1 and 2 numbers!.!#@48";
+
+					cout << TransformToUppercase(string4) << endl;
+					break;
+				}
+				case TransformToLowercaseItem:
+				{
+					char* string5 = (char*)"Different cases in That string, also 1 and 2 numbers!.!#@48";
+
+					cout << TransformToLowercase(string5) << endl;
+					break;
+				}
+				case SplitFilenameItem:
+				{
+					//TODO: Плохо, что я сам должен писать все эти тестовые случаи!
+					//Вы уже сделали, так что сделано!
+					//В следующий раз буду помнить об этом.
+					char* string6 = (char*)"d:\\folder\\subfolder\\file.pdf";
+					char extension[50];
+					char path[50];
+					char name[50];
+					SplitFilename(string6, path, name, extension);
+					string6 = (char*)"d:\\fol der\\subf older\\file.pdf";
+					SplitFilename(string6, path, name, extension);
+					string6 = (char*)"d:\\fol der\\subf older\\file.pdf.вые.cmd";
+					SplitFilename(string6, path, name, extension);
+					break; 
+				}
+				case ReplaceTabsOnSpacesItem:
+				{
+					//TODO: Плохо, что я сам должен писать все эти тестовые случаи!
+					//Вы уже сделали, так что сделано!
+					char* string7 = (char*)"Cake\tis\ta lie!";
+					cout << ReplaceTabsOnSpaces(string7) << endl;
+					string7 = (char*)"Cake\t\tis a lie!";
+					cout << ReplaceTabsOnSpaces(string7) << endl;
+					string7 = (char*)"\tCake is \tlie!";
+					cout << ReplaceTabsOnSpaces(string7) << endl;
+					break;
+				}
+				case ReplaceSpacesOnTabsItem:
+				{
+					//TODO: Плохо, что я сам должен писать все эти тестовые случаи!
+					//Вы уже сделали, так что сделано!
+					char* string8 = (char*)"Cake::::is::a:lie!";
+					cout << ReplaceSpacesOnTabs(string8) << endl;
+					string8 = (char*)"Cake::::is::::a:lie!";
+					cout << ReplaceSpacesOnTabs(string8) << endl;
+					string8 = (char*)"Cake:is:a:::::::lie!";
+					cout << ReplaceSpacesOnTabs(string8) << endl;
+					string8 = (char*)"Cake:is::a:lie!";
+					cout << ReplaceSpacesOnTabs(string8) << endl;
+					break;
+				}
+				case PersonItem:
+				{
+					Person person1 = ReadPerson();
+
+					PrintPerson(person1);
+					break;
+				}
+				default: 
+				{ 
+					break; 
+				}
+			}
+			if (choosedFunction >= 1)
+			{
+				GetPause();
+			}
+		}
+	}
+>>>>>>> features/lab3
 }

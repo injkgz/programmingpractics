@@ -5,8 +5,6 @@
 # include "Person.h"
 namespace Lab3
 {
-	//TODO: Все сущности (структуры, перечисления, классы) должны быть в отдельных файлах!
-	//сделано
 	bool FindSymbol(char* string1, char* string2, int i, int& pointer, int whichsymbol);
 	void CopyStringToString(char* string, char* stringResult, int& k);
 	void SplitFilename(char* source, char* path, char* name, char* extension);
