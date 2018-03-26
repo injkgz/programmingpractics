@@ -251,7 +251,7 @@ void StackMenu()
 				cout << endl << "Выход в меню выбора структур" << endl;
 				system("pause");
 				break;
-			}
+			}//TODO: Зачем писать полное имя (с lab4)?
 			case lab4::PushStack:
 			{
 				PushStack(newStack, MakeRandomPerson());

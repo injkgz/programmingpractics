@@ -3,7 +3,7 @@
 
 
 void PushStack(Stack*& stackItem, Person *person)
-{
+{//TODO: В предыдущей лабе был nulptr, тут NULL - что лучше использовать?
 	Stack *temp = new Stack;
 	if (stackItem == NULL)
 	{
@@ -43,7 +43,7 @@ void GetTopStack(Stack *stackItem)
 		cout << endl << "Стэк и так пуст! Нам нечего показывать, товарищ!" << endl;
 	}
 	else
-	{
+	{//TODO: Дублируется ниже!
 		cout << endl << ". Имя: " << stackItem->data.Name << endl;
 		cout << ". Фамилия: " << stackItem->data.Surname << endl;
 		switch (stackItem->data.Sex)

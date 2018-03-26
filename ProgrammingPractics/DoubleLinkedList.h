@@ -4,7 +4,7 @@
 #include "Node.h"
 #include "MenuLab4.h"
 #include "Person.h"
-
+//TODO: В отдельный файл.
 struct List
 {
 	Node* head = NULL;

@@ -22,7 +22,7 @@ void Add(List* list, Person * person)
 }
 
 void ShowListItem(Node& item, int index)
-{
+{//TODO: Меню мигает как новогодняя ёлка. Это неправильно!
 	system("color 0A");
 	cout << index << ". Фамилия:";
 	system("color 04");
@@ -145,7 +145,8 @@ void RemoveByIndex(List* list, int index)
 }
 
 void InsertByIndex(List* list, Person *person, int index)
-{
+{//TODO: Неправильная логика. Перед добавлением должно быть предупреждение, что списка нет. 
+	//TODO: Также нужно проверить на попадание индекса в границы
 	Node* newNode = new Node();
 	newNode->Item = *person;
 	if (list->head == NULL)

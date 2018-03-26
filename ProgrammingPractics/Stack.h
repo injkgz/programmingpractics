@@ -3,7 +3,7 @@
 #include "Person.h"
 #include "CheckCin.h"
 
-
+//TODO: В отдельынй файл!
 struct Stack
 {
 	Person data;

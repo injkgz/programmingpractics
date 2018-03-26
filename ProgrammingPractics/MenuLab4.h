@@ -6,7 +6,7 @@ void ListMenu();
 void StackMenu();
 
 namespace lab4
-{
+{//TODO: В отдельный файл
 	enum MenuList
 	{
 		Add = 1,
@@ -17,7 +17,7 @@ namespace lab4
 		ClearList
 
 	};
-
+	//TODO: В отдельный файл
 	enum MenuStack
 	{
 		PushStack = 1,
