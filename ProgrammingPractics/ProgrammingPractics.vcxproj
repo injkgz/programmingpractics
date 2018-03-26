@@ -136,6 +136,9 @@
     <ClInclude Include="MenuLab3.h" />
     <ClInclude Include="MenuLab4.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="Person5.h" />
+    <ClInclude Include="PersonList.h" />
+    <ClInclude Include="PersonListItem.h" />
     <ClInclude Include="Sex.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Stack.h" />

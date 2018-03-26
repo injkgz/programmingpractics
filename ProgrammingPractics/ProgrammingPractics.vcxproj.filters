@@ -16,6 +16,9 @@
     <Filter Include="common">
       <UniqueIdentifier>{ea0b1ff8-80aa-4a23-8d08-c16601bd3307}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lab5">
+      <UniqueIdentifier>{122d5df7-3bb5-4e7e-bd59-af71c12f2a5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lab1.cpp">
@@ -76,6 +79,15 @@
     </ClInclude>
     <ClInclude Include="Node.h">
       <Filter>lab3</Filter>
+    </ClInclude>
+    <ClInclude Include="Person5.h">
+      <Filter>lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonList.h">
+      <Filter>lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonListItem.h">
+      <Filter>lab5</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
