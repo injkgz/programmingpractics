@@ -1,5 +1,4 @@
-﻿#include "DoubleLinkedList.h"
-#include "CheckCin.h"
+﻿#include "CheckCin.h"
 
 
 void Add(List* list, Person * person)
@@ -7,7 +6,7 @@ void Add(List* list, Person * person)
 	Node* temp = new Node();
 	temp->Item = *person;
 
-	if (list->head == NULL)
+	if (list->head == nullptr)
 	{
 		list->head = temp;
 		list->tail = temp;
@@ -22,27 +21,20 @@ void Add(List* list, Person * person)
 }
 
 void ShowListItem(Node& item, int index)
-{
-	system("color 0A");
+{//TODO: Меню мигает как новогодняя ёлка. Это неправильно!
+	//сделано
 	cout << index << ". Фамилия:";
-	system("color 04");
 	cout << item.Item.Surname << endl;
-	system("color 0A");
 	cout << "Имя: ";
-	system("color 04");
 	cout << item.Item.Name << endl;
 	switch (item.Item.Sex)
 	{
 		case 0:
-			system("color 0A");
 			cout << "Пол:";
-			system("color 04");
 			cout << "Женщина"<< endl << endl;
 			break;
 		case 1:
-			system("color 0A");
 			cout << "Пол:";
-			system("color 04");
 			cout << "Мужчина" << endl << endl;
 			break;
 		default: break;
@@ -53,16 +45,15 @@ void ShowListItem(Node& item, int index)
 void ShowList(List* list)
 {
 	Node* temp = list->head;
-	system("color 06");
 	cout << endl << "Всего в списке у нас " << list->CountItems << " личностей!" << endl;
 	int index = 1;
-	while (temp != NULL)
+	while (temp != nullptr)
 	{
 		ShowListItem(*temp, index);
 		index++;
 		temp = temp->next;
 	}
-	if (list->head == NULL)
+	if (list->head == nullptr)
 	{
 		cout <<endl<< "Список пуст!" << endl;
 	}
@@ -71,137 +62,118 @@ void ShowList(List* list)
 Node* GetByIndex(List* list, int index)
 {
 	Node* temp = list->head;
-	if (list->head == NULL)
+
+	for (int i = 0; i < index; i++)
 	{
-		cout << endl << "Список пуст!" << endl;
-		cout << "Для начала добавьте элемент!";
-		return NULL;
-	}
-	else
-	{
-		if (index + 1 > list->CountItems)
+		if (temp->next != nullptr)
 		{
-			cout << "Элемента с таким индексом нет!";
-			return NULL;
+			temp = temp->next;
 		}
-		else 
+		else
 		{
-
-			for (int i = 0; i < index; i++)
-			{
-				if (temp->next != NULL)
-				{
-					temp = temp->next;
-				}
-				else
-				{
-					i = index;
-				}
-			}
-
-			return temp;
+			i = index;
 		}
 	}
+
+	return temp;
 }
 
 void RemoveByIndex(List* list, int index)
 {
 	Node* deletedItem = GetByIndex(list, index);
-	if (list->head == NULL)
+
+	if (deletedItem == list->head)
 	{
-		cout << endl << "Список пуст!" << endl;
-		cout << "Для начала добавьте элемент!";
+		list->head = deletedItem->next;
+		list->head->next = deletedItem->next->next;
+		list->head->prev = nullptr;
+	}
+	else if (deletedItem == list->tail)
+	{
+		list->tail = deletedItem->prev;
+		list->tail->prev = deletedItem->prev->prev;
+		list->tail->next = nullptr;
 	}
 	else
 	{
-		if (index + 1 > list->CountItems)
-		{
-			cout << "Элемента с таким индексом нет!";
-		}
-		else
-		{
+		deletedItem->prev->next = deletedItem->next;
+		deletedItem->next->prev = deletedItem->prev;
+	}
+	delete(deletedItem);
+	list->CountItems--;
+		
+}
 
-			if (deletedItem == list->head)
-			{
-				list->head = deletedItem->next;
-				list->head->next = deletedItem->next->next;
-				list->head->prev = NULL;
-			}
-			else if (deletedItem == list->tail)
-			{
-				list->tail = deletedItem->prev;
-				list->tail->prev = deletedItem->prev->prev;
-				list->tail->next = NULL;
-			}
-			else
-			{
-				deletedItem->prev->next = deletedItem->next;
-				deletedItem->next->prev = deletedItem->prev;
-			}
-			delete(deletedItem);
-			list->CountItems--;
+//Функция записи корректного индекса
+int GetCorrectIndex(List* list)
+{
+	int index = CheckCin(true);
+	if (list->head == nullptr)
+	{
+		cout << "Список пуст!" << endl
+			<< "Вы можете добавить только на позицию [0]!"
+			<<endl;
+		while (index != 0)
+		{
+			cout << "Введите ноль!" << endl;
+			index = CheckCin(true);
 		}
+	}
+	else if (index > list->CountItems)
+	{
+		while (index > list->CountItems)
+		{
+			cout << endl << "Не входит в границы списка!"
+				<< endl << "Попробуйте ещё раз!" << endl
+				<<"Введите индекс элемента: ";
+			index = CheckCin(true);
+			
+		}
+		return index;
 	}
 }
 
 void InsertByIndex(List* list, Person *person, int index)
-{
+{	//TODO: Неправильная логика. Перед добавлением должно быть предупреждение, что списка нет. 
+	//TODO: Также нужно проверить на попадание индекса в границы
+	//реализована функция GetCorrectIndex
 	Node* newNode = new Node();
 	newNode->Item = *person;
-	if (list->head == NULL)
+	if (index == 0)
 	{
-		if (index == 0)
-		{
-			list->head = newNode;
-			list->tail = newNode;
-		}
-		else
-		{
-			cout << endl << "Список пуст!" << endl;
-			cout << "Для начала добавьте элемент!";
-		}
+		list->head = newNode;
+		list->tail = newNode;
 	}
-	else
+	else if (index == list->CountItems)
 	{
-		if (index == list->CountItems)
+		newNode->prev = list->tail;
+		list->tail = newNode;
+		newNode->prev->next = newNode;
+		list->CountItems++;
+	}
+	else if (GetByIndex(list, index) != nullptr)
+	{
+		Node* temp = GetByIndex(list, index);
+		if (temp == list->head)
 		{
-			newNode->prev = list->tail;
-			list->tail = newNode;
-			newNode->prev->next = newNode;
-			list->CountItems++;
-		}
-		else if ((index + 1) > list->CountItems)
-		{
-			cout << "Нельзя вставить элемент по данному индексу!";
+			newNode->next = list->head;
+			list->head->prev = newNode;
+			list->head = newNode;
 		}
 		else
 		{
-			if (GetByIndex(list, index) != NULL)
-			{
-				Node* temp = GetByIndex(list, index);
-				if (temp == list->head)
-				{
-					newNode->next = list->head;
-					list->head->prev = newNode;
-					list->head = newNode;
-					
-				}
-				else
-				{
-					temp->prev->next = newNode;
-					newNode->prev = temp->prev;
-					temp->prev = newNode;
-					newNode->next = temp;
-				}
-				list->CountItems++;
-			}
+			temp->prev->next = newNode;
+			newNode->prev = temp->prev;
+			temp->prev = newNode;
+			newNode->next = temp;
 		}
+		list->CountItems++;
 	}
 }
 
 void ClearList(List* list)
 {
-	if (list->head == NULL && list->tail == NULL)
+	if (list->head == nullptr && list->tail == nullptr)
 	{
 		cout << "Список и так чист!";
 		return;
@@ -216,8 +188,8 @@ void ClearList(List* list)
 			i++;
 		}
 	}
-	list->head = NULL;
-	list->tail = NULL;
+	list->head = nullptr;
+	list->tail = nullptr;
 	list->CountItems = 0;
 }
 

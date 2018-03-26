@@ -7,6 +7,7 @@
 #include <conio.h>
 #include <tchar.h>
 #include <string.h>
+#include <stdio.h>
 #include "lab1.h"
 #include "lab2.h"
 #include "lab3.h"
@@ -14,7 +15,13 @@
 #include "DoubleLinkedList.h"
 #include "Person.h"
 #include "Sex.h"
+#include "Node.h"
+#include "Stack.h"
+#include "StackPerson.h"
 #include "MenuLab4.h"
+#include "List.h"
+#include "MenuStack.h"
+#include "MenuList.h"
 
 
 using namespace std;

@@ -39,10 +39,10 @@
     <ClCompile Include="DoubleLinkedList.cpp">
       <Filter>lab4</Filter>
     </ClCompile>
-    <ClCompile Include="Stack.cpp">
+    <ClCompile Include="MenuLab4.cpp">
       <Filter>lab4</Filter>
     </ClCompile>
-    <ClCompile Include="MenuLab4.cpp">
+    <ClCompile Include="StackPerson.cpp">
       <Filter>lab4</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,11 +74,23 @@
     <ClInclude Include="Sex.h">
       <Filter>common</Filter>
     </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>lab3</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="StackPerson.h">
+      <Filter>lab4</Filter>
+    </ClInclude>
     <ClInclude Include="Stack.h">
       <Filter>lab4</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>lab3</Filter>
+    <ClInclude Include="MenuList.h">
+      <Filter>lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuStack.h">
+      <Filter>lab4</Filter>
     </ClInclude>
     <ClInclude Include="Person5.h">
       <Filter>lab5</Filter>

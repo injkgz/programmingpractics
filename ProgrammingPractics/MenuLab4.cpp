@@ -1,7 +1,5 @@
-﻿#include "DoubleLinkedList.h"
-#include "CheckCin.h"
-#include "Stack.h"
-#include "MenuLab4.h"
+﻿#include "CheckCin.h"
+
 
 Person* MakeRandomPerson()
 {
@@ -77,7 +75,7 @@ void StructChooseMenu()
 {
 	bool key = true;
 	int choosedFunction;
-
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	while (key)
 	{
 		system("cls");
@@ -125,14 +123,17 @@ void StructChooseMenu()
 
 void ListMenu()
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	bool key = true;
 	int choosedFunction;
 	List* list = new List;
+	cout << endl << "Для начала создадим три личности, выберите пол три раза!" << endl;
 	Add(list, MakeRandomPerson());
 	Add(list, MakeRandomPerson());
 	Add(list, MakeRandomPerson());
 	while (key)
 	{
+		SetConsoleTextAttribute(hConsole, (WORD)((0 << 4) | 15));
 		system("cls");
 		cout << endl
 			<< "Введите 0 для выхода в меню выбора структуры или выберите функцию: "
@@ -145,10 +146,9 @@ void ListMenu()
 			<< "6. ClearList" << endl
 			<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 			<< endl;
-		ShowList(list);
 		choosedFunction = CheckCin(true);
 		cout << endl;
-
+		SetConsoleTextAttribute(hConsole, (WORD)((0 << 4) | 2));
 		switch (choosedFunction)
 		{
 			case 0:
@@ -172,23 +172,23 @@ void ListMenu()
 			case lab4::RemoveByIndex:
 			{
 				cout << "Введите индекс элемента: ";
-				int index = CheckCin(true);
+				int index = GetCorrectIndex(list);
 				RemoveByIndex(list, index);
 				break;
 			}
 			case lab4::InsertByIndex:
 			{
 				cout << "Введите индекс элемента: ";
-				int index = CheckCin(true);
+				int index = GetCorrectIndex(list);
 				InsertByIndex(list, MakeRandomPerson(), index);
 				break;
 			}
 			case lab4::GetByIndex:
 			{
 				cout << "Введите индекс элемента: ";
-				int index = CheckCin(true);
+				int index = GetCorrectIndex(list);
 				Node* temp = GetByIndex(list, index);
-				if (temp == NULL)
+				if (temp == nullptr)
 				{
 					break;
 				}
@@ -219,7 +219,8 @@ void StackMenu()
 {
 	bool key = true;
 	int choosedFunction;
-	Stack* newStack = NULL;
+	Stack* newStack = nullptr;
+	cout << endl << "Для начала создадим три личности, выберите пол три раза!" << endl;
 	PushStack(newStack, MakeRandomPerson());
 	PushStack(newStack, MakeRandomPerson());
 	PushStack(newStack, MakeRandomPerson());
@@ -227,7 +228,9 @@ void StackMenu()
 
 	while (key)
 	{
+		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 		system("cls");
+		SetConsoleTextAttribute(hConsole, (WORD)((0 << 4) | 15));
 		cout << endl
 			<< "Введите 0 для выхода в меню выбора структуры или выберите функцию: "
 			<< endl
@@ -239,10 +242,9 @@ void StackMenu()
 			<< "6. IsEmptyStack" << endl
 			<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 			<< endl;
-		GetFullStack(newStack);
 		choosedFunction = CheckCin(true);
 		cout << endl;
-
+		SetConsoleTextAttribute(hConsole, (WORD)((0 << 4) | 2));
 		switch (choosedFunction)
 		{
 			case 0:
@@ -251,7 +253,10 @@ void StackMenu()
 				cout << endl << "Выход в меню выбора структур" << endl;
 				system("pause");
 				break;
-			}
+			}//TODO: Зачем писать полное имя (с lab4)?
+			//они в другом пространстве имён для того,
+			//чтобы функция и её перечисление
+			//имели одно и тоже имя
 			case lab4::PushStack:
 			{
 				PushStack(newStack, MakeRandomPerson());

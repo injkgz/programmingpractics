@@ -125,7 +125,7 @@
     <ClCompile Include="MenuLab4.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
-    <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="StackPerson.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheckCin.h" />
@@ -133,8 +133,11 @@
     <ClInclude Include="lab1.h" />
     <ClInclude Include="lab2.h" />
     <ClInclude Include="lab3.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="MenuLab3.h" />
     <ClInclude Include="MenuLab4.h" />
+    <ClInclude Include="MenuList.h" />
+    <ClInclude Include="MenuStack.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Person5.h" />
     <ClInclude Include="PersonList.h" />
@@ -142,6 +145,7 @@
     <ClInclude Include="Sex.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="StackPerson.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,16 +1,10 @@
 ﻿#pragma once
 
 #include "CheckCin.h"
-#include "Node.h"
-#include "MenuLab4.h"
 #include "Person.h"
-
-struct List
-{
-	Node* head = NULL;
-	Node* tail = NULL;
-	int CountItems = 0;
-};
+#include "Node.h"
+#include "List.h"
+#include "MenuList.h"
 
 void Add(List* list, Person * person);
 void ShowListItem(Node& item, int index);
@@ -22,5 +16,7 @@ void ClearList(List* list);
 Person* MakeRandomPerson();
 void StructChooseMenu();
 void ListMenu();
+int GetCorrectIndex(List* list);
+
 
 
