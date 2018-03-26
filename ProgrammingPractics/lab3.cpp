@@ -19,6 +19,7 @@ namespace Lab3
 		return length;
 	}
 
+	//TODO: Неправильный комментарий, это не два char а два массива char
 	//Функция объединения двух char
 	char* Concatenate(char * string1, char * string2)
 	{
@@ -42,6 +43,7 @@ namespace Lab3
 		}
 	}
 
+	//TODO: Длинный комментрий
 	//Функция,  возвращающая подстроку, состоящую из charCount символов и начинающуюся с startIndex позиции в строке string
 	char* GetSubstring(char* string, int startIndex, int charCount)
 	{
@@ -126,7 +128,9 @@ namespace Lab3
 			return newString;
 		}
 		else
-		{
+		{//TODO: Тут nullptr, ниже NULL
+			//1. Всё должно быть единообразно
+			//2. В чём отличие одного от второго?
 			return nullptr;
 		}
 	}
@@ -372,6 +376,8 @@ namespace Lab3
 
 		while (key)
 		{
+			//TODO: Значительно упростили себе задачу, убрав из расчёта пользовательский ввод и сделав
+			//TODO: весь ввод автоматическим.
 			system("cls");
 			cout << endl
 				<< "Введите 0 для выхода в меню выбора лабораторной или выберите задание от 1 до 10"
@@ -456,25 +462,39 @@ namespace Lab3
 				}
 				case SplitFilenameItem:
 				{
+					//TODO: Плохо, что я сам должен писать все эти тестовые случаи!
 					char* string6 = (char*)"d:\\folder\\subfolder\\file.pdf";
 					char extension[50];
 					char path[50];
 					char name[50];
-
+					SplitFilename(string6, path, name, extension);
+					string6 = (char*)"d:\\fol der\\subf older\\file.pdf";
+					SplitFilename(string6, path, name, extension);
+					string6 = (char*)"d:\\fol der\\subf older\\file.pdf.вые.cmd";
 					SplitFilename(string6, path, name, extension);
 					break; 
 				}
 				case ReplaceTabsOnSpacesItem:
 				{
+					//TODO: Плохо, что я сам должен писать все эти тестовые случаи!
 					char* string7 = (char*)"Cake\tis\ta lie!";
-
+					cout << ReplaceTabsOnSpaces(string7) << endl;
+					string7 = (char*)"Cake\t\tis a lie!";
+					cout << ReplaceTabsOnSpaces(string7) << endl;
+					string7 = (char*)"\tCake is \tlie!";
 					cout << ReplaceTabsOnSpaces(string7) << endl;
 					break;
 				}
 				case ReplaceSpacesOnTabsItem:
 				{
-					char* string8 = (char*)"Cake::::is::::a:lie!";
-
+					//TODO: Плохо, что я сам должен писать все эти тестовые случаи!
+					char* string8 = (char*)"Cake::::is::a:lie!";
+					cout << ReplaceSpacesOnTabs(string8) << endl;
+					string8 = (char*)"Cake::::is::::a:lie!";
+					cout << ReplaceSpacesOnTabs(string8) << endl;
+					string8 = (char*)"Cake:is:a:::::::lie!";
+					cout << ReplaceSpacesOnTabs(string8) << endl;
+					string8 = (char*)"Cake:is::a:lie!";
 					cout << ReplaceSpacesOnTabs(string8) << endl;
 					break;
 				}
