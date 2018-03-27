@@ -10,18 +10,27 @@
 #include <stdio.h>
 #include "lab1.h"
 #include "lab2.h"
+//lab3
 #include "lab3.h"
 #include "MenuLab3.h"
 #include "DoubleLinkedList.h"
 #include "Person.h"
 #include "Sex.h"
 #include "Node.h"
+//lab4
 #include "Stack.h"
 #include "StackPerson.h"
 #include "MenuLab4.h"
 #include "List.h"
 #include "MenuStack.h"
 #include "MenuList.h"
+//lab5
+#include "Person5.h"
+#include "PersonList.h"
+#include "PersonListItem.h"
+#include "lab5UI.h"
+#include <cctype>
+
 
 
 using namespace std;

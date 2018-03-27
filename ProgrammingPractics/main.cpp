@@ -34,6 +34,9 @@ int main()
 			case 4:
 				StructChooseMenu();
 				break;
+			case 5:
+				UILab5();
+				break;
 			default: break;
 		}
 		if (choosedLab > 1)

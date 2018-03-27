@@ -13,6 +13,6 @@ namespace Lab3
 		SplitFilenameItem,
 		ReplaceTabsOnSpacesItem,
 		ReplaceSpacesOnTabsItem,
-		Node
+		PersonItem
 	};
 }

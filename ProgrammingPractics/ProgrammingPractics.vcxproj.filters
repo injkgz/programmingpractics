@@ -30,9 +30,6 @@
     <ClCompile Include="lab3.cpp">
       <Filter>lab3</Filter>
     </ClCompile>
-    <ClCompile Include="lab3UI.cpp">
-      <Filter>lab3</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>common</Filter>
     </ClCompile>
@@ -44,6 +41,18 @@
     </ClCompile>
     <ClCompile Include="StackPerson.cpp">
       <Filter>lab4</Filter>
+    </ClCompile>
+    <ClCompile Include="Person5.cpp">
+      <Filter>lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonList.cpp">
+      <Filter>lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="lab5UI.cpp">
+      <Filter>lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonListItem.cpp">
+      <Filter>lab5</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +108,9 @@
       <Filter>lab5</Filter>
     </ClInclude>
     <ClInclude Include="PersonListItem.h">
+      <Filter>lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="lab5UI.h">
       <Filter>lab5</Filter>
     </ClInclude>
   </ItemGroup>

@@ -44,13 +44,9 @@ namespace Lab3
 		}
 	}
 
-<<<<<<< HEAD
-
 	//Функция,  возвращающая подстроку, состоящую из charCount символов и начинающуюся с startIndex позиции в строке string
-=======
 	//TODO: Длинный комментрий
 	//Возвращающая из string CharCount символов с позиции startIndex
->>>>>>> features/lab3
 	char* GetSubstring(char* string, int startIndex, int charCount)
 	{
 		int j = 0;
@@ -380,9 +376,7 @@ namespace Lab3
 		cout << "Пол: " << person.Sex << endl;
 	}
 
-<<<<<<< HEAD
-	
-=======
+
 	//Меню выбора заданий
 	void ThirdChooseMenu()
 	{
@@ -536,5 +530,4 @@ namespace Lab3
 			}
 		}
 	}
->>>>>>> features/lab3
 }
