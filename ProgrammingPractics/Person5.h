@@ -5,7 +5,7 @@ namespace lab5
 {
 	class Person
 	{
-		public: 
+		public: //TODO: Зачем двойные отступы?
 				Person(char Name[40], char Surname[40], unsigned int Age, Sex Sex);
 				bool operator==(const Person& good);
 				bool operator!=(const Person& good);

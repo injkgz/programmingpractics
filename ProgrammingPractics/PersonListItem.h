@@ -5,7 +5,7 @@ namespace lab5
 {
 	class PersonListItem
 	{
-		public:
+		public://TODO: Зачем двойные отступы?
 				PersonListItem(Person* person)
 				{
 					Value = person;

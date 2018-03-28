@@ -164,8 +164,6 @@ namespace lab5
 		};
 
 		
-		//TODO: Почему в чисто рандомной персоне я должен вводить пол?
-		//сделано
 		char tempName[20];
 		char tempSurname[20];
 		int tempAge;
@@ -175,7 +173,7 @@ namespace lab5
 		switch (key)
 		{
 			case 'f':
-			{
+			{//TODO: Ниже 2 дубля
 				strcpy_s(tempName, FemaleName[rand() % 10]);
 				strcpy_s(tempSurname, FemaleSurname[rand() % 10]);
 				tempAge = rand() % 50;
@@ -223,7 +221,7 @@ namespace lab5
 		}
 
 		cout << endl << "Введите пол 0 - женщина, 1 - мужчина!: ";
-		int n;
+		int n;//TODO: Не должен быть int, если есть перечисление!
 		
 		do
 		{
@@ -250,6 +248,7 @@ namespace lab5
 
 	//TODO: Некорректное именование!
 	//сделано
+	//TODO: Так и не понятно по названию метода - что он делает.
 	bool PersonList::CheckChar(char name[])
 	{
 		bool isTrueName = true;
@@ -313,8 +312,7 @@ namespace lab5
 		cout << person->GetName() << endl;
 		cout << "Возраст: " << person->GetAge() << endl;
 		switch (person->GetSex())
-		{//TODO: Почему проверка по int, а не по перечислениям?
-		//сделано
+		{//TODO: Форматирование не по RSDN
 		case Female:
 			cout << "Пол:";
 			cout << "Женщина" << endl << endl;

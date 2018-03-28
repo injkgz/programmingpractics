@@ -1,9 +1,6 @@
 ﻿#pragma once
 #include "CheckCin.h"
 
-//TODO: В отдельынй файл!
-//сделано!
-
 void PushStack(Stack*& stackItem, Person *person);
 void PopStack(Stack*& stackItem);
 void GetTopStack(Stack *stackItem);
