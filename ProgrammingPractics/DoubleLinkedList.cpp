@@ -21,8 +21,7 @@ void Add(List* list, Person * person)
 }
 
 void ShowListItem(Node& item, int index)
-{//TODO: Меню мигает как новогодняя ёлка. Это неправильно!
-	//сделано
+{
 	cout << index << ". Фамилия:";
 	cout << item.Item.Surname << endl;
 	cout << "Имя: ";
@@ -134,9 +133,7 @@ int GetCorrectIndex(List* list)
 }
 
 void InsertByIndex(List* list, Person *person, int index)
-{	//TODO: Неправильная логика. Перед добавлением должно быть предупреждение, что списка нет. 
-	//TODO: Также нужно проверить на попадание индекса в границы
-	//реализована функция GetCorrectIndex
+{	
 	Node* newNode = new Node();
 	newNode->Item = *person;
 	if (index == 0)

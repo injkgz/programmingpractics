@@ -257,6 +257,7 @@ void StackMenu()
 			//они в другом пространстве имён для того,
 			//чтобы функция и её перечисление
 			//имели одно и тоже имя
+			//TODO: А using namespace?
 			case lab4::PushStack:
 			{
 				PushStack(newStack, MakeRandomPerson());

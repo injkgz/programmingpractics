@@ -1,8 +1,7 @@
 ﻿#include "CheckCin.h"
 
 void PushStack(Stack*& stackItem, Person *person)
-{//TODO: В предыдущей лабе был nulptr, тут NULL - что лучше использовать?
-	//nullptr, объяснил в лабе#3
+{
 	Stack *temp = new Stack;
 	if (stackItem == nullptr)
 	{
@@ -16,7 +15,7 @@ void PushStack(Stack*& stackItem, Person *person)
 		stackItem = temp;
 		temp->data = *person;
 	}
-}
+}//TODO: Должны быть пустые строки между функциями
 void PopStack(Stack*& stackItem)
 {
 	Stack *temp = stackItem;
@@ -54,8 +53,7 @@ void GetTopStack(Stack *stackItem)
 		cout << endl << "Стэк и так пуст! Нам нечего показывать, товарищ!" << endl;
 	}
 	else
-	{//TODO: Дублируется ниже!
-		//сделано!
+	{
 		PrintPerson(stackItem);
 	}
 }

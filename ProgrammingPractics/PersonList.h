@@ -5,7 +5,7 @@
 namespace lab5
 {
 	class PersonList
-	{
+	{//TODO: «ачем столько бесполезных комментариев?
 		private:
 			PersonListItem * _head;//указатель на голову списка
 			PersonListItem * _tail;

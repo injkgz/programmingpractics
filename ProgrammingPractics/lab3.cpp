@@ -19,8 +19,6 @@ namespace Lab3
 		return length;
 	}
 
-	//TODO: Неправильный комментарий, это не два char а два массива char
-	//сделано
 	//Функция объединения двух массивов char
 	char* Concatenate(char * string1, char * string2)
 	{
@@ -46,6 +44,7 @@ namespace Lab3
 
 	//Функция,  возвращающая подстроку, состоящую из charCount символов и начинающуюся с startIndex позиции в строке string
 	//TODO: Длинный комментрий
+	//TODO: Где реакция?
 	//Возвращающая из string CharCount символов с позиции startIndex
 	char* GetSubstring(char* string, int startIndex, int charCount)
 	{
@@ -130,15 +129,7 @@ namespace Lab3
 			return newString;
 		}
 		else
-		{//TODO: Тут nullptr, ниже NULL
-			//1. Всё должно быть единообразно
-			//2. В чём отличие одного от второго?
-			//NULL - понятие "0" от языка С
-			//препроцессор видит как define 0
-			//nullptr(нулевой указатель) - понятие ОП 
-			//и является константой для компилятора
-			//правильнее использовать nullptr
-			//сделано: заменил на nullptr
+		{
 			return nullptr;
 		}
 	}
@@ -388,6 +379,7 @@ namespace Lab3
 			//TODO: Значительно упростили себе задачу, убрав из расчёта пользовательский ввод и сделав
 			//TODO: весь ввод автоматическим.
 			//?
+			//TODO: Сделайте возможность пользовательского ввода данных.
 			system("cls");
 			cout << endl
 				<< "Введите 0 для выхода в меню выбора лабораторной или выберите задание от 1 до 10"
@@ -472,9 +464,6 @@ namespace Lab3
 				}
 				case SplitFilenameItem:
 				{
-					//TODO: Плохо, что я сам должен писать все эти тестовые случаи!
-					//Вы уже сделали, так что сделано!
-					//В следующий раз буду помнить об этом.
 					char* string6 = (char*)"d:\\folder\\subfolder\\file.pdf";
 					char extension[50];
 					char path[50];
@@ -488,8 +477,6 @@ namespace Lab3
 				}
 				case ReplaceTabsOnSpacesItem:
 				{
-					//TODO: Плохо, что я сам должен писать все эти тестовые случаи!
-					//Вы уже сделали, так что сделано!
 					char* string7 = (char*)"Cake\tis\ta lie!";
 					cout << ReplaceTabsOnSpaces(string7) << endl;
 					string7 = (char*)"Cake\t\tis a lie!";
@@ -500,8 +487,6 @@ namespace Lab3
 				}
 				case ReplaceSpacesOnTabsItem:
 				{
-					//TODO: Плохо, что я сам должен писать все эти тестовые случаи!
-					//Вы уже сделали, так что сделано!
 					char* string8 = (char*)"Cake::::is::a:lie!";
 					cout << ReplaceSpacesOnTabs(string8) << endl;
 					string8 = (char*)"Cake::::is::::a:lie!";

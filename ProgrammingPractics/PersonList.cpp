@@ -35,7 +35,7 @@ namespace lab5
 			{
 				searchedItem = searchedItem->Next;
 			}
-		}
+		}//TODO: NULL!!!
 		if (searchedItem->GetValue() != NULL)
 		{
 			ShowPerson(searchedItem->GetValue());
@@ -69,7 +69,7 @@ namespace lab5
 		while (deletedItem != nullptr)
 		{
 			if (*deletedItem->GetValue() == *person)
-			{
+			{//TODO: Дублируется в следущем методе
 				if (deletedItem == _head)
 				{
 					_head = deletedItem->Next;
@@ -187,6 +187,7 @@ namespace lab5
 		char key = _getch();
 		int asciiValue = key;
 		char insertedKey = key;
+		//TODO: Почему в чисто рандомной персоне я должен вводить пол?
 		while ((key != 'f') && (key != 'm'))
 		{
 			cout << endl << "Некорректный символ!" << endl << "Введите F или M" << endl;
@@ -275,6 +276,7 @@ namespace lab5
 		return new Person(tempName, tempSurname, tempAge, tempSex);
 	}
 
+	//TODO: Некорректное именование!
 	bool PersonList::isTrueName(char name[])
 	{
 		bool isTrueName = true;
@@ -338,7 +340,7 @@ namespace lab5
 		cout << person->GetName() << endl;
 		cout << "Возраст: " << person->GetAge() << endl;
 		switch (person->GetSex())
-		{
+		{//TODO: Почему проверка по int, а не по перечислениям?
 		case 0:
 			cout << "Пол:";
 			cout << "Женщина" << endl << endl;

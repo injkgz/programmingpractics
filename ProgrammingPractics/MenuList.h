@@ -11,6 +11,5 @@ namespace lab4
 		RemoveByIndex,
 		InsertByIndex,
 		ClearList
-
 	};
 }
