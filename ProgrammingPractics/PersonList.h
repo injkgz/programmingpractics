@@ -5,13 +5,12 @@
 namespace lab5
 {
 	class PersonList
-	{//TODO: Зачем столько бесполезных комментариев?
-	//сделано
+	{
 		private:
 			PersonListItem * _head;
 			PersonListItem * _tail;
 			int _count; 
-			bool CheckChar(char name[]);
+			bool CheckValidName(char name[]);
 		public:
 			PersonList() 
 			{};
@@ -28,4 +27,6 @@ namespace lab5
 			void ShowPerson(Person* person);
 			void Removing(Person* person);
 	};
+	void GenerateRandomPerson(char tempName[40], char tempSurname[40],
+		const char Name[10], const char Surname[10], int& tempAge);
 }

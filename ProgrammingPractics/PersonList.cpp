@@ -74,13 +74,27 @@ namespace lab5
 				if (deletedItem == _head)
 				{
 					_head = deletedItem->Next;
-					_head->Next = deletedItem->Next->Next;
+					if (deletedItem->Next == nullptr)
+					{
+						_head->Next = nullptr;
+					}
+					else
+					{
+						_head->Next = deletedItem->Next->Next;
+					}
 					_head->Prev = nullptr;
 				}
 				else if (deletedItem == _tail)
 				{
 					_tail = deletedItem->Prev;
-					_tail->Prev = deletedItem->Prev->Prev;
+					if (deletedItem->Prev == nullptr)
+					{
+						_tail->Prev = nullptr;
+					}
+					else
+					{
+						_tail->Prev = deletedItem->Prev->Prev;
+					}
 					_tail->Next = nullptr;
 				}
 				else
@@ -92,8 +106,9 @@ namespace lab5
 				_count--;
 				return;
 			}
+			deletedItem = deletedItem->Next;
 		}
-		deletedItem = deletedItem->Next;
+		return;
 	}
 	//удалить человека из списка
 	void PersonList::Remove(Person* person)
@@ -106,6 +121,10 @@ namespace lab5
 	void PersonList::RemoveAt(int index)
 	{
 		Person *deletedPerson = Find(index);
+		if (deletedPerson == nullptr)
+		{
+			return;
+		}
 		Removing(deletedPerson);
 	}
 
@@ -131,7 +150,13 @@ namespace lab5
 	{
 		return _count;
 	}
-
+	void GenerateRandomPerson(char tempName[40],char tempSurname[40], 
+		const char Name[10], const char Surname[10], int& tempAge)
+	{
+		strcpy_s(tempName,40, Name);
+		strcpy_s(tempSurname,40, Surname);
+		tempAge = rand() % 50;
+	}
 	Person* PersonList::MakeRandomPerson()
 	{
 		const char* MaleName[] =
@@ -166,27 +191,26 @@ namespace lab5
 		
 		//TODO: Почему в чисто рандомной персоне я должен вводить пол?
 		//сделано
-		char tempName[20];
-		char tempSurname[20];
+		char tempName[40];
+		char tempSurname[40];
 		int tempAge;
 		Sex tempSex;
-		int key = rand() % 2;
+		int key = rand() % 1;
 
 		switch (key)
 		{
-			case 'f':
-			{
-				strcpy_s(tempName, FemaleName[rand() % 10]);
-				strcpy_s(tempSurname, FemaleSurname[rand() % 10]);
-				tempAge = rand() % 50;
+			case 0:
+			{//TODO: Ниже 2 дубля
+				//сделано
+				GenerateRandomPerson(tempName, tempSurname, FemaleName[rand() % 9],
+					FemaleSurname[rand() % 9], tempAge);
 				tempSex = Female;
 				break;
 			}
-			case 'm':
+			case 1:
 			{
-				strcpy_s(tempName, MaleName[rand() % 10]);
-				strcpy_s(tempSurname, MaleSurname[rand() % 9]);
-				tempAge = rand() % 50;
+				GenerateRandomPerson(tempName, tempSurname, MaleName[rand() % 9],
+					MaleSurname[rand() % 9], tempAge);
 				tempSex = Male;
 				break;
 			}
@@ -210,7 +234,7 @@ namespace lab5
 		{
 			cout << endl << "Введите фамилию: ";
 			cin >> tempSurname;
-			key = !CheckChar(tempSurname);
+			key = !CheckValidName(tempSurname);
 		}
 
 		key = true;
@@ -219,11 +243,11 @@ namespace lab5
 		{
 			cout << endl << "Введите имя: ";
 			cin >> tempName;
-			key = !CheckChar(tempName);
+			key = !CheckValidName(tempName);
 		}
 
 		cout << endl << "Введите пол 0 - женщина, 1 - мужчина!: ";
-		int n;
+		int n;//TODO: Не должен быть int, если есть перечисление!
 		
 		do
 		{
@@ -250,7 +274,8 @@ namespace lab5
 
 	//TODO: Некорректное именование!
 	//сделано
-	bool PersonList::CheckChar(char name[])
+	//TODO: Так и не понятно по названию метода - что он делает.
+	bool PersonList::CheckValidName(char name[])
 	{
 		bool isTrueName = true;
 		for (int i = 0; i < strlen(name); i++)
@@ -283,7 +308,7 @@ namespace lab5
 		if (_head == nullptr)
 		{
 			cout << "Список пуст!" << endl
-				<< "Вы можете добавить только на позицию [0]!"
+				<< "Вы можете работать только с позицией [0]!"
 				<< endl;
 			while (index != 0)
 			{
@@ -313,17 +338,18 @@ namespace lab5
 		cout << person->GetName() << endl;
 		cout << "Возраст: " << person->GetAge() << endl;
 		switch (person->GetSex())
-		{//TODO: Почему проверка по int, а не по перечислениям?
-		//сделано
-		case Female:
-			cout << "Пол:";
-			cout << "Женщина" << endl << endl;
-			break;
-		case Male:
-			cout << "Пол:";
-			cout << "Мужчина" << endl << endl;
-			break;
-		default: break;
+		{
+			//TODO: Форматирование не по RSDN
+			//исправил
+			case Female:
+				cout << "Пол:";
+				cout << "Женщина" << endl << endl;
+				break;
+			case Male:
+				cout << "Пол:";
+				cout << "Мужчина" << endl << endl;
+				break;
+			default: break;
 		}
 	}
 }

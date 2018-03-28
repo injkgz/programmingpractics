@@ -15,7 +15,9 @@ void PushStack(Stack*& stackItem, Person *person)
 		stackItem = temp;
 		temp->data = *person;
 	}
-}//TODO: Должны быть пустые строки между функциями
+}
+//TODO: Должны быть пустые строки между функциями
+//сделано
 void PopStack(Stack*& stackItem)
 {
 	Stack *temp = stackItem;
@@ -30,6 +32,7 @@ void PopStack(Stack*& stackItem)
 		delete temp;
 	}
 }
+
 void PrintPerson (Stack* stackItem)
 {
 	cout << endl << "Имя:\t\t" << stackItem->data.Name << endl;

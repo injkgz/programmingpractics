@@ -1,4 +1,6 @@
 ﻿#include "lab3.h"
+#include "CheckCin.h"
+#pragma warning(disable : 4996)
 
 namespace Lab3
 {
@@ -42,10 +44,10 @@ namespace Lab3
 		}
 	}
 
-	//Функция,  возвращающая подстроку, состоящую из charCount символов и начинающуюся с startIndex позиции в строке string
 	//TODO: Длинный комментрий
 	//TODO: Где реакция?
-	//Возвращающая из string CharCount символов с позиции startIndex
+	//ниже была ж
+	//Функция, возвращающая из string CharCount символов с позиции startIndex
 	char* GetSubstring(char* string, int startIndex, int charCount)
 	{
 		int j = 0;
@@ -367,6 +369,56 @@ namespace Lab3
 		cout << "Пол: " << person.Sex << endl;
 	}
 
+	char* ReadChar()
+	{
+		cout << endl << "Введите строку: " << endl;
+		string t;
+		cin >> t;
+		char* str_ptr = new char[t.length() + 1]();
+		strcpy(str_ptr, t.c_str());
+		return str_ptr;
+	}
+	
+	bool ChooseCin()
+	{
+		bool key = true;
+		int choosedFunction;
+
+		while (key)
+		{
+			system("cls");
+			cout << endl
+				<< "Введите:" << endl
+				<< "0 - для ручного ввода" << endl
+				<< "1 - для автоматического заполнения" << endl
+				<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
+				<< endl;
+			choosedFunction = CheckCin(true);
+			cout << endl;
+			switch (choosedFunction)
+			{
+				case 0:
+				{
+					return true;
+					break;
+				}
+				case 1:
+				{
+					return false;
+					break;
+				}
+				default:
+				{
+					break;
+				}
+			}
+			if (choosedFunction == 0 && choosedFunction == 1)
+			{
+				GetPause();
+			}
+
+		}
+	}
 
 	//Меню выбора заданий
 	void ThirdChooseMenu()
@@ -380,6 +432,7 @@ namespace Lab3
 			//TODO: весь ввод автоматическим.
 			//?
 			//TODO: Сделайте возможность пользовательского ввода данных.
+			//сделано
 			system("cls");
 			cout << endl
 				<< "Введите 0 для выхода в меню выбора лабораторной или выберите задание от 1 до 10"
@@ -409,29 +462,60 @@ namespace Lab3
 				}
 				case GetLengthItem:
 				{
-					char* string10 = (char*)"123456789";
+					char* string;
 
-					cout << GetLength(string10) << endl;
+					if (ChooseCin())
+					{
+						string = ReadChar();
+					}
+					else
+					{
+						string = (char*)"123456789";
+					}
+					cout << GetLength(string) << endl;
 					break;
 				}
 				case ConcatenateItem:
 				{
-					char* massMerge1 = (char*)"abc123";
-					char* massMerge2 = (char*)"123abc";
-					char* mergedString1 = Concatenate(massMerge1, massMerge2);
+					char* mergedString1;
+					char* massMerge1;
+					char* massMerge2;
+
+					if (ChooseCin())
+					{
+						massMerge1 = ReadChar();
+						massMerge2 = ReadChar();
+					}
+					else
+					{
+						massMerge1 = (char*)"abc123";
+						massMerge2 = (char*)"123abc";
+					}
+
+					mergedString1 = Concatenate(massMerge1, massMerge2);
 
 					for (int i = 0; i < GetLength(mergedString1); i++)
 					{
 						cout << mergedString1[i] << " ";
 					}
+
 					cout << endl;
+
 					break;
 				}
 				case GetSubstringItem:
 				{
-					char* string2 = (char*)"123abc\0";
-					char* newSubString = GetSubstring(string2, 3, 3);
-
+					char* newSubString;
+					char* string;
+					if (ChooseCin())
+					{
+						string = ReadChar();
+					}
+					else
+					{
+						string = (char*)"123abc";
+					}
+					newSubString = GetSubstring(string, 3, 3);
 					for (int i = 0; i < GetLength(newSubString); i++)
 					{
 						cout << newSubString[i] << " ";
@@ -442,59 +526,120 @@ namespace Lab3
 				}
 				case FindSubstringItem:
 				{
-					char* string3 = (char*)"Lorem ipsum aset amet ";
-					char* substring10 = (char*)" ipsum a";
+					char *string ;
+					char* substring;
 
-					cout << FindSubstring(string3, substring10);
+					if (ChooseCin())
+					{
+						string = ReadChar();
+						substring = ReadChar();
+					}
+					else
+					{
+						string = (char*)"Lorem ipsum aset amet";
+						substring = (char*)" ipsum a";
+					}
+
+					cout << FindSubstring(string, substring);
 					break;
 				}
 				case TransformToUppercaseItem:
 				{
-					char* string4 = (char*)"Different cases in That string, also 1 and 2 numbers!.!#@48";
+					char *string;
+					if (ChooseCin())
+					{
+						string = ReadChar();
+					}
+					else
+					{
+						string = (char*)"Different cases in That string, also 1 and 2 numbers!.!#@48";
+					}
 
-					cout << TransformToUppercase(string4) << endl;
+					cout << TransformToUppercase(string) << endl;
 					break;
 				}
 				case TransformToLowercaseItem:
 				{
-					char* string5 = (char*)"Different cases in That string, also 1 and 2 numbers!.!#@48";
-
-					cout << TransformToLowercase(string5) << endl;
+					char *string;
+					if (ChooseCin())
+					{
+						string = ReadChar();
+					}
+					else
+					{
+						string = (char*)"Different cases in That string, also 1 and 2 numbers!.!#@48";
+					}
+					cout << TransformToLowercase(string) << endl;
 					break;
 				}
 				case SplitFilenameItem:
 				{
-					char* string6 = (char*)"d:\\folder\\subfolder\\file.pdf";
+					char* string;
 					char extension[50];
 					char path[50];
 					char name[50];
-					SplitFilename(string6, path, name, extension);
-					string6 = (char*)"d:\\fol der\\subf older\\file.pdf";
-					SplitFilename(string6, path, name, extension);
-					string6 = (char*)"d:\\fol der\\subf older\\file.pdf.вые.cmd";
-					SplitFilename(string6, path, name, extension);
+
+					if (ChooseCin())
+					{
+						string = ReadChar();
+					}
+					else
+					{
+						string = (char*)"d:\\folder\\subfolder\\file.pdf";
+					}
+
+					SplitFilename(string, path, name, extension);
+					SplitFilename(string, path, name, extension);
+					string = (char*)"d:\\fol der\\subf older\\file.pdf";
+					SplitFilename(string, path, name, extension);
+					string = (char*)"d:\\fol der\\subf older\\file.pdf.вые.cmd";
+					SplitFilename(string, path, name, extension);
 					break; 
 				}
 				case ReplaceTabsOnSpacesItem:
 				{
-					char* string7 = (char*)"Cake\tis\ta lie!";
-					cout << ReplaceTabsOnSpaces(string7) << endl;
-					string7 = (char*)"Cake\t\tis a lie!";
-					cout << ReplaceTabsOnSpaces(string7) << endl;
-					string7 = (char*)"\tCake is \tlie!";
-					cout << ReplaceTabsOnSpaces(string7) << endl;
+					char* string;
+
+					if (ChooseCin())
+					{
+						string = ReadChar();
+					}
+					else
+					{
+						string = (char*)"Cake\tis\ta lie!";
+					}
+
+					cout << ReplaceTabsOnSpaces(string) << endl;
+					cout << ReplaceTabsOnSpaces(string) << endl;
+					string = (char*)"Cake\t\tis a lie!";
+					cout << ReplaceTabsOnSpaces(string) << endl;
+					string = (char*)"\tCake is \tlie!";
+					cout << ReplaceTabsOnSpaces(string) << endl;
+					delete(string);
 					break;
 				}
 				case ReplaceSpacesOnTabsItem:
 				{
-					char* string8 = (char*)"Cake::::is::a:lie!";
-					cout << ReplaceSpacesOnTabs(string8) << endl;
-					string8 = (char*)"Cake::::is::::a:lie!";
-					cout << ReplaceSpacesOnTabs(string8) << endl;
-					string8 = (char*)"Cake:is:a:::::::lie!";
-					cout << ReplaceSpacesOnTabs(string8) << endl;
-					string8 = (char*)"Cake:is::a:lie!";
-					cout << ReplaceSpacesOnTabs(string8) << endl;
+					char* string;
+
+					if (ChooseCin())
+					{
+						string = ReadChar();
+					}
+					else
+					{
+						string = (char*)"Cake::::is::a:lie!\0";
+					}
+
+					cout << ReplaceSpacesOnTabs(string) << endl;
+					cout << ReplaceSpacesOnTabs(string) << endl;
+					string = (char*)"Cake::::is::::a:lie!";
+					cout << ReplaceSpacesOnTabs(string) << endl;
+					string = (char*)"Cake:is:a:::::::lie!";
+					cout << ReplaceSpacesOnTabs(string) << endl;
+					string = (char*)"Cake:is::a:lie!";
+					cout << ReplaceSpacesOnTabs(string) << endl;
+					delete(string);
 					break;
 				}
 				case PersonItem:

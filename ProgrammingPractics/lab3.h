@@ -18,6 +18,8 @@ namespace Lab3
 	char* ReplaceSpacesOnTabs(char* string);
 	Person ReadPerson();
 	void PrintPerson(Person& person);
+	char* ReadChar();
+	bool ChooseCin();
 	void ThirdChooseMenu();
 }
 

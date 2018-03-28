@@ -3,7 +3,7 @@
 
 struct Person
 {
-	char Surname[40];
+	char Surname[20];
 	char Name[20];
 	Sex Sex;
 };

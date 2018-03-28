@@ -159,8 +159,6 @@ namespace Laboratornaya2
 		int value3 = (*functionPointer)(a, b, c, x1, x2);
 		int x1Pointer = (*x1);
 		int x2Pointer = (*x2);
-		//TODO: Код ниже можно было не дублировать.
-		//сделано
 		PrintRoots(value3, x1Pointer, x2Pointer);
 	}
 	void PrintRootsReference(int a, int b, int c, double &x1, double &x2, 
@@ -353,10 +351,6 @@ namespace Laboratornaya2
 			choosedFunction = CheckCin(true);
 			switch (choosedFunction)
 			{
-				//TODO: Поправьте форматирование в соответствии с RSDN.
-				//сделано
-				//TODO: Где-то стоят скобки, где-то нет, сделайте единообразно.
-				//сделано
 				case 0:
 				{
 					key = false;
