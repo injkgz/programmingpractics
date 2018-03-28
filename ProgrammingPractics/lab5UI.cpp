@@ -83,7 +83,6 @@ void UILab5()
 			case 8:
 			{
 				cout << "Введите все поля добавляемой персоны на английском!: " << endl;
-				cout << endl << "Введите все поля удаляемой персоны: ";
 				lab5::Person* searchedPerson = list1.Read();
 				list1.Add(searchedPerson);
 			}

@@ -50,7 +50,7 @@ namespace lab5
 		int index = 0;
 		while (searchedPerson != NULL)
 		{
-			if (searchedPerson->GetValue() == person)
+			if (*searchedPerson->GetValue() == *person)
 			{
 				cout << "Индекс искомой личности = " << index;
 				return index;
@@ -68,7 +68,7 @@ namespace lab5
 		PersonListItem* deletedItem = _head;
 		while (deletedItem != nullptr)
 		{
-			if (deletedItem->GetValue() == person)
+			if (*deletedItem->GetValue() == *person)
 			{
 				if (deletedItem == _head)
 				{
@@ -89,6 +89,7 @@ namespace lab5
 				}
 				delete(deletedItem);
 				_count--;
+				return;
 			}
 		}
 		deletedItem = deletedItem->Next;
@@ -101,7 +102,7 @@ namespace lab5
 		PersonListItem* deletedItem = _head;
 		while (deletedItem != nullptr)
 		{
-			if (deletedItem->GetValue() == deletedPerson)
+			if (*deletedItem->GetValue() == *deletedPerson)
 			{
 				if (deletedItem == _head)
 				{
@@ -122,6 +123,7 @@ namespace lab5
 				}
 				delete(deletedItem);
 				_count--;
+				return;
 			}
 		}
 		deletedItem = deletedItem->Next;
