@@ -80,9 +80,6 @@
     <ClInclude Include="Person.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="Sex.h">
-      <Filter>common</Filter>
-    </ClInclude>
     <ClInclude Include="Node.h">
       <Filter>lab3</Filter>
     </ClInclude>
@@ -112,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="lab5UI.h">
       <Filter>lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="Sex.h">
+      <Filter>lab1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
