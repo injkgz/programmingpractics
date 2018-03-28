@@ -35,8 +35,10 @@ namespace lab5
 			{
 				searchedItem = searchedItem->Next;
 			}
-		}//TODO: NULL!!!
-		if (searchedItem->GetValue() != NULL)
+		}
+		//TODO: NULL!!!
+		//сделано
+		if (searchedItem->GetValue() != nullptr)
 		{
 			ShowPerson(searchedItem->GetValue());
 		}
@@ -48,7 +50,7 @@ namespace lab5
 	{
 		PersonListItem* searchedPerson = _head;
 		int index = 0;
-		while (searchedPerson != NULL)
+		while (searchedPerson != nullptr)
 		{
 			if (*searchedPerson->GetValue() == *person)
 			{
@@ -61,15 +63,14 @@ namespace lab5
 		cout << "Такой личности у нас нет!";
 		return -1;
 	}
-
-	//удалить человека из списка
-	void PersonList::Remove(Person* person)
+	void PersonList::Removing(Person* person)
 	{
 		PersonListItem* deletedItem = _head;
 		while (deletedItem != nullptr)
 		{
 			if (*deletedItem->GetValue() == *person)
 			{//TODO: Дублируется в следущем методе
+				//сделано
 				if (deletedItem == _head)
 				{
 					_head = deletedItem->Next;
@@ -94,39 +95,18 @@ namespace lab5
 		}
 		deletedItem = deletedItem->Next;
 	}
+	//удалить человека из списка
+	void PersonList::Remove(Person* person)
+	{
+		PersonListItem* deletedItem = _head;
+		Removing(person);
+	}
 
 	//удалить человека из списка по индексу
 	void PersonList::RemoveAt(int index)
 	{
 		Person *deletedPerson = Find(index);
-		PersonListItem* deletedItem = _head;
-		while (deletedItem != nullptr)
-		{
-			if (*deletedItem->GetValue() == *deletedPerson)
-			{
-				if (deletedItem == _head)
-				{
-					_head = deletedItem->Next;
-					_head->Next = deletedItem->Next->Next;
-					_head->Prev = nullptr;
-				}
-				else if (deletedItem == _tail)
-				{
-					_tail = deletedItem->Prev;
-					_tail->Prev = deletedItem->Prev->Prev;
-					_tail->Next = nullptr;
-				}
-				else
-				{
-					deletedItem->Prev->Next = deletedItem->Next;
-					deletedItem->Next->Prev = deletedItem->Prev;
-				}
-				delete(deletedItem);
-				_count--;
-				return;
-			}
-		}
-		deletedItem = deletedItem->Next;
+		Removing(deletedPerson);
 	}
 
 
@@ -183,24 +163,16 @@ namespace lab5
 			"Ланнистер"
 		};
 
-		cout << "Введите F - женщина или M - мужчина" << endl;
-		char key = _getch();
-		int asciiValue = key;
-		char insertedKey = key;
+		
 		//TODO: Почему в чисто рандомной персоне я должен вводить пол?
-		while ((key != 'f') && (key != 'm'))
-		{
-			cout << endl << "Некорректный символ!" << endl << "Введите F или M" << endl;
-			insertedKey = _getch();
-			key = insertedKey;
-		}
+		//сделано
 		char tempName[20];
 		char tempSurname[20];
 		int tempAge;
 		Sex tempSex;
-		asciiValue = insertedKey;
+		int key = rand() % 2;
 
-		switch (asciiValue)
+		switch (key)
 		{
 			case 'f':
 			{
@@ -231,14 +203,14 @@ namespace lab5
 		bool key = true;
 		char tempName[20];
 		char tempSurname[20];
-		int tempAge;
+		unsigned int tempAge;
 		Sex tempSex;
 
 		while (key)
 		{
 			cout << endl << "Введите фамилию: ";
 			cin >> tempSurname;
-			key = !isTrueName(tempSurname);
+			key = !CheckChar(tempSurname);
 		}
 
 		key = true;
@@ -247,7 +219,7 @@ namespace lab5
 		{
 			cout << endl << "Введите имя: ";
 			cin >> tempName;
-			key = !isTrueName(tempName);
+			key = !CheckChar(tempName);
 		}
 
 		cout << endl << "Введите пол 0 - женщина, 1 - мужчина!: ";
@@ -277,7 +249,8 @@ namespace lab5
 	}
 
 	//TODO: Некорректное именование!
-	bool PersonList::isTrueName(char name[])
+	//сделано
+	bool PersonList::CheckChar(char name[])
 	{
 		bool isTrueName = true;
 		for (int i = 0; i < strlen(name); i++)
@@ -341,11 +314,12 @@ namespace lab5
 		cout << "Возраст: " << person->GetAge() << endl;
 		switch (person->GetSex())
 		{//TODO: Почему проверка по int, а не по перечислениям?
-		case 0:
+		//сделано
+		case Female:
 			cout << "Пол:";
 			cout << "Женщина" << endl << endl;
 			break;
-		case 1:
+		case Male:
 			cout << "Пол:";
 			cout << "Мужчина" << endl << endl;
 			break;
