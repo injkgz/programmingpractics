@@ -150,11 +150,11 @@ namespace lab5
 	{
 		return _count;
 	}
-	void GenerateRandomPerson(char tempName[40],char tempSurname[40], 
+	void GenerateRandomPerson(char tempName[250],char tempSurname[250], 
 		const char Name[10], const char Surname[10], int& tempAge)
 	{
-		strcpy_s(tempName,40, Name);
-		strcpy_s(tempSurname,40, Surname);
+		strcpy_s(tempName,250, Name);
+		strcpy_s(tempSurname,250, Surname);
 		tempAge = rand() % 50;
 	}
 	Person* PersonList::MakeRandomPerson()
@@ -191,8 +191,8 @@ namespace lab5
 		
 		//TODO: Почему в чисто рандомной персоне я должен вводить пол?
 		//сделано
-		char tempName[40];
-		char tempSurname[40];
+		char tempName[250];
+		char tempSurname[250];
 		int tempAge;
 		Sex tempSex;
 		int key = rand() % 1;

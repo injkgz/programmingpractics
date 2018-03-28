@@ -7,11 +7,11 @@ namespace lab5
 	{
 		public://TODO: Зачем двойные отступы?
 			//исправил
-			Person(char Name[40], char Surname[40], unsigned int Age, Sex Sex);
+			Person(char Name[250], char Surname[250], unsigned int Age, Sex Sex);
 			bool operator==(const Person& good);
 			bool operator!=(const Person& good);
-			void SetName(char name[40]);
-			void SetSurname(char surname[40]);
+			void SetName(char name[250]);
+			void SetSurname(char surname[250]);
 			void SetAge(unsigned int age);
 			void SetSex(Sex sex);
 			char* GetName();
@@ -19,8 +19,8 @@ namespace lab5
 			int GetAge();
 			Sex GetSex();
 		private:
-			char Name[40];
-			char Surname[40];
+			char Name[250];
+			char Surname[250];
 			int Age;
 			Sex Sex;
 	};

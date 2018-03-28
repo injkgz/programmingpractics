@@ -27,6 +27,6 @@ namespace lab5
 			void ShowPerson(Person* person);
 			void Removing(Person* person);
 	};
-	void GenerateRandomPerson(char tempName[40], char tempSurname[40],
+	void GenerateRandomPerson(char tempName[250], char tempSurname[250],
 		const char Name[10], const char Surname[10], int& tempAge);
 }

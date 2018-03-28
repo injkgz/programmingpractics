@@ -11,7 +11,8 @@ namespace lab5
 	//оперативную память просто так!
 	//TODO: Пользователь не сможет ввести своё бесценное имя/фамилию, которое длиннее 40 символов - вот проблема
 	//TODO: И т.к. вы запускаете приложение не на микроконтроллере, то считать память пока не надо.
-	Person::Person(char Name[40], char Surname[40],
+	//сменил размерность на 250
+	Person::Person(char Name[250], char Surname[250],
 		unsigned int Age, enum Sex Sex)
 	{
 		SetName(Name);
@@ -20,11 +21,11 @@ namespace lab5
 		SetSex(Sex);
 	}
 
-	void Person::SetName(char name[40])
+	void Person::SetName(char name[250])
 	{
 		strcpy_s(Name, name);
 	}
-	void Person::SetSurname(char surname[40])
+	void Person::SetSurname(char surname[250])
 	{
 		strcpy_s(Surname, surname);
 	}
