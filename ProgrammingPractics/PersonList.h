@@ -22,11 +22,10 @@ namespace lab5
 			void Clear(); 
 			int GetCount(); 
 			Person* Read();
-			static Person* MakeRandomPerson(); 
+			void ShowList();
 			void GetCorrectIndex(int& index);
 			void ShowPerson(Person* person);
 			void Removing(Person* person);
 	};
-	void GenerateRandomPerson(char tempName[250], char tempSurname[250],
-		const char Name[10], const char Surname[10], int& tempAge);
+	
 }

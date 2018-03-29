@@ -44,9 +44,6 @@ namespace Lab3
 		}
 	}
 
-	//TODO: Длинный комментрий
-	//TODO: Где реакция?
-	//ниже была ж
 	//Функция, возвращающая из string CharCount символов с позиции startIndex
 	char* GetSubstring(char* string, int startIndex, int charCount)
 	{
@@ -362,7 +359,7 @@ namespace Lab3
 	}
 
 	//Вывод личности
-	void PrintPerson(Person& person)
+	void PrintPerson(const Person& person)
 	{
 		cout << "Фамилия: " << person.Surname << endl;
 		cout << "Имя: " << person.Name << endl;

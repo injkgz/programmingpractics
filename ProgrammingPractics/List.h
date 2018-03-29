@@ -3,8 +3,7 @@
 
 struct List
 {
-	//TODO: Некорректное именование публичных полей структуры
-	Node* head = nullptr;
-	Node* tail = nullptr;
+	Node* Head = nullptr;
+	Node* Tail = nullptr;
 	int CountItems = 0;
 };

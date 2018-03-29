@@ -146,6 +146,7 @@
     <ClInclude Include="Person5.h" />
     <ClInclude Include="PersonList.h" />
     <ClInclude Include="PersonListItem.h" />
+    <ClInclude Include="PersonTools.h" />
     <ClInclude Include="Sex.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Stack.h" />

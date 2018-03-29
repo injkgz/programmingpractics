@@ -19,6 +19,17 @@ namespace lab5
 		_count++;
 	}
 
+	void PersonList::ShowList()
+	{
+		int index = 0;
+		Person* newPerson = Find(index);
+		while (index+1 < _count)
+		{
+			index++;
+			newPerson = Find(index);
+		}
+	}
+
 	//найти человека по указанному индексу
 	Person* PersonList::Find(int index)
 	{
@@ -36,8 +47,6 @@ namespace lab5
 				searchedItem = searchedItem->Next;
 			}
 		}
-		//TODO: NULL!!!
-		//сделано
 		if (searchedItem->GetValue() != nullptr)
 		{
 			ShowPerson(searchedItem->GetValue());
@@ -63,14 +72,14 @@ namespace lab5
 		cout << "Такой личности у нас нет!";
 		return -1;
 	}
+
 	void PersonList::Removing(Person* person)
 	{
 		PersonListItem* deletedItem = _head;
 		while (deletedItem != nullptr)
 		{
 			if (*deletedItem->GetValue() == *person)
-			{//TODO: Дублируется в следущем методе
-				//сделано
+			{
 				if (deletedItem == _head)
 				{
 					_head = deletedItem->Next;
@@ -110,6 +119,7 @@ namespace lab5
 		}
 		return;
 	}
+
 	//удалить человека из списка
 	void PersonList::Remove(Person* person)
 	{
@@ -150,84 +160,13 @@ namespace lab5
 	{
 		return _count;
 	}
-	void GenerateRandomPerson(char tempName[250],char tempSurname[250], 
-		const char Name[10], const char Surname[10], int& tempAge)
-	{
-		strcpy_s(tempName,250, Name);
-		strcpy_s(tempSurname,250, Surname);
-		tempAge = rand() % 50;
-	}
-	Person* PersonList::MakeRandomPerson()
-	{
-		const char* MaleName[] =
-		{
-			"Вэйдер", "Йода", "Оби-Ван", "Молл",
-			"Энакин", "Сидиус", "Рено", "Ктун",
-			"Баланар", "Зевс"
-		};
-
-		const char* MaleSurname[] =
-		{
-			"Дарт", "Кеноби", "Скайуокер", "Джексон",
-			"Божественный", "Блудрейнов", "Молненосный",
-			"Исанов", "Джобс"
-		};
-
-		const char* FemaleName[] =
-		{
-			"Ниа", "Кейтлин", "Федора",
-			"Анна", "Маша", "Арабелла",
-			"Шадия", "Лея", "Кая", "Герда"
-		}; 
-
-		const char* FemaleSurname[] =
-		{
-			"Мятежникова", "Старк", "Горе",
-			"Хилькевич", "Горышкина", "Лесная",
-			"Принцесса", "Ледяная", "Сколедарио",
-			"Ланнистер"
-		};
-
-		
-		//TODO: Почему в чисто рандомной персоне я должен вводить пол?
-		//сделано
-		char tempName[250];
-		char tempSurname[250];
-		int tempAge;
-		Sex tempSex;
-		int key = rand() % 1;
-
-		switch (key)
-		{
-			case 0:
-			{//TODO: Ниже 2 дубля
-				//сделано
-				GenerateRandomPerson(tempName, tempSurname, FemaleName[rand() % 9],
-					FemaleSurname[rand() % 9], tempAge);
-				tempSex = Female;
-				break;
-			}
-			case 1:
-			{
-				GenerateRandomPerson(tempName, tempSurname, MaleName[rand() % 9],
-					MaleSurname[rand() % 9], tempAge);
-				tempSex = Male;
-				break;
-			}
-			default:
-			{
-				break;
-			}
-		}
-		return new Person(tempName, tempSurname, tempAge, tempSex);
-	}
 
 	Person* PersonList::Read()
 	{
 		bool key = true;
-		char tempName[20];
-		char tempSurname[20];
-		unsigned int tempAge;
+		char tempName[Person::arraySize];
+		char tempSurname[Person::arraySize];
+		int tempAge;
 		Sex tempSex;
 
 		while (key)
@@ -247,34 +186,32 @@ namespace lab5
 		}
 
 		cout << endl << "Введите пол 0 - женщина, 1 - мужчина!: ";
-		int n;//TODO: Не должен быть int, если есть перечисление!
-		
+		//TODO: Переделать в перечисление
+		//сделано
 		do
 		{
-			n = CheckCin(true);
+			tempSex = (Sex)(int)CheckCin(true);
+			if (tempSex != 0 && tempSex != 1)
+			{
+				cout << endl << "Введено неправильное значение! Введите пол 0 - женщина, 1 - мужчина!: ";
+			}
 		} 
-		while (n != 0 && n != 1);
+		while (tempSex != 0 && tempSex != 1);
 
-		switch (n)
-		{
-			case Female:
-				tempSex = Female;
-				break;
-			case Male:
-				tempSex = Male;
-				break;
-			default:
-				break;
-		}
+		
 
 		cout << endl << "Введите возраст: ";
 		tempAge = CheckCin(true);
+		while (tempAge < 0)
+		{
+			cout << endl << "Введён некорректный возраст!" << endl
+				<< "Возраст не может быть отрицательным!"
+				<< "Попробуйте ещё раз!" << endl;
+			tempAge = CheckCin(true);
+		}
 		return new Person(tempName, tempSurname, tempAge, tempSex);
 	}
 
-	//TODO: Некорректное именование!
-	//сделано
-	//TODO: Так и не понятно по названию метода - что он делает.
 	bool PersonList::CheckValidName(char name[])
 	{
 		bool isTrueName = true;
@@ -331,7 +268,6 @@ namespace lab5
 
 	void PersonList:: ShowPerson(Person* person)
 	{
-		
 		cout << ". Фамилия:";
 		cout << person->GetSurname() << endl;
 		cout << "Имя: ";
@@ -339,8 +275,6 @@ namespace lab5
 		cout << "Возраст: " << person->GetAge() << endl;
 		switch (person->GetSex())
 		{
-			//TODO: Форматирование не по RSDN
-			//исправил
 			case Female:
 				cout << "Пол:";
 				cout << "Женщина" << endl << endl;

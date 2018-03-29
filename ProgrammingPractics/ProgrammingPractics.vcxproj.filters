@@ -113,5 +113,8 @@
     <ClInclude Include="Sex.h">
       <Filter>lab1</Filter>
     </ClInclude>
+    <ClInclude Include="PersonTools.h">
+      <Filter>lab5</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

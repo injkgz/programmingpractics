@@ -20,6 +20,7 @@ void UILab5()
 			<< "6. Clear" << endl
 			<< "7. GetCount" << endl
 			<< "8. Read" << endl
+			<< "9. ShowList" << endl
 			<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 			<< endl;
 		choosedFunction = CheckCin(true);
@@ -36,7 +37,8 @@ void UILab5()
 			}
 			case 1:
 			{
-				list1.Add(lab5::PersonList::MakeRandomPerson());
+				list1.Add(lab5::PersonTools::MakeRandomPerson());
+				list1.ShowList();
 				break;
 			}
 			case 2:
@@ -56,6 +58,7 @@ void UILab5()
 			}
 			case 4:
 			{
+				list1.ShowList();
 				cout << endl << "Введите все поля удаляемой персоны: ";
 				lab5::Person* searchedPerson = list1.Read();
 				list1.Remove(searchedPerson);
@@ -63,6 +66,7 @@ void UILab5()
 			}
 			case 5:
 			{
+				list1.ShowList();
 				cout << endl << "Введите индекс удаляемой персоны: ";
 				int index;
 				list1.GetCorrectIndex(index);
@@ -71,6 +75,7 @@ void UILab5()
 			}
 			case 6:
 			{
+				list1.ShowList();
 				cout << endl << "Очищаем список!" << endl;
 				list1.Clear();
 				break;
@@ -78,6 +83,7 @@ void UILab5()
 			case 7:
 			{
 				cout << endl << "Количество элементов в списке = " << list1.GetCount();
+				list1.ShowList();
 				break;
 			}
 			case 8:
@@ -85,6 +91,12 @@ void UILab5()
 				cout << "Введите все поля добавляемой персоны на английском!: " << endl;
 				lab5::Person* searchedPerson = list1.Read();
 				list1.Add(searchedPerson);
+				list1.ShowList();
+			}
+			case 9:
+			{
+				list1.ShowList();
+				break;
 			}
 			default:
 			{

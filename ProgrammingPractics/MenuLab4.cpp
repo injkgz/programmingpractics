@@ -1,5 +1,6 @@
 ﻿#include "CheckCin.h"
 
+using namespace lab4;
 
 Person* MakeRandomPerson()
 {
@@ -158,35 +159,36 @@ void ListMenu()
 				system("pause");
 				break;
 			}
-			case lab4::Add:
+			case AddItem:
 			{
 				Add(list, MakeRandomPerson());
 				ShowList(list);
 				break;
 			}
-			case lab4::ShowList:
+			case ShowListItems:
 			{
 				ShowList(list);
 				break;
 			}
-			case lab4::RemoveByIndex:
+			case RemoveByIndexItem:
 			{
 				cout << "Введите индекс элемента: ";
 				int index = GetCorrectIndex(list);
 				RemoveByIndex(list, index);
 				break;
 			}
-			case lab4::InsertByIndex:
+			case InsertByIndexItem:
 			{
 				cout << "Введите индекс элемента: ";
 				int index = GetCorrectIndex(list);
 				InsertByIndex(list, MakeRandomPerson(), index);
 				break;
 			}
-			case lab4::GetByIndex:
+			case GetByIndexItem:
 			{
 				cout << "Введите индекс элемента: ";
-				int index = GetCorrectIndex(list);
+				int index = 0;
+				index = GetCorrectIndex(list)-1;
 				Node* temp = GetByIndex(list, index);
 				if (temp == nullptr)
 				{
@@ -195,7 +197,7 @@ void ListMenu()
 				ShowListItem(*temp, index);
 				break;
 			}
-			case lab4::ClearList:
+			case ClearListItem:
 			{
 				ClearList(list);
 				system("color 04");
@@ -253,34 +255,30 @@ void StackMenu()
 				cout << endl << "Выход в меню выбора структур" << endl;
 				system("pause");
 				break;
-			}//TODO: Зачем писать полное имя (с lab4)?
-			//они в другом пространстве имён для того,
-			//чтобы функция и её перечисление
-			//имели одно и тоже имя
-			//TODO: А using namespace?
-			case lab4::PushStack:
+			}
+			case PushStackItem:
 			{
 				PushStack(newStack, MakeRandomPerson());
 				GetFullStack(newStack);
 				break;
 			}
-			case lab4::PopStack:
+			case PopStackItem:
 			{
 				PopStack(newStack);
 				GetFullStack(newStack);
 				break;
 			}
-			case lab4::GetTopStack:
+			case GetTopStackItem:
 			{
 				GetTopStack(newStack);
 				break;
 			}
-			case lab4::GetFullStack:
+			case GetFullStackItem:
 			{
 				GetFullStack(newStack);
 				break;
 			}
-			case lab4::GetSizeStack:
+			case GetSizeStackItem:
 			{
 				int sizeOfNewStack = -1;
 				sizeOfNewStack = GetSizeStack(newStack);
@@ -298,7 +296,7 @@ void StackMenu()
 				}
 				break;
 			}
-			case lab4::IsEmptyStack:
+			case IsEmptyStackItem:
 			{
 				IsEmptyStack(newStack);
 				break;

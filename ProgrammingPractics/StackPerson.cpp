@@ -6,18 +6,17 @@ void PushStack(Stack*& stackItem, Person *person)
 	if (stackItem == nullptr)
 	{
 		stackItem = temp;
-		temp->data = *person;
-		temp->next = nullptr;
+		temp->Data = *person;
+		temp->Next = nullptr;
 	}
 	else
 	{
-		temp->next = stackItem;
+		temp->Next = stackItem;
 		stackItem = temp;
-		temp->data = *person;
+		temp->Data = *person;
 	}
 }
-//TODO: Должны быть пустые строки между функциями
-//сделано
+
 void PopStack(Stack*& stackItem)
 {
 	Stack *temp = stackItem;
@@ -28,21 +27,21 @@ void PopStack(Stack*& stackItem)
 	else
 	{
 		temp = stackItem;
-		stackItem = stackItem->next;
+		stackItem = stackItem->Next;
 		delete temp;
 	}
 }
 
 void PrintPerson (Stack* stackItem)
 {
-	cout << endl << "Имя:\t\t" << stackItem->data.Name << endl;
-	cout << "Фамилия:\t" << stackItem->data.Surname << endl;
-	switch (stackItem->data.Sex)
+	cout << endl << "Имя:\t\t" << stackItem->Data.Name << endl;
+	cout << "Фамилия:\t" << stackItem->Data.Surname << endl;
+	switch (stackItem->Data.Sex)
 	{
-		case 0:
+		case Female:
 			cout << "Пол:\t\t" << "Женщина" << endl << endl;
 			break;
-		case 1:
+		case Male:
 			cout << "Пол:\t\t" << "Мужчина" << endl << endl;
 			break;
 		default: break;
@@ -75,7 +74,7 @@ void GetFullStack(Stack *stackItem)
 		{
 			cout << endl << i << ". ";
 			PrintPerson(temp);
-			temp = temp->next;
+			temp = temp->Next;
 			i++;
 		}
 	}
@@ -92,10 +91,10 @@ int GetSizeStack(Stack *stackItem)
 	else
 	{
 		int itemsCounter = 1;
-		while (temp->next != nullptr)
+		while (temp->Next != nullptr)
 		{
 			itemsCounter++;
-			temp = temp->next;
+			temp = temp->Next;
 			
 		}
 		return itemsCounter;

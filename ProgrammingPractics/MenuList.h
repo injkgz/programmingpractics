@@ -5,11 +5,11 @@ namespace lab4
 {
 	enum MenuList
 	{
-		Add = 1,
-		ShowList,
-		GetByIndex,
-		RemoveByIndex,
-		InsertByIndex,
-		ClearList
+		AddItem = 1,
+		ShowListItems,
+		GetByIndexItem,
+		RemoveByIndexItem,
+		InsertByIndexItem,
+		ClearListItem
 	};
 }

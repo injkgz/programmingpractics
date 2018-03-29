@@ -5,11 +5,11 @@ namespace lab4
 {
 	enum MenuStack
 	{
-		PushStack = 1,
-		PopStack,
-		GetTopStack,
-		GetFullStack,
-		GetSizeStack,
-		IsEmptyStack
+		PushStackItem = 1,
+		PopStackItem,
+		GetTopStackItem,
+		GetFullStackItem,
+		GetSizeStackItem,
+		IsEmptyStackItem
 	};
 }
