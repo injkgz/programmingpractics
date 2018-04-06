@@ -6,11 +6,13 @@ namespace lab5
 	class PersonTools
 	{
 		public:
+			//TODO: Длинная строка!
 			static void GenerateRandomPerson(char tempName[Person::arraySize], char tempSurname[Person::arraySize],
 				const char Name[10], const char Surname[10], int& tempAge)
 			{
 				strcpy_s(tempName, Person::arraySize, Name);
 				strcpy_s(tempSurname, Person::arraySize, Surname);
+				//TODO: Магические числа в коде.
 				tempAge = rand() % 90;
 			}
 			static Person* MakeRandomPerson()
@@ -51,9 +53,11 @@ namespace lab5
 				int key = rand() % 1;
 
 				switch (key)
-				{
+				{//TODO: Форматирование
+					//TODO: Почему не используем перечисление?
 				case 0:
 				{
+					//TODO: Магические числа в коде.
 					GenerateRandomPerson(tempName, tempSurname, FemaleName[rand() % 9],
 						FemaleSurname[rand() % 9], tempAge);
 					tempSex = Female;

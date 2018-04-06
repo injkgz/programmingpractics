@@ -14,6 +14,7 @@ namespace lab5
 			PersonListItem* Next = nullptr;
 			PersonListItem* Prev = nullptr;
 		private:
+			//TODO: Именование не по RSDN
 			Person* Value;
 	};
 }

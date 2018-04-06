@@ -16,7 +16,7 @@ namespace lab5
 	void Person::SetName(char name[arraySize])
 	{
 		strcpy_s(Name, arraySize, name);
-	}
+	}//TODO: Пустые строки между методами.
 	void Person::SetSurname(char surname[arraySize])
 	{
 		strcpy_s(Surname, arraySize, surname);
@@ -56,6 +56,9 @@ namespace lab5
 	bool Person::operator!=(const Person& good)
 	{
 		return !operator==(good);
+
+		//TODO: Зачем это здесь?
+
 		/*return(strcmp(Name, good.Name) &&
 			strcmp(Surname, good.Surname) &&
 			Age != good.Age && Sex != good.Sex);*/

@@ -5,6 +5,7 @@ void UILab5()
 	bool key = true;
 	int choosedFunction;
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	//TODO: Некорректное именование!
 	lab5::PersonList list1;
 	while (key)
 	{

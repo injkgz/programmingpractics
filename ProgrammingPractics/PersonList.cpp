@@ -186,8 +186,7 @@ namespace lab5
 		}
 
 		cout << endl << "Введите пол 0 - женщина, 1 - мужчина!: ";
-		//TODO: Переделать в перечисление
-		//сделано
+
 		do
 		{
 			tempSex = (Sex)(int)CheckCin(true);
