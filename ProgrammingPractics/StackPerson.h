@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "CheckCin.h"
+#include "Stack.h"
 
 void PushStack(Stack*& stackItem, Person *person);
 void PopStack(Stack*& stackItem);

@@ -116,6 +116,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Adult.cpp" />
+    <ClCompile Include="Child.cpp" />
     <ClCompile Include="lab1.cpp">
       <UseUnicodeForAssemblerListing Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</UseUnicodeForAssemblerListing>
     </ClCompile>
@@ -131,7 +133,9 @@
     <ClCompile Include="StackPerson.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adult.h" />
     <ClInclude Include="CheckCin.h" />
+    <ClInclude Include="Child.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="lab1.h" />
     <ClInclude Include="lab2.h" />

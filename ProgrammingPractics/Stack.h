@@ -1,5 +1,6 @@
 #pragma once
 #include "CheckCin.h"
+#include "Person.h"
 
 struct Stack
 {

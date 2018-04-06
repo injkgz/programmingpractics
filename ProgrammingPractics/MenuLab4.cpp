@@ -1,4 +1,10 @@
 ﻿#include "CheckCin.h"
+#include "MenuLab4.h"
+#include "DoubleLinkedList.h"
+#include "MenuList.h"
+#include "MenuStack.h"
+#include "Stack.h"
+#include "StackPerson.h"
 
 using namespace lab4;
 

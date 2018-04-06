@@ -1,0 +1,7 @@
+diff a/ProgrammingPractics/CheckCin.h b/ProgrammingPractics/CheckCin.h	(rejected hunks)
+@@ -1,4 +1,5 @@
+ #pragma once
++//TODO: ��� ������ �� ���������, ��� ������ ���� ������ common libraries!
+ #include <iostream>
+ #include <string>
+ #include <ctime>

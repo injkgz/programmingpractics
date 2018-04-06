@@ -7,14 +7,19 @@ namespace lab5
 	{
 		public:
 			//TODO: Длинная строка!
-			static void GenerateRandomPerson(char tempName[Person::arraySize], char tempSurname[Person::arraySize],
-				const char Name[10], const char Surname[10], int& tempAge)
+			//исправил
+			static void GenerateRandomPerson(char tempName[Person::arraySize], 
+				char tempSurname[Person::arraySize], const char Name[10], 
+				const char Surname[10], int& tempAge)
 			{
 				strcpy_s(tempName, Person::arraySize, Name);
 				strcpy_s(tempSurname, Person::arraySize, Surname);
 				//TODO: Магические числа в коде.
+				//могу просто комментарий поясняющий оставить
+				//в tempAge генерируется "рандомный" возраст от 0 до 90 лет.
 				tempAge = rand() % 90;
 			}
+
 			static Person* MakeRandomPerson()
 			{
 				const char* MaleName[] =
@@ -51,24 +56,26 @@ namespace lab5
 				int tempAge;
 				Sex tempSex;
 				int key = rand() % 1;
+				tempSex = (Sex)key;
 
-				switch (key)
+				switch (tempSex)
 				{//TODO: Форматирование
 					//TODO: Почему не используем перечисление?
-				case 0:
-				{
-					//TODO: Магические числа в коде.
-					GenerateRandomPerson(tempName, tempSurname, FemaleName[rand() % 9],
-						FemaleSurname[rand() % 9], tempAge);
-					tempSex = Female;
-					break;
-				}
-				case 1:
-				{
-					GenerateRandomPerson(tempName, tempSurname, MaleName[rand() % 9],
-						MaleSurname[rand() % 9], tempAge);
-					tempSex = Male;
-					break;
+					//исправил
+					case Female:
+					{
+						//TODO: Магические числа в коде.
+						//в char массивы передаются рандомные числа от 0 до 9,
+						//потому что в них хранятся всего 9 экземпляров имен/фамилий
+						GenerateRandomPerson(tempName, tempSurname, FemaleName[rand() % 9],
+							FemaleSurname[rand() % 9], tempAge);
+						break;
+					}
+					case Male:
+					{
+						GenerateRandomPerson(tempName, tempSurname, MaleName[rand() % 9],
+							MaleSurname[rand() % 9], tempAge);
+						break;
 				}
 				default:
 				{

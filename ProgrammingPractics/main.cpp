@@ -1,4 +1,9 @@
 ﻿#include "CheckCin.h"
+#include "lab1.h"
+#include "lab2.h"
+#include "lab3.h"
+#include "MenuLab4.h"
+#include "lab5UI.h"
 
 int main()
 {

@@ -1,5 +1,5 @@
 ﻿#include "CheckCin.h"
-
+#include "DoubleLinkedList.h"
 
 void Add(List* list, Person * person)
 {

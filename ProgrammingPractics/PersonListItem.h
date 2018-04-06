@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include "Person5.h"
-
 namespace lab5
 {
 	class PersonListItem
@@ -8,13 +7,14 @@ namespace lab5
 		public:
 			PersonListItem(Person* person)
 			{
-				Value = person;
+				_value = person;
 			}
 			Person* GetValue();
 			PersonListItem* Next = nullptr;
 			PersonListItem* Prev = nullptr;
 		private:
 			//TODO: Именование не по RSDN
-			Person* Value;
+			//исправил
+			Person* _value;
 	};
 }

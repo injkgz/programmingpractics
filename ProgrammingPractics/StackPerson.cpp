@@ -1,4 +1,5 @@
 ﻿#include "CheckCin.h"
+#include "StackPerson.h"
 
 void PushStack(Stack*& stackItem, Person *person)
 {

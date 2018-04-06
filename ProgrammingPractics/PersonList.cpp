@@ -1,4 +1,5 @@
 ﻿#include "CheckCin.h"
+#include "PersonList.h"
 
 namespace lab5
 {
@@ -73,9 +74,11 @@ namespace lab5
 		return -1;
 	}
 
-	void PersonList::Removing(Person* person)
+	//удалить человека из списка
+	void PersonList::Remove(Person* person)
 	{
 		PersonListItem* deletedItem = _head;
+
 		while (deletedItem != nullptr)
 		{
 			if (*deletedItem->GetValue() == *person)
@@ -83,15 +86,18 @@ namespace lab5
 				if (deletedItem == _head)
 				{
 					_head = deletedItem->Next;
-					if (deletedItem->Next == nullptr)
+					if (_head != nullptr)
 					{
-						_head->Next = nullptr;
+						if (deletedItem->Next == nullptr)
+						{
+							_head->Next = nullptr;
+						}
+						else
+						{
+							_head->Next = deletedItem->Next->Next;
+						}
+						_head->Prev = nullptr;
 					}
-					else
-					{
-						_head->Next = deletedItem->Next->Next;
-					}
-					_head->Prev = nullptr;
 				}
 				else if (deletedItem == _tail)
 				{
@@ -120,13 +126,6 @@ namespace lab5
 		return;
 	}
 
-	//удалить человека из списка
-	void PersonList::Remove(Person* person)
-	{
-		PersonListItem* deletedItem = _head;
-		Removing(person);
-	}
-
 	//удалить человека из списка по индексу
 	void PersonList::RemoveAt(int index)
 	{
@@ -135,7 +134,7 @@ namespace lab5
 		{
 			return;
 		}
-		Removing(deletedPerson);
+		Remove(deletedPerson);
 	}
 
 
@@ -201,10 +200,10 @@ namespace lab5
 
 		cout << endl << "Введите возраст: ";
 		tempAge = CheckCin(true);
-		while (tempAge < 0)
+		while (tempAge < 0 && tempAge > 125)
 		{
 			cout << endl << "Введён некорректный возраст!" << endl
-				<< "Возраст не может быть отрицательным!"
+				<< "Возраст не может быть отрицательным или больше 125!"
 				<< "Попробуйте ещё раз!" << endl;
 			tempAge = CheckCin(true);
 		}

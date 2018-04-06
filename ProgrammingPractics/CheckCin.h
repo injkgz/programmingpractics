@@ -1,5 +1,6 @@
-#pragma once
-//TODO: Так делать не правильно, тут должны быть только common libraries!
+п»ї#pragma once
+//TODO: РўР°Рє РґРµР»Р°С‚СЊ РЅРµ РїСЂР°РІРёР»СЊРЅРѕ, С‚СѓС‚ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ С‚РѕР»СЊРєРѕ common libraries!
+//РёСЃРїСЂР°РІРёР»
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -9,34 +10,11 @@
 #include <tchar.h>
 #include <string.h>
 #include <stdio.h>
-#include "lab1.h"
-#include "lab2.h"
-//lab3
-#include "lab3.h"
-#include "MenuLab3.h"
-#include "DoubleLinkedList.h"
-#include "Person.h"
-#include "Sex.h"
-#include "Node.h"
-//lab4
-#include "Stack.h"
-#include "StackPerson.h"
-#include "MenuLab4.h"
-#include "List.h"
-#include "MenuStack.h"
-#include "MenuList.h"
-//lab5
-#include "Person5.h"
-#include "PersonList.h"
-#include "PersonListItem.h"
-#include "lab5UI.h"
-#include "PersonTools.h"
 #include <cctype>
 
-
-
 using namespace std;
-// isWhole нужен для того, чтобы программист выбирал тип возвращаемого значения; 
+
+// isWhole РЅСѓР¶РµРЅ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РїСЂРѕРіСЂР°РјРјРёСЃС‚ РІС‹Р±РёСЂР°Р» С‚РёРї РІРѕР·РІСЂР°С‰Р°РµРјРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ; 
 inline double CheckCin(bool isWhole)
 {
 	string stringForCheck;
@@ -54,7 +32,7 @@ inline double CheckCin(bool isWhole)
 
 		if (correctValue == 0)
 		{
-			cout << endl << "Вы ввели неверное значение! Попробуйте ещё раз!" << endl;
+			cout << endl << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ! РџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰С‘ СЂР°Р·!" << endl;
 		}
 
 		if (isWhole)

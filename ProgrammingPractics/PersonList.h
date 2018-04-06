@@ -25,7 +25,6 @@ namespace lab5
 			void ShowList();
 			void GetCorrectIndex(int& index);
 			void ShowPerson(Person* person);
-			void Removing(Person* person);
 	};
 	
 }

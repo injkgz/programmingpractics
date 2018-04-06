@@ -1,4 +1,6 @@
 ﻿#include "lab5UI.h"
+#include "PersonList.h"
+#include "PersonTools.h"
 
 void UILab5()
 {
@@ -6,7 +8,8 @@ void UILab5()
 	int choosedFunction;
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	//TODO: Некорректное именование!
-	lab5::PersonList list1;
+	//исправил
+	lab5::PersonList newList;
 	while (key)
 	{
 		system("cls");
@@ -38,65 +41,65 @@ void UILab5()
 			}
 			case 1:
 			{
-				list1.Add(lab5::PersonTools::MakeRandomPerson());
-				list1.ShowList();
+				newList.Add(lab5::PersonTools::MakeRandomPerson());
+				newList.ShowList();
 				break;
 			}
 			case 2:
 			{
 				cout << endl << "Введите индекс персоны: ";
 				int index;
-				list1.GetCorrectIndex(index);
-				list1.Find(index);
+				newList.GetCorrectIndex(index);
+				newList.Find(index);
 				break;
 			}
 			case 3:
 			{
 				cout << endl << "Введите все поля персоны обязательно на английском!: " << endl;
-				lab5::Person* searchedPerson = list1.Read();
-				list1.IndexOf(searchedPerson);
+				lab5::Person* searchedPerson = newList.Read();
+				newList.IndexOf(searchedPerson);
 				break;
 			}
 			case 4:
 			{
-				list1.ShowList();
+				newList.ShowList();
 				cout << endl << "Введите все поля удаляемой персоны: ";
-				lab5::Person* searchedPerson = list1.Read();
-				list1.Remove(searchedPerson);
+				lab5::Person* searchedPerson = newList.Read();
+				newList.Remove(searchedPerson);
 				break;
 			}
 			case 5:
 			{
-				list1.ShowList();
+				newList.ShowList();
 				cout << endl << "Введите индекс удаляемой персоны: ";
 				int index;
-				list1.GetCorrectIndex(index);
-				list1.RemoveAt(index);
+				newList.GetCorrectIndex(index);
+				newList.RemoveAt(index);
 				break;
 			}
 			case 6:
 			{
-				list1.ShowList();
+				newList.ShowList();
 				cout << endl << "Очищаем список!" << endl;
-				list1.Clear();
+				newList.Clear();
 				break;
 			}
 			case 7:
 			{
-				cout << endl << "Количество элементов в списке = " << list1.GetCount();
-				list1.ShowList();
+				cout << endl << "Количество элементов в списке = " << newList.GetCount();
+				newList.ShowList();
 				break;
 			}
 			case 8:
 			{
 				cout << "Введите все поля добавляемой персоны на английском!: " << endl;
-				lab5::Person* searchedPerson = list1.Read();
-				list1.Add(searchedPerson);
-				list1.ShowList();
+				lab5::Person* searchedPerson = newList.Read();
+				newList.Add(searchedPerson);
+				newList.ShowList();
 			}
 			case 9:
 			{
-				list1.ShowList();
+				newList.ShowList();
 				break;
 			}
 			default:
