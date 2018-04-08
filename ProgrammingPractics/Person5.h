@@ -10,7 +10,8 @@ namespace lab5
 			//я обращаюсь к этой переменной также в методах и полях
 			//6-ой лабораторной работы
 			static const int arraySize = 250;
-			Person(char Name[arraySize], char Surname[arraySize], int Age, Sex Sex);
+			Person() {};
+			Person(char Name[arraySize], char Surname[arraySize], int Age, enum Sex Sex);
 			bool operator==(const Person& good);
 			bool operator!=(const Person& good);
 			void SetName(char name[arraySize]);
@@ -21,8 +22,9 @@ namespace lab5
 			char* GetSurname();
 			virtual int GetAge();
 			Sex GetSex();
+			~Person();
 		protected: 
-			int Age;
+			int _age;
 		private:
 			//TODO: Именование не по RSDN!
 			//исправил, на гите лежал старый код)

@@ -27,7 +27,7 @@ namespace lab5
 
 	void Person::SetAge(int age)
 	{
-		Age = age;
+		_age = age;
 	}
 
 	void Person::SetSex(enum Sex sex)
@@ -47,7 +47,7 @@ namespace lab5
 
 	int Person::GetAge()
 	{
-		return Age;
+		return _age;
 	}
 
 	Sex Person::GetSex()
@@ -55,11 +55,17 @@ namespace lab5
 		return _sex;
 	}
 
+	Person::~Person()
+	{
+		delete _name;
+		delete _surname;
+	}
+
 	bool Person::operator==(const Person& good)
 	{
 		return(!strcmp(_name, good._name) &&
 			!strcmp(_surname, good._surname) &&
-			Age == good.Age && _sex == good._sex);
+			_age == good._age && _sex == good._sex);
 	}
 
 	bool Person::operator!=(const Person& good)

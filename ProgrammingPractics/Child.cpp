@@ -4,15 +4,24 @@ namespace lab5
 {
 	void Child::SetAge(int Age)
 	{
-		if (Age < 18)
+		if (Age < 18 && Age > 0)
 		{
-			cout << endl << "Вы ввели некорректное значение для возраста ребёнка!" << endl
-				<< "Он должен быть младше 18!" << endl;
-
+			_age = Age;
 		}
 		else
 		{
-			Person::SetAge(Age);
+			cout << endl << "Неверный возраст!" << endl
+				<< "Ребёнок не может быть старше 18 лет!" << endl
+				<< "Попробуйте ещё раз!" << endl
+				<< "Введите возраст: " << endl;
+			int tempAge = CheckCin(true);
+			while (tempAge < 18 && tempAge > 125)
+			{
+				cout << endl << "Введён некорректный возраст!" << endl
+					<< "Попробуйте ещё раз!" << endl;
+				tempAge = CheckCin(true);
+			}
+			_age = Age;
 		}
 	}
 
