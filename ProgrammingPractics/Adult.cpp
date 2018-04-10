@@ -72,9 +72,9 @@ namespace lab5
 			"Mail.Ru", "Huawei", "Xiaomi", "HTC"
 		};
 
-		char tempName[Person::arraySize];
-		char tempSurname[Person::arraySize];
-		char tempWorkPlace[Person::arraySize];
+		char tempName[arraySize];
+		char tempSurname[arraySize];
+		char tempWorkPlace[arraySize];
 		int tempAge = rand() % 90 - 18;
 		Sex tempSex;
 		int key = rand() % 1;
@@ -118,7 +118,6 @@ namespace lab5
 				<< endl << "Щас подыщем вам кого-нибудь противоположного пола!";
 			Adult* tempMarriedOn = GetRandom();
 			SetMarriedOn(tempMarriedOn);
-			GetPause();
 		}
 	}
 
@@ -133,4 +132,28 @@ namespace lab5
 		SetMarriedOn(tempMarriedOn);
 	}
 	
+	char* Adult::GetWorkPlace()
+	{
+		return _workPlace;
+	}
+
+	Adult* Adult::GetMarriedOn()
+	{
+		return _marriedOn;
+	}
+
+	string Adult::GetDescriptionAdult()
+	{
+		string description = Person::GetDescription();
+		description += "\nРаботает в " + string(this->GetWorkPlace());
+		if (_marriedOn != nullptr)
+		{
+			description += "\n Состоит в браке с " + string(this->GetMarriedOn()->GetDescription());
+		}
+		else
+		{
+			description += "\n Не состоит в браке.";
+		}
+		return description;
+	}
 }

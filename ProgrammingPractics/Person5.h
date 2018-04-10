@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Sex.h"
+#include "CheckCin.h"
 
 namespace lab5
 {
@@ -22,6 +23,7 @@ namespace lab5
 			char* GetSurname();
 			virtual int GetAge();
 			Sex GetSex();
+			string GetDescription();
 			~Person();
 		protected: 
 			int _age;

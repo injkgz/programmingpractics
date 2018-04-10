@@ -75,4 +75,11 @@ namespace lab5
 		//TODO: Зачем это здесь?
 		//убрал
 	}
+
+	string Person::GetDescription()
+	{
+		string description = string(this->GetName()) + " " + string(this->GetSurname())
+			+ ". Возраст = " + to_string(this->GetAge());
+		return description;
+	}
 }
