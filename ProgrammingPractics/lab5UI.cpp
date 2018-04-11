@@ -1,6 +1,8 @@
 ﻿#include "lab5UI.h"
 #include "PersonList.h"
 #include "PersonTools.h"
+#include "Adult.h"
+#include "Child.h"
 
 void UILab5()
 {
@@ -41,7 +43,8 @@ void UILab5()
 			}
 			case 1:
 			{
-				newList.Add(lab5::PersonTools::MakeRandomPerson());
+				newList.Add(lab5::Adult::GetRandom());
+				newList.Add(lab5::Child::GetRandom());
 				newList.ShowList();
 				break;
 			}

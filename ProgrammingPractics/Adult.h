@@ -16,12 +16,13 @@ namespace lab5
 		public:
 			virtual void SetAge(int Age) override;
 			Adult(char Name[arraySize], char Surname[arraySize], int Age, enum Sex Sex, Adult* marriedOn, char* workPlace);
+			Adult(char Name[arraySize], char Surname[arraySize], int Age, enum Sex Sex, char* workPlace);
 			static Adult* GetRandom();
+			static Adult* GetRandom(Sex sex);
 			void SetMarriedOn(Adult* marriedOn);
 			Adult* GetMarriedOn();
 			void SetWorkPlace(char* workPlace);
 			char* GetWorkPlace();
-			void MakeWedding();
 			string GetDescriptionAdult();
 	};
 }

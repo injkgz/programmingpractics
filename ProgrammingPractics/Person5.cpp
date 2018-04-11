@@ -1,6 +1,8 @@
 ﻿#include "CheckCin.h"
 #include "Person5.h"
 #include "Sex.h"
+#include "Adult.h"
+#include "Child.h"
 
 namespace lab5
 {
@@ -79,7 +81,21 @@ namespace lab5
 	string Person::GetDescription()
 	{
 		string description = string(this->GetName()) + " " + string(this->GetSurname())
-			+ ". Возраст = " + to_string(this->GetAge());
+			+ ". Возраст = " + to_string(this->GetAge()) + "\n Пол: ";
+		Sex tempSexKey = this->GetSex();
+		switch (tempSexKey)
+		{
+			case Female:
+			{
+				description += "Женщина";
+				break;
+			}
+			case Male:
+			{
+				description += "Мужчина";
+				break;
+			}
+		}
 		return description;
 	}
 }

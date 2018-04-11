@@ -22,7 +22,7 @@ namespace lab5
 			void SetSchool(char school[arraySize]);
 			Adult* GetMother();
 			Adult* GetFather();
-			Child* GetRandom();
+			static Child* GetRandom();
 			char* GetSchool();
 			string GetDescriptionChild();
 	};

@@ -35,6 +35,15 @@ namespace lab5
 		SetWorkPlace(workPlace);
 	}
 
+	Adult::Adult(char Name[arraySize], char Surname[arraySize], int Age, enum Sex Sex, char* workPlace)
+	{
+		Person::SetName(Name);
+		Person::SetSurname(Surname);
+		Person::SetSex(Sex);
+		SetAge(Age);
+		SetWorkPlace(workPlace);
+	}
+
 	Adult* Adult::GetRandom()
 	{
 		const char* MaleName[] =
@@ -75,7 +84,7 @@ namespace lab5
 		char tempName[arraySize];
 		char tempSurname[arraySize];
 		char tempWorkPlace[arraySize];
-		int tempAge = rand() % 90 - 18;
+		int tempAge = 18 + rand() % 90;
 		Sex tempSex;
 		int key = rand() % 1;
 		tempSex = (Sex)key;
@@ -100,25 +109,78 @@ namespace lab5
 			}
 		}
 		strcpy_s(tempWorkPlace, Person::arraySize, WorkPlaces[rand() % 8]);
-		Adult *tempMarriedOn = nullptr;
+		Adult* tempMarriedOn = nullptr;
 		return new Adult(tempName, tempSurname, tempAge, tempSex, tempMarriedOn, tempWorkPlace);
+	}
+
+	Adult* Adult::GetRandom(Sex sex)
+	{
+		const char* MaleName[] =
+		{
+			"Вэйдер", "Йода", "Оби-Ван", "Молл",
+			"Энакин", "Сидиус", "Рено", "Ктун",
+			"Баланар", "Зевс"
+		};
+
+		const char* MaleSurname[] =
+		{
+			"Дарт", "Кеноби", "Скайуокер", "Джексон",
+			"Божественный", "Блудрейнов", "Молненосный",
+			"Исанов", "Джобс"
+		};
+
+		const char* FemaleName[] =
+		{
+			"Ниа", "Кейтлин", "Федора",
+			"Анна", "Маша", "Арабелла",
+			"Шадия", "Лея", "Кая", "Герда"
+		};
+
+		const char* FemaleSurname[] =
+		{
+			"Мятежникова", "Старк", "Горе",
+			"Хилькевич", "Горышкина", "Лесная",
+			"Принцесса", "Ледяная", "Сколедарио",
+			"Ланнистер"
+		};
+
+		const char* WorkPlaces[] =
+		{
+			"Google", "Apple", "Yandex", "Tesla",
+			"Mail.Ru", "Huawei", "Xiaomi", "HTC"
+		};
+
+		char tempName[arraySize];
+		char tempSurname[arraySize];
+		char tempWorkPlace[arraySize];
+		int tempAge = 18 + rand() % 90;
+		Sex tempSex = Sex(!sex);
+		switch (tempSex)
+		{
+			case Female:
+			{
+				lab5::PersonTools::GenerateRandomPerson(tempName, tempSurname, FemaleName[rand() % 9],
+					FemaleSurname[rand() % 9]);
+				break;
+			}
+			case Male:
+			{
+				lab5::PersonTools::GenerateRandomPerson(tempName, tempSurname, MaleName[rand() % 9],
+					MaleSurname[rand() % 9]);
+				break;
+			}
+			default:
+			{
+				break;
+			}
+		}
+		strcpy_s(tempWorkPlace, Person::arraySize, WorkPlaces[rand() % 8]);
+		return new Adult(tempName, tempSurname, tempAge, tempSex, tempWorkPlace);
 	}
 
 	void  Adult::SetMarriedOn(Adult* marriedOn)
 	{
-		if (marriedOn->GetSex() != this->GetSex())
-		{
-			marriedOn->SetMarriedOn(this);
-			_marriedOn = marriedOn;
-		}
-		else
-		{
-			cout << endl << "Сэр, мы не толерантные!"
-				<< endl << "Надеюсь, что вы ошиблись!"
-				<< endl << "Щас подыщем вам кого-нибудь противоположного пола!";
-			Adult* tempMarriedOn = GetRandom();
-			SetMarriedOn(tempMarriedOn);
-		}
+		_marriedOn = marriedOn;
 	}
 
 	void  Adult::SetWorkPlace(char* workPlace)
@@ -126,11 +188,6 @@ namespace lab5
 		strcpy_s(_workPlace, arraySize, workPlace);
 	}
 
-	void Adult::MakeWedding()
-	{
-		Adult* tempMarriedOn = GetRandom();
-		SetMarriedOn(tempMarriedOn);
-	}
 	
 	char* Adult::GetWorkPlace()
 	{

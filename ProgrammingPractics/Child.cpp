@@ -8,8 +8,14 @@ namespace lab5
 		SetSurname(surname);
 		SetAge(age);
 		SetSex(sex);
-		SetMother(mother);
-		SetFather(father);
+		if (mother != nullptr)
+		{
+			SetMother(mother);
+		}
+		if (father != nullptr)
+		{
+			SetFather(father);
+		}
 		SetSchool(school);
 	};
 
@@ -102,16 +108,6 @@ namespace lab5
 				break;
 			}
 		}
-
-		tempMother = lab5::Adult::GetRandom();
-
-		while (tempMother->GetSex() != Female)
-		{
-			tempMother = lab5::Adult::GetRandom();
-		}
-
-		tempMother->MakeWedding();
-		tempFather = tempMother->GetMarriedOn();
 
 		strcpy_s(tempSchool, arraySize, School[rand() % 7]);
 

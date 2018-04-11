@@ -1,5 +1,7 @@
 ﻿#include "CheckCin.h"
 #include "PersonList.h"
+#include "Adult.h"
+#include "Child.h"
 
 namespace lab5
 {
@@ -266,22 +268,15 @@ namespace lab5
 
 	void PersonList:: ShowPerson(Person* person)
 	{
-		cout << ". Фамилия:";
-		cout << person->GetSurname() << endl;
-		cout << "Имя: ";
-		cout << person->GetName() << endl;
-		cout << "Возраст: " << person->GetAge() << endl;
-		switch (person->GetSex())
+		if (person->GetAge() >= 18)
 		{
-			case Female:
-				cout << "Пол:";
-				cout << "Женщина" << endl << endl;
-				break;
-			case Male:
-				cout << "Пол:";
-				cout << "Мужчина" << endl << endl;
-				break;
-			default: break;
+			Adult* temp = (Adult*)person;
+			cout<<endl<<"Это взрослый! "<<temp->GetDescriptionAdult()<<endl;
+		}
+		else
+		{
+			Child* temp = (Child*)person;
+			cout<<endl<<"Это ребёнок!"<<temp->GetDescriptionChild()<<endl;
 		}
 	}
 }
