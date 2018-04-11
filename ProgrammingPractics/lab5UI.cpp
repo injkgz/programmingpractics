@@ -27,6 +27,7 @@ void UILab5()
 			<< "7. GetCount" << endl
 			<< "8. Read" << endl
 			<< "9. ShowList" << endl
+			<< "10. CreateFamily" << endl
 			<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 			<< endl;
 		choosedFunction = CheckCin(true);
@@ -44,6 +45,7 @@ void UILab5()
 			case 1:
 			{
 				newList.Add(lab5::Adult::GetRandom());
+				newList.Add(lab5::Adult::GetRandom(Female));
 				newList.Add(lab5::Child::GetRandom());
 				newList.ShowList();
 				break;
@@ -103,6 +105,11 @@ void UILab5()
 			case 9:
 			{
 				newList.ShowList();
+				break;
+			}
+			case 10:
+			{
+				newList.CreateFamily();
 				break;
 			}
 			default:

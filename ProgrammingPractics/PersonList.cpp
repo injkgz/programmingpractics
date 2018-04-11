@@ -279,4 +279,50 @@ namespace lab5
 			cout<<endl<<"Это ребёнок!"<<temp->GetDescriptionChild()<<endl;
 		}
 	}
+
+	void PersonList::CreateFamily()
+	{
+		bool isAdult = false;
+		bool isChild = false;
+		this->ShowList();
+		cout << endl << "Введите индекс ВЗРОСЛОГО МУЖЧИНЫ, с которой начнём создание семьи: ";
+		int index;
+		while (isAdult == false)
+		{
+			this->GetCorrectIndex(index);
+			if (this->Find(index)->GetSex() == Male && this->Find(index)->GetAge() > 18)
+			{
+				isAdult = true;
+			}
+		}
+		isAdult = false;
+		Adult* temp = (Adult*)this->Find(index);
+		while (isAdult == false)
+		{
+			system("cls");
+			this->ShowList();
+			cout << endl << "Введите индекс супруга: ";
+			this->GetCorrectIndex(index);
+			Adult* tempMarriedOn = (Adult*)this->Find(index);
+			if (tempMarriedOn->GetSex() != temp->GetSex() && tempMarriedOn->GetAge()>18)
+			{
+				temp->SetMarriedOn(tempMarriedOn);
+				tempMarriedOn->SetMarriedOn(temp);
+				isAdult = true;
+			}
+		}
+		while (isChild == false)
+		{
+			cout << endl << "Введите индекс ребёнка!";
+			this->GetCorrectIndex(index);
+			Child* tempChild = (Child*)this->Find(index);
+			if (tempChild->GetAge() < 18)
+			{
+				tempChild->SetFather(temp);
+				tempChild->SetMother(temp->GetMarriedOn());
+				tempChild->SetSurname(temp->GetSurname());
+				isChild = true;
+			}
+		}
+	}
 }
