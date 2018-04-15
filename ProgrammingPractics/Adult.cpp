@@ -147,7 +147,8 @@ namespace lab5
 		description += "\nРаботает в " + string(this->GetWorkPlace());
 		if (_marriedOn != nullptr)
 		{
-			description += "\n Состоит в браке с " + string(this->GetMarriedOn()->GetDescription());
+			description += "\n Состоит в браке с " + string(this->GetMarriedOn()->GetName())
+				+ " " + string(this->GetMarriedOn()->GetSurname());
 		}
 		else
 		{
