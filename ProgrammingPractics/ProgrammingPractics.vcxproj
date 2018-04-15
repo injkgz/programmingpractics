@@ -85,6 +85,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <UseUnicodeForAssemblerListing>true</UseUnicodeForAssemblerListing>
+      <PreprocessorDefinitions>_MBCS; %(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -137,6 +138,7 @@
     <ClInclude Include="CheckCin.h" />
     <ClInclude Include="Child.h" />
     <ClInclude Include="DoubleLinkedList.h" />
+    <ClInclude Include="FamilyTools.h" />
     <ClInclude Include="lab1.h" />
     <ClInclude Include="lab2.h" />
     <ClInclude Include="lab3.h" />

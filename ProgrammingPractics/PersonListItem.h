@@ -7,14 +7,17 @@ namespace lab5
 		public:
 			PersonListItem(Person* person)
 			{
-				_value = person;
+				//TODO:
+				//исправил
+				if (person != nullptr)
+				{
+					_value = person;
+				}
 			}
 			Person* GetValue();
 			PersonListItem* Next = nullptr;
 			PersonListItem* Prev = nullptr;
 		private:
-			//TODO: Именование не по RSDN
-			//исправил
 			Person* _value;
 	};
 }

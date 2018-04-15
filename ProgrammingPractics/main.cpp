@@ -1,4 +1,5 @@
-﻿#include "CheckCin.h"
+﻿
+#include "CheckCin.h"
 #include "lab1.h"
 #include "lab2.h"
 #include "lab3.h"

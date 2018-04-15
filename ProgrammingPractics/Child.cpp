@@ -21,7 +21,7 @@ namespace lab5
 
 	void Child::SetAge(int Age)
 	{
-		if (Age < 18 && Age > 0)
+		if (Age < 18 && Age >= 0)
 		{
 			_age = Age;
 		}
@@ -32,7 +32,9 @@ namespace lab5
 				<< "Попробуйте ещё раз!" << endl
 				<< "Введите возраст: " << endl;
 			int tempAge = CheckCin(true);
-			while (tempAge < 18 && tempAge > 125)
+			//BUG:
+			//исправил
+			while (tempAge < 18 && tempAge >= 0)
 			{
 				cout << endl << "Введён некорректный возраст!" << endl
 					<< "Попробуйте ещё раз!" << endl;
@@ -80,9 +82,9 @@ namespace lab5
 			"Зерде"
 		};
 
-		char tempName[arraySize];
-		char tempSurname[arraySize];
-		char tempSchool[arraySize];
+		char tempName[ArraySize];
+		char tempSurname[ArraySize];
+		char tempSchool[ArraySize];
 		int tempAge = rand() % 17;
 		Sex tempSex;
 		int key = rand() % 1;
@@ -109,7 +111,7 @@ namespace lab5
 			}
 		}
 
-		strcpy_s(tempSchool, arraySize, School[rand() % 7]);
+		strcpy_s(tempSchool, ArraySize, School[rand() % 7]);
 
 		return new Child(tempName, tempSurname, tempAge, tempSex, tempMother, tempFather, tempSchool);
 	}
@@ -145,9 +147,9 @@ namespace lab5
 		}
 	}
 	
-	void Child::SetSchool(char school[arraySize])
+	void Child::SetSchool(char school[ArraySize])
 	{
-		strcpy_s(_school, arraySize, school);
+		strcpy_s(_school, ArraySize, school);
 	}
 
 	Adult* Child::GetMother()
@@ -173,13 +175,20 @@ namespace lab5
 			cout << endl << "Папы нет..." << endl;
 		}
 	}
+	
+	Child::~Child()
+	{
+		delete _father;
+		delete _mother;
+		delete _school;
+	}
 
 	char* Child::GetSchool()
 	{
 		return _school;
 	}
 
-	string Child::GetDescriptionChild()
+	string Child::GetDescription()
 	{
 		string description = Person::GetDescription();
 		description += "\nУчится в " + string(this->GetSchool());

@@ -1,4 +1,5 @@
 ﻿#include "Adult.h"
+#include "PersonTools.h"
 
 namespace lab5
 {
@@ -25,92 +26,24 @@ namespace lab5
 		}
 	}
 
-	Adult::Adult(char Name[arraySize], char Surname[arraySize], int Age, enum Sex Sex, Adult* marriedOn, char* workPlace)
+	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age,
+		enum Sex sex, Adult* marriedOn, char* workPlace)
 	{
-		Person::SetName(Name);
-		Person::SetSurname(Surname);
-		Person::SetSex(Sex);
-		SetAge(Age);
+		Person::SetName(name);
+		Person::SetSurname(surname);
+		Person::SetSex(sex);
+		SetAge(age);
 		SetMarriedOn(marriedOn);
 		SetWorkPlace(workPlace);
 	}
 
-	Adult::Adult(char Name[arraySize], char Surname[arraySize], int Age, enum Sex Sex, char* workPlace)
+	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age, enum Sex sex, char* workPlace)
 	{
-		Person::SetName(Name);
-		Person::SetSurname(Surname);
-		Person::SetSex(Sex);
-		SetAge(Age);
+		Person::SetName(name);
+		Person::SetSurname(surname);
+		Person::SetSex(sex);
+		SetAge(age);
 		SetWorkPlace(workPlace);
-	}
-
-	Adult* Adult::GetRandom()
-	{
-		const char* MaleName[] =
-		{
-			"Вэйдер", "Йода", "Оби-Ван", "Молл",
-			"Энакин", "Сидиус", "Рено", "Ктун",
-			"Баланар", "Зевс"
-		};
-
-		const char* MaleSurname[] =
-		{
-			"Дарт", "Кеноби", "Скайуокер", "Джексон",
-			"Божественный", "Блудрейнов", "Молненосный",
-			"Исанов", "Джобс"
-		};
-
-		const char* FemaleName[] =
-		{
-			"Ниа", "Кейтлин", "Федора",
-			"Анна", "Маша", "Арабелла",
-			"Шадия", "Лея", "Кая", "Герда"
-		};
-
-		const char* FemaleSurname[] =
-		{
-			"Мятежникова", "Старк", "Горе",
-			"Хилькевич", "Горышкина", "Лесная",
-			"Принцесса", "Ледяная", "Сколедарио",
-			"Ланнистер"
-		};
-
-		const char* WorkPlaces[] = 
-		{ 
-			"Google", "Apple", "Yandex", "Tesla",
-			"Mail.Ru", "Huawei", "Xiaomi", "HTC"
-		};
-
-		char tempName[arraySize];
-		char tempSurname[arraySize];
-		char tempWorkPlace[arraySize];
-		int tempAge = 18 + rand() % 90;
-		Sex tempSex;
-		int key = rand() % 1;
-		tempSex = (Sex)key;
-
-		switch (tempSex)
-		{
-			case Female:
-			{
-				 lab5::PersonTools::GenerateRandomPerson(tempName, tempSurname, FemaleName[rand() % 9],
-					FemaleSurname[rand() % 9]);
-				break;
-			}
-			case Male:
-			{
-				lab5::PersonTools::GenerateRandomPerson(tempName, tempSurname, MaleName[rand() % 9],
-					MaleSurname[rand() % 9]);
-				break;
-			}
-			default:
-			{
-				break;
-			}
-		}
-		strcpy_s(tempWorkPlace, Person::arraySize, WorkPlaces[rand() % 8]);
-		Adult* tempMarriedOn = nullptr;
-		return new Adult(tempName, tempSurname, tempAge, tempSex, tempMarriedOn, tempWorkPlace);
 	}
 
 	Adult* Adult::GetRandom(Sex sex)
@@ -150,11 +83,20 @@ namespace lab5
 			"Mail.Ru", "Huawei", "Xiaomi", "HTC"
 		};
 
-		char tempName[arraySize];
-		char tempSurname[arraySize];
-		char tempWorkPlace[arraySize];
+		char tempName[ArraySize];
+		char tempSurname[ArraySize];
+		char tempWorkPlace[ArraySize];
 		int tempAge = 18 + rand() % 90;
-		Sex tempSex = Sex(!sex);
+		int key = rand() % 2;
+		Sex tempSex;
+		if (sex != NULL)
+		{
+			tempSex = Sex(key);
+		}
+		else
+		{
+			tempSex = Sex(!sex);
+		}
 		switch (tempSex)
 		{
 			case Female:
@@ -174,7 +116,7 @@ namespace lab5
 				break;
 			}
 		}
-		strcpy_s(tempWorkPlace, Person::arraySize, WorkPlaces[rand() % 8]);
+		strcpy_s(tempWorkPlace, Person::ArraySize, WorkPlaces[rand() % 8]);
 		return new Adult(tempName, tempSurname, tempAge, tempSex, tempWorkPlace);
 	}
 
@@ -185,10 +127,10 @@ namespace lab5
 
 	void  Adult::SetWorkPlace(char* workPlace)
 	{
-		strcpy_s(_workPlace, arraySize, workPlace);
+		strcpy_s(_workPlace, ArraySize, workPlace);
 	}
 
-	
+
 	char* Adult::GetWorkPlace()
 	{
 		return _workPlace;
@@ -199,7 +141,7 @@ namespace lab5
 		return _marriedOn;
 	}
 
-	string Adult::GetDescriptionAdult()
+	string Adult::GetDescription()
 	{
 		string description = Person::GetDescription();
 		description += "\nРаботает в " + string(this->GetWorkPlace());
@@ -212,5 +154,11 @@ namespace lab5
 			description += "\n Не состоит в браке.";
 		}
 		return description;
+	}
+
+	Adult::~Adult()
+	{
+		delete _marriedOn;
+		delete _workPlace;
 	}
 }

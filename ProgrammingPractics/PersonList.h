@@ -12,8 +12,7 @@ namespace lab5
 			int _count; 
 			bool CheckValidName(char name[]);
 		public:
-			PersonList() 
-			{};
+			PersonList();
 			void Add(Person* person); 
 			Person* Find(int index); 
 			int IndexOf(Person* person); 

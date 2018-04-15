@@ -1,11 +1,14 @@
-﻿#include "CheckCin.h"
-#include "PersonList.h"
-#include "Adult.h"
-#include "Child.h"
+﻿#include "PersonList.h"
 
 namespace lab5
 {
 	//добавить человека в список
+	PersonList::PersonList()
+	{
+		_head = nullptr;
+		_tail = nullptr;
+	}
+
 	void PersonList::Add(Person* person)
 	{
 		PersonListItem* temp = new PersonListItem(person);
@@ -53,6 +56,7 @@ namespace lab5
 		if (searchedItem->GetValue() != nullptr)
 		{
 			ShowPerson(searchedItem->GetValue());
+			cout << endl << "____________________________" << endl;
 		}
 		return searchedItem->GetValue();
 	}
@@ -147,7 +151,6 @@ namespace lab5
 		while (temp != nullptr)
 		{
 			PersonListItem* tempNext = temp->Next;
-			delete temp->GetValue();
 			delete temp;
 			temp = tempNext;
 		}
@@ -162,11 +165,11 @@ namespace lab5
 		return _count;
 	}
 
-	Person* PersonList::Read()
+	/*Person* PersonList::Read()
 	{
 		bool key = true;
-		char tempName[Person::arraySize];
-		char tempSurname[Person::arraySize];
+		char tempName[Person::ArraySize];
+		char tempSurname[Person::ArraySize];
 		int tempAge;
 		Sex tempSex;
 
@@ -210,7 +213,7 @@ namespace lab5
 			tempAge = CheckCin(true);
 		}
 		return new Person(tempName, tempSurname, tempAge, tempSex);
-	}
+	}*/
 
 	bool PersonList::CheckValidName(char name[])
 	{
@@ -268,61 +271,7 @@ namespace lab5
 
 	void PersonList:: ShowPerson(Person* person)
 	{
-		if (person->GetAge() >= 18)
-		{
-			Adult* temp = (Adult*)person;
-			cout<<endl<<"Это взрослый! "<<temp->GetDescriptionAdult()<<endl;
-		}
-		else
-		{
-			Child* temp = (Child*)person;
-			cout<<endl<<"Это ребёнок!"<<temp->GetDescriptionChild()<<endl;
-		}
-	}
-
-	void PersonList::CreateFamily()
-	{
-		bool isAdult = false;
-		bool isChild = false;
-		this->ShowList();
-		cout << endl << "Введите индекс ВЗРОСЛОГО МУЖЧИНЫ, с которой начнём создание семьи: ";
-		int index;
-		while (isAdult == false)
-		{
-			this->GetCorrectIndex(index);
-			if (this->Find(index)->GetSex() == Male && this->Find(index)->GetAge() > 18)
-			{
-				isAdult = true;
-			}
-		}
-		isAdult = false;
-		Adult* temp = (Adult*)this->Find(index);
-		while (isAdult == false)
-		{
-			system("cls");
-			this->ShowList();
-			cout << endl << "Введите индекс супруга: ";
-			this->GetCorrectIndex(index);
-			Adult* tempMarriedOn = (Adult*)this->Find(index);
-			if (tempMarriedOn->GetSex() != temp->GetSex() && tempMarriedOn->GetAge()>18)
-			{
-				temp->SetMarriedOn(tempMarriedOn);
-				tempMarriedOn->SetMarriedOn(temp);
-				isAdult = true;
-			}
-		}
-		while (isChild == false)
-		{
-			cout << endl << "Введите индекс ребёнка!";
-			this->GetCorrectIndex(index);
-			Child* tempChild = (Child*)this->Find(index);
-			if (tempChild->GetAge() < 18)
-			{
-				tempChild->SetFather(temp);
-				tempChild->SetMother(temp->GetMarriedOn());
-				tempChild->SetSurname(temp->GetSurname());
-				isChild = true;
-			}
-		}
+		//TODO: Программирование на уровне интерфейса!
+		cout << person->GetDescription() << endl;
 	}
 }

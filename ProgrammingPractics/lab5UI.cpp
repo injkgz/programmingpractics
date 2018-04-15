@@ -1,16 +1,15 @@
 ﻿#include "lab5UI.h"
 #include "PersonList.h"
-#include "PersonTools.h"
 #include "Adult.h"
 #include "Child.h"
+#include "FamilyTools.h"
 
 void UILab5()
 {
 	bool key = true;
 	int choosedFunction;
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	//TODO: Некорректное именование!
-	//исправил
+
 	lab5::PersonList newList;
 	while (key)
 	{
@@ -20,14 +19,11 @@ void UILab5()
 			<< endl
 			<< "1. Add " << endl
 			<< "2. Find" << endl
-			<< "3. IndexOf " << endl
-			<< "4. Remove" << endl
-			<< "5. RemoveAt" << endl
-			<< "6. Clear" << endl
-			<< "7. GetCount" << endl
-			<< "8. Read" << endl
-			<< "9. ShowList" << endl
-			<< "10. CreateFamily" << endl
+			<< "3. RemoveAt" << endl
+			<< "4. Clear" << endl
+			<< "5. GetCount" << endl
+			<< "6. ShowList" << endl
+			<< "7. CreateFamily" << endl
 			<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 			<< endl;
 		choosedFunction = CheckCin(true);
@@ -44,7 +40,7 @@ void UILab5()
 			}
 			case 1:
 			{
-				newList.Add(lab5::Adult::GetRandom());
+				newList.Add(lab5::Adult::GetRandom(Male));
 				newList.Add(lab5::Adult::GetRandom(Female));
 				newList.Add(lab5::Child::GetRandom());
 				newList.ShowList();
@@ -60,21 +56,6 @@ void UILab5()
 			}
 			case 3:
 			{
-				cout << endl << "Введите все поля персоны обязательно на английском!: " << endl;
-				lab5::Person* searchedPerson = newList.Read();
-				newList.IndexOf(searchedPerson);
-				break;
-			}
-			case 4:
-			{
-				newList.ShowList();
-				cout << endl << "Введите все поля удаляемой персоны: ";
-				lab5::Person* searchedPerson = newList.Read();
-				newList.Remove(searchedPerson);
-				break;
-			}
-			case 5:
-			{
 				newList.ShowList();
 				cout << endl << "Введите индекс удаляемой персоны: ";
 				int index;
@@ -82,34 +63,30 @@ void UILab5()
 				newList.RemoveAt(index);
 				break;
 			}
-			case 6:
+			case 4:
 			{
 				newList.ShowList();
 				cout << endl << "Очищаем список!" << endl;
 				newList.Clear();
 				break;
 			}
-			case 7:
+			case 5:
 			{
 				cout << endl << "Количество элементов в списке = " << newList.GetCount();
 				newList.ShowList();
 				break;
 			}
-			case 8:
-			{
-				cout << "Введите все поля добавляемой персоны на английском!: " << endl;
-				lab5::Person* searchedPerson = newList.Read();
-				newList.Add(searchedPerson);
-				newList.ShowList();
-			}
-			case 9:
+			case 6:
 			{
 				newList.ShowList();
 				break;
 			}
-			case 10:
+			case 7:
 			{
-				newList.CreateFamily();
+				newList.ShowList();
+				cout << endl << endl;
+				lab5::PersonList* newListPointer = &newList;
+				lab5::FamilyTools::CreateFamily(newListPointer);
 				break;
 			}
 			default:

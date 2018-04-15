@@ -7,6 +7,10 @@ namespace lab5
 		{
 			return nullptr;
 		}
+		if (this->_value == nullptr)
+		{
+			return nullptr;
+		}
 		return _value;
 	}
 }

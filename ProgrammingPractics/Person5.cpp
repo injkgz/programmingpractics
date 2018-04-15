@@ -6,25 +6,23 @@
 
 namespace lab5
 {
-	Person::Person(char Name[arraySize], char Surname[arraySize],
-		int Age, enum Sex Sex)
+	Person::Person(char name[ArraySize], char surname[ArraySize],
+		int age, enum Sex sex)
 	{
-		SetName(Name);
-		SetSurname(Surname);
-		SetAge(Age);
-		SetSex(Sex);
+		SetName(name);
+		SetSurname(surname);
+		SetAge(age);
+		SetSex(sex);
 	}
 
-	void Person::SetName(char name[arraySize])
+	void Person::SetName(char name[ArraySize])
 	{
-		strcpy_s(_name, arraySize, name);
+		strcpy_s(_name, ArraySize, name);
 	}
 
-	//TODO: Пустые строки между методами.
-	//cделал
-	void Person::SetSurname(char surname[arraySize])
+	void Person::SetSurname(char surname[ArraySize])
 	{
-		strcpy_s(_surname, arraySize, surname);
+		strcpy_s(_surname, ArraySize, surname);
 	}
 
 	void Person::SetAge(int age)
@@ -73,9 +71,6 @@ namespace lab5
 	bool Person::operator!=(const Person& good)
 	{
 		return !operator==(good);
-
-		//TODO: Зачем это здесь?
-		//убрал
 	}
 
 	string Person::GetDescription()
