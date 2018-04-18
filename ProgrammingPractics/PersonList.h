@@ -19,11 +19,13 @@ namespace lab5
 			void Remove(Person* person); 
 			void RemoveAt(int index); 
 			void Clear(); 
-			int GetCount(); 
+			int GetCount();
+			//TODO: Нет такого метода.
 			Person* Read();
 			void ShowList();
 			void GetCorrectIndex(int& index);
 			void ShowPerson(Person* person);
+			//TODO: Нет такого метода.
 			void CreateFamily();
 	};
 	

@@ -14,6 +14,7 @@ namespace lab5
 				bool isChild = false;
 				cout << endl << "Введите индекс ВЗРОСЛОГО МУЖЧИНЫ, с которой начнём создание семьи: ";
 				int index;
+				//TODO: Тут и ниже можно без явного сравнения
 				while (isAdult == false)
 				{
 					list->GetCorrectIndex(index);

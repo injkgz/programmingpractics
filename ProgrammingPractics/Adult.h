@@ -10,11 +10,9 @@ namespace lab5
 		private:
 			Adult * _marriedOn = nullptr;
 			char _workPlace[Person::ArraySize];
-		public: //TODO:Где деструктор?
-			//исправил
+		public: //TODO: Именование передаваемого параметра
 			virtual void SetAge(int Age) override;
-			//TODO: Длинно, заглавные буквы в параметрах
-			//исправил
+			//TODO: Длинные строки!
 			Adult(char name[ArraySize], char surname[ArraySize], int age, enum Sex sex, Adult* marriedOn, char* workPlace);
 			Adult(char name[ArraySize], char surname[ArraySize], int age, enum Sex sex, char* workPlace);
 			static Adult* GetRandom(Sex sex);

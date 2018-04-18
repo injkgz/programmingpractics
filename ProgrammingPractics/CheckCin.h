@@ -1,6 +1,4 @@
 ﻿#pragma once
-//TODO: Так делать не правильно, тут должны быть только common libraries!
-//исправил
 #include <iostream>
 #include <string>
 #include <ctime>

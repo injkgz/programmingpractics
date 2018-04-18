@@ -9,8 +9,6 @@ namespace lab5
 		public:
 			static void GenerateRandomPerson(char tempName[Person::ArraySize], 
 				char tempSurname[Person::ArraySize], 
-				//TODO:
-				//исправил
 				const char name[10], 
 				const char surname[10])
 			{

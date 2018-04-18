@@ -5,12 +5,14 @@ namespace lab5
 {
 	void Adult::SetAge(int Age)
 	{
+		//TODO: Магические числа повторяются ниже!
 		if (Age >= 18 && Age <= 125)
 		{
 			_age = Age;
 		}
 		else
 		{
+			//TODO: Таким образом класс привязывается к консольному вводу-выводу, а так не должно быть!
 			cout << endl << "Неверный возраст!" << endl
 				<< "Взрослый не может быть младше 18 лет!" << endl
 				<< "Попробуйте ещё раз!" << endl
@@ -29,6 +31,7 @@ namespace lab5
 	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age,
 		enum Sex sex, Adult* marriedOn, char* workPlace)
 	{
+		//TODO: Есть возможность сократить дублирование вызвав следующий конструктор.
 		Person::SetName(name);
 		Person::SetSurname(surname);
 		Person::SetSex(sex);
@@ -46,6 +49,7 @@ namespace lab5
 		SetWorkPlace(workPlace);
 	}
 
+	//TODO: Этот метод не должен тут находиться!
 	Adult* Adult::GetRandom(Sex sex)
 	{
 		const char* MaleName[] =
@@ -86,9 +90,11 @@ namespace lab5
 		char tempName[ArraySize];
 		char tempSurname[ArraySize];
 		char tempWorkPlace[ArraySize];
+		//TODO: Очень много магических цифр ниже, так и не исправили!
 		int tempAge = 18 + rand() % 90;
 		int key = rand() % 2;
 		Sex tempSex;
+		//TODO: Почему NULL?
 		if (sex != NULL)
 		{
 			tempSex = Sex(key);
@@ -121,12 +127,12 @@ namespace lab5
 	}
 
 	void  Adult::SetMarriedOn(Adult* marriedOn)
-	{
+	{//TODO: Где проверка на передаваемые значения?
 		_marriedOn = marriedOn;
 	}
 
 	void  Adult::SetWorkPlace(char* workPlace)
-	{
+	{//TODO: Где проверка на передаваемые значения?
 		strcpy_s(_workPlace, ArraySize, workPlace);
 	}
 

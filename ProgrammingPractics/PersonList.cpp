@@ -271,7 +271,6 @@ namespace lab5
 
 	void PersonList:: ShowPerson(Person* person)
 	{
-		//TODO: Программирование на уровне интерфейса!
 		cout << person->GetDescription() << endl;
 	}
 }

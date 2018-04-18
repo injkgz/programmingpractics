@@ -50,7 +50,7 @@ int main()
 			case 4:
 				StructChooseMenu();
 				break;
-			case 5:
+			case 5://TODO: Где 6 лаба?
 				UILab5();
 				break;
 			default: break;

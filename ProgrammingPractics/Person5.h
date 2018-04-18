@@ -7,10 +7,9 @@ namespace lab5
 	class Person
 	{
 		public:
-			//ToDo
 			static const int ArraySize = 250;
 			Person() {};
-			//ToDo
+			//TODO: Название входных аргументов
 			Person(char name[ArraySize], char surname[ArraySize], int Age, enum Sex Sex);
 			bool operator==(const Person& good);
 			bool operator!=(const Person& good);

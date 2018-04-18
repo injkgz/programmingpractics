@@ -7,8 +7,6 @@ namespace lab5
 		public:
 			PersonListItem(Person* person)
 			{
-				//TODO:
-				//исправил
 				if (person != nullptr)
 				{
 					_value = person;

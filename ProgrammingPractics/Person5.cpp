@@ -17,16 +17,19 @@ namespace lab5
 
 	void Person::SetName(char name[ArraySize])
 	{
+		//TODO: Где проверка на передаваемые значения?
 		strcpy_s(_name, ArraySize, name);
 	}
 
 	void Person::SetSurname(char surname[ArraySize])
 	{
+		//TODO: Где проверка на передаваемые значения?
 		strcpy_s(_surname, ArraySize, surname);
 	}
 
 	void Person::SetAge(int age)
 	{
+		//TODO: Где проверка на передаваемые значения?
 		_age = age;
 	}
 

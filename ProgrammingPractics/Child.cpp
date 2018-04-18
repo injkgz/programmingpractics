@@ -26,14 +26,13 @@ namespace lab5
 			_age = Age;
 		}
 		else
-		{
+		{//TODO: Таким образом класс привязывается к консольному вводу-выводу, а так не должно быть!
 			cout << endl << "Неверный возраст!" << endl
 				<< "Ребёнок не может быть старше 18 лет!" << endl
 				<< "Попробуйте ещё раз!" << endl
 				<< "Введите возраст: " << endl;
 			int tempAge = CheckCin(true);
-			//BUG:
-			//исправил
+
 			while (tempAge < 18 && tempAge >= 0)
 			{
 				cout << endl << "Введён некорректный возраст!" << endl
@@ -81,7 +80,7 @@ namespace lab5
 			"КТЛ", "Столичный лицей", "Школа #5",
 			"Зерде"
 		};
-
+		//TODO: Этот метод не должен тут находиться!
 		char tempName[ArraySize];
 		char tempSurname[ArraySize];
 		char tempSchool[ArraySize];
@@ -92,7 +91,7 @@ namespace lab5
 		Adult* tempMother = nullptr;
 		Adult* tempFather = nullptr;
 		switch (tempSex)
-		{
+		{//TODO: Очень много магических цифр ниже, так и не исправили!
 			case Female:
 			{
 				lab5::PersonTools::GenerateRandomPerson(tempName, tempSurname, FemaleName[rand() % 9],
@@ -118,12 +117,13 @@ namespace lab5
 
 	int Child::GetAge()
 	{
+		//TODO: Именование локальных переменных
 		int Age = Person::GetAge();
-		return Age;
+		return Age;//TODO: Можно не создавать отдельную переменную.
 	}
 
 	void Child::SetMother(Adult* mother)
-	{
+	{//TODO: Где проверка на передаваемые значения?
 		if (mother->GetSex() == Female)
 		{
 			_mother = mother;
@@ -135,7 +135,7 @@ namespace lab5
 	}
 
 	void Child::SetFather(Adult* father)
-	{
+	{//TODO: Где проверка на передаваемые значения?
 		if (father->GetSex() == Male)
 		{
 			_father = father;
@@ -148,7 +148,7 @@ namespace lab5
 	}
 	
 	void Child::SetSchool(char school[ArraySize])
-	{
+	{//TODO: Где проверка на передаваемые значения?
 		strcpy_s(_school, ArraySize, school);
 	}
 
