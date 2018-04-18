@@ -3,18 +3,16 @@
 
 namespace lab5
 {
+	//TODO: Часть проверок можно было бы снять корректным типом данных (беззнаковым)
 	void Adult::SetAge(int age)
 	{
-		//TODO: Магические числа повторяются ниже!
-		//исправил
 		if (age >= _minAge && age <= _maxAge)
 		{
 			_age = age;
 		}
 		else
 		{
-			//TODO: Таким образом класс привязывается к консольному вводу-выводу, а так не должно быть!
-			//исправил
+			//TODO: Спорный способ, но пусть так.
 			_age = _minAge;
 		}
 	}
@@ -22,8 +20,7 @@ namespace lab5
 	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age,
 		enum Sex sex, Adult* marriedOn, char* workPlace)
 	{
-		//TODO: Есть возможность сократить дублирование вызвав следующий конструктор.
-		//исправил
+		//TODO: Ещё есть возможность сократить, используя тут и в child конструктор базового класса.
 		Adult(name, surname, age, sex, workPlace);
 		SetMarriedOn(marriedOn);
 	}
@@ -37,12 +34,9 @@ namespace lab5
 		SetWorkPlace(workPlace);
 	}
 
-	//TODO: Этот метод не должен тут находиться!
-	//исправил
 
 	void  Adult::SetMarriedOn(Adult* marriedOn)
-	{//TODO: Где проверка на передаваемые значения?
-		//исправил
+	{
 		if (marriedOn != nullptr && this->GetSex() != marriedOn->GetSex())
 		{
 			_marriedOn = marriedOn;
@@ -50,8 +44,7 @@ namespace lab5
 	}
 
 	void  Adult::SetWorkPlace(char* workPlace)
-	{//TODO: Где проверка на передаваемые значения?
-		//исправил
+	{
 		if (workPlace != nullptr)
 		{
 			strcpy_s(_workPlace, ArraySize, workPlace);

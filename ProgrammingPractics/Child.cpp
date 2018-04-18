@@ -3,7 +3,7 @@
 namespace lab5
 {
 	Child::Child(char* name, char* surname, int age, Sex sex, Adult* mother, Adult* father, char* school)
-	{
+	{//TODO: Можно сократить, использовав правильно конструктор базового
 		SetName(name);
 		SetSurname(surname);
 		SetAge(age);
@@ -19,6 +19,7 @@ namespace lab5
 		SetSchool(school);
 	};
 
+	//TODO: Именование. Правильный тип.
 	void Child::SetAge(int Age)
 	{
 		if (Age <= _maxAge && Age >= _minAge)
@@ -26,8 +27,7 @@ namespace lab5
 			_age = Age;
 		}
 		else
-		{//TODO: Таким образом класс привязывается к консольному вводу-выводу, а так не должно быть!
-		 //исправил
+		{
 			_age = _minAge;
 		}
 	}
@@ -35,14 +35,11 @@ namespace lab5
 
 	int Child::GetAge()
 	{
-		//TODO: Именование локальных переменных
-		return Person::GetAge();;//TODO: Можно не создавать отдельную переменную.
-		//исправил
+		return Person::GetAge();
 	}
 
 	void Child::SetMother(Adult* mother)
-	{//TODO: Где проверка на передаваемые значения?
-	 //исправил
+	{//TODO: Если не попадёте в пол - будет непонятное поведение. Нет никакой информации в ответ и значение не присвоено.
 		if (mother != nullptr)
 		{
 			if (mother->GetSex() == Female)
@@ -53,8 +50,7 @@ namespace lab5
 	}
 
 	void Child::SetFather(Adult* father)
-	{//TODO: Где проверка на передаваемые значения?
-		//исправил
+	{//TODO: Если не попадёте в пол - будет непонятное поведение. Нет никакой информации в ответ и значение не присвоено.
 		if (father != nullptr)
 		{
 			if (father->GetSex() == Male)
@@ -65,8 +61,7 @@ namespace lab5
 	}
 	
 	void Child::SetSchool(char* school)
-	{//TODO: Где проверка на передаваемые значения?
-		//исправил
+	{
 		if (school != nullptr)
 		{
 			strcpy_s(_school, ArraySize, school);
@@ -80,7 +75,7 @@ namespace lab5
 			return _mother;
 		}
 		else
-		{
+		{//TODO: Привязка к консоли.
 			cout << endl << "Мамы нет..." << endl;
 		}
 	}
@@ -92,7 +87,7 @@ namespace lab5
 			return _father;
 		}
 		else
-		{
+		{//TODO: Привязка к консоли.
 			cout << endl << "Папы нет..." << endl;
 		}
 	}
