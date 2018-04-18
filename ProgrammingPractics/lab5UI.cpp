@@ -40,9 +40,9 @@ void UILab5()
 			}
 			case 1:
 			{
-				newList.Add(lab5::Adult::GetRandom(Male));
-				newList.Add(lab5::Adult::GetRandom(Female));
-				newList.Add(lab5::Child::GetRandom());
+				newList.Add(lab5::FamilyTools::GetRandomAdult(Male));
+				newList.Add(lab5::FamilyTools::GetRandomAdult(Female));
+				newList.Add(lab5::FamilyTools::GetRandomChild());
 				newList.ShowList();
 				break;
 			}

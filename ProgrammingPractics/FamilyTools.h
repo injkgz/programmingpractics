@@ -55,7 +55,7 @@ namespace lab5
 				}
 			}
 
-			Adult* GetRandom(Sex sex)
+			static Adult* GetRandomAdult(Sex sex)
 			{
 				const char* MaleName[] =
 				{
@@ -117,7 +117,7 @@ namespace lab5
 					case Female:
 					{
 						lab5::PersonTools::GenerateRandomPerson(tempName, tempSurname, FemaleName[randChar],
-							FemaleSurname[randChar);
+							FemaleSurname[randChar]);
 						break;
 					}
 					case Male:
@@ -135,7 +135,7 @@ namespace lab5
 				return new Adult(tempName, tempSurname, tempAge, tempSex, tempWorkPlace);
 			}
 
-			Child* GetRandom()
+			static Child* GetRandomChild()
 			{
 				const char* MaleName[] =
 				{
@@ -197,7 +197,7 @@ namespace lab5
 					case Male:
 					{
 						lab5::PersonTools::GenerateRandomPerson(tempName, tempSurname, MaleName[randChar],
-							MaleSurname[randChar);
+							MaleSurname[randChar]);
 						break;
 					}
 					default:
