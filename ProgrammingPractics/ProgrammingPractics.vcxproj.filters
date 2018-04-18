@@ -22,6 +22,9 @@
     <Filter Include="lab5\lab6">
       <UniqueIdentifier>{2387165b-6b11-4cd5-a923-731b866f2c29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lab7">
+      <UniqueIdentifier>{a87908dd-a534-4489-9062-f549bbbb5df3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lab1.cpp">

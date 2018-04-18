@@ -20,13 +20,15 @@ namespace lab5
 			void RemoveAt(int index); 
 			void Clear(); 
 			int GetCount();
-			//TODO: Нет такого метода.
-			Person* Read();
+			//TODO: Нет такого метода
+			//исправил, он есть правда закомментирован, потому как выдаёт ошибку,
+			//в связи с тем, что для 6-ой лабы нельзя создать объект класса Person.
+			//Person* Read();
 			void ShowList();
 			void GetCorrectIndex(int& index);
 			void ShowPerson(Person* person);
 			//TODO: Нет такого метода.
-			void CreateFamily();
+			//исправил
 	};
 	
 }

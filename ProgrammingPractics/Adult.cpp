@@ -3,28 +3,19 @@
 
 namespace lab5
 {
-	void Adult::SetAge(int Age)
+	void Adult::SetAge(int age)
 	{
 		//TODO: Магические числа повторяются ниже!
-		if (Age >= 18 && Age <= 125)
+		//исправил
+		if (age >= _minAge && age <= _maxAge)
 		{
-			_age = Age;
+			_age = age;
 		}
 		else
 		{
 			//TODO: Таким образом класс привязывается к консольному вводу-выводу, а так не должно быть!
-			cout << endl << "Неверный возраст!" << endl
-				<< "Взрослый не может быть младше 18 лет!" << endl
-				<< "Попробуйте ещё раз!" << endl
-				<< "Введите возраст: " << endl;
-			int tempAge = CheckCin(true);
-			while (tempAge < 18 && tempAge > 125)
-			{
-				cout << endl << "Введён некорректный возраст!" << endl
-					<< "Попробуйте ещё раз!" << endl;
-				tempAge = CheckCin(true);
-			}
-			_age = tempAge;
+			//исправил
+			_age = _minAge;
 		}
 	}
 
@@ -32,12 +23,9 @@ namespace lab5
 		enum Sex sex, Adult* marriedOn, char* workPlace)
 	{
 		//TODO: Есть возможность сократить дублирование вызвав следующий конструктор.
-		Person::SetName(name);
-		Person::SetSurname(surname);
-		Person::SetSex(sex);
-		SetAge(age);
+		//исправил
+		Adult(name, surname, age, sex, workPlace);
 		SetMarriedOn(marriedOn);
-		SetWorkPlace(workPlace);
 	}
 
 	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age, enum Sex sex, char* workPlace)
@@ -50,90 +38,24 @@ namespace lab5
 	}
 
 	//TODO: Этот метод не должен тут находиться!
-	Adult* Adult::GetRandom(Sex sex)
-	{
-		const char* MaleName[] =
-		{
-			"Вэйдер", "Йода", "Оби-Ван", "Молл",
-			"Энакин", "Сидиус", "Рено", "Ктун",
-			"Баланар", "Зевс"
-		};
-
-		const char* MaleSurname[] =
-		{
-			"Дарт", "Кеноби", "Скайуокер", "Джексон",
-			"Божественный", "Блудрейнов", "Молненосный",
-			"Исанов", "Джобс"
-		};
-
-		const char* FemaleName[] =
-		{
-			"Ниа", "Кейтлин", "Федора",
-			"Анна", "Маша", "Арабелла",
-			"Шадия", "Лея", "Кая", "Герда"
-		};
-
-		const char* FemaleSurname[] =
-		{
-			"Мятежникова", "Старк", "Горе",
-			"Хилькевич", "Горышкина", "Лесная",
-			"Принцесса", "Ледяная", "Сколедарио",
-			"Ланнистер"
-		};
-
-		const char* WorkPlaces[] =
-		{
-			"Google", "Apple", "Yandex", "Tesla",
-			"Mail.Ru", "Huawei", "Xiaomi", "HTC"
-		};
-
-		char tempName[ArraySize];
-		char tempSurname[ArraySize];
-		char tempWorkPlace[ArraySize];
-		//TODO: Очень много магических цифр ниже, так и не исправили!
-		int tempAge = 18 + rand() % 90;
-		int key = rand() % 2;
-		Sex tempSex;
-		//TODO: Почему NULL?
-		if (sex != NULL)
-		{
-			tempSex = Sex(key);
-		}
-		else
-		{
-			tempSex = Sex(!sex);
-		}
-		switch (tempSex)
-		{
-			case Female:
-			{
-				lab5::PersonTools::GenerateRandomPerson(tempName, tempSurname, FemaleName[rand() % 9],
-					FemaleSurname[rand() % 9]);
-				break;
-			}
-			case Male:
-			{
-				lab5::PersonTools::GenerateRandomPerson(tempName, tempSurname, MaleName[rand() % 9],
-					MaleSurname[rand() % 9]);
-				break;
-			}
-			default:
-			{
-				break;
-			}
-		}
-		strcpy_s(tempWorkPlace, Person::ArraySize, WorkPlaces[rand() % 8]);
-		return new Adult(tempName, tempSurname, tempAge, tempSex, tempWorkPlace);
-	}
+	//исправил
 
 	void  Adult::SetMarriedOn(Adult* marriedOn)
 	{//TODO: Где проверка на передаваемые значения?
-		_marriedOn = marriedOn;
+		//исправил
+		if (marriedOn != nullptr && this->GetSex() != marriedOn->GetSex())
+		{
+			_marriedOn = marriedOn;
+		}
 	}
 
 	void  Adult::SetWorkPlace(char* workPlace)
 	{//TODO: Где проверка на передаваемые значения?
-		strcpy_s(_workPlace, ArraySize, workPlace);
+		//исправил
+		if (workPlace != nullptr)
+		{
+			strcpy_s(_workPlace, ArraySize, workPlace);
+		}
 	}
 
 

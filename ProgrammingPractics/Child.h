@@ -8,6 +8,8 @@ namespace lab5
 	class Child : public Person
 	{
 		private:
+			static const int _minAge = 0;
+			static const int _maxAge = 17;
 			Adult* _mother;
 			Adult* _father;
 			char _school[ArraySize];
@@ -17,10 +19,9 @@ namespace lab5
 			virtual int GetAge() override;
 			void SetFather(Adult* father);
 			void SetMother(Adult* mother);
-			void SetSchool(char school[ArraySize]);
+			void SetSchool(char* school);
 			Adult* GetMother();
 			Adult* GetFather();
-			static Child* GetRandom();
 			char* GetSchool();
 			virtual string GetDescription();
 			~Child();

@@ -18,19 +18,83 @@ namespace lab5
 	void Person::SetName(char name[ArraySize])
 	{
 		//TODO: Где проверка на передаваемые значения?
-		strcpy_s(_name, ArraySize, name);
+		//исправил
+		bool isTrueName = true;
+		for (int i = 0; i < ArraySize; i++)
+		{
+			if (i = 0)
+			{
+				isTrueName = isupper(name[i]);
+			}
+
+			if (isdigit(name[i]) || isspace(name[i]))
+			{
+				isTrueName = false;
+				break;
+			}
+
+			if (name[i] == '-')
+			{
+				if (islower(name[i + 1]))
+				{
+					name[i + 1] = toupper(name[i + 1]);
+				}
+				else
+				{
+					isTrueName = false;
+					break;
+				}
+			}
+		}
+		if (isTrueName)
+		{
+			strcpy_s(_name, ArraySize, name);
+		}
 	}
 
 	void Person::SetSurname(char surname[ArraySize])
 	{
 		//TODO: Где проверка на передаваемые значения?
-		strcpy_s(_surname, ArraySize, surname);
+		//исправил
+		bool isTrueName = true;
+		for (int i = 0; i < ArraySize; i++)
+		{
+			if (isdigit(surname[i]) || isspace(surname[i]))
+			{
+				isTrueName = false;
+				break;
+			}
+
+			if (surname[i] == '-')
+			{
+				if (islower(surname[i + 1]))
+				{
+					surname[i + 1] = toupper(surname[i + 1]);
+				}
+				else
+				{
+					isTrueName = false;
+					break;
+				}
+			}
+		}
+		if (isTrueName)
+		{
+			strcpy_s(_surname, ArraySize, surname);
+		}
 	}
 
 	void Person::SetAge(int age)
 	{
 		//TODO: Где проверка на передаваемые значения?
-		_age = age;
+		//исправил
+		const int minAge = 0;
+		const int maxAge = 125;
+
+		if (age >= minAge && age <= maxAge)
+		{
+			_age = age;
+		}
 	}
 
 	void Person::SetSex(enum Sex sex)

@@ -10,7 +10,8 @@ namespace lab5
 			static const int ArraySize = 250;
 			Person() {};
 			//TODO: Название входных аргументов
-			Person(char name[ArraySize], char surname[ArraySize], int Age, enum Sex Sex);
+			//исправил
+			Person(char name[ArraySize], char surname[ArraySize], int age, enum Sex sex);
 			bool operator==(const Person& good);
 			bool operator!=(const Person& good);
 			void SetName(char name[ArraySize]);
