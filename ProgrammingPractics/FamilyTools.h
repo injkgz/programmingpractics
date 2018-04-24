@@ -15,8 +15,6 @@ namespace lab5
 				bool isChild = false;
 				cout << endl << "Введите индекс ВЗРОСЛОГО МУЖЧИНЫ, с которой начнём создание семьи: ";
 				int index;
-				//TODO: Тут и ниже можно без явного сравнения
-				//исправил
 				while (!isAdult)
 				{
 					list->GetCorrectIndex(index);
@@ -95,8 +93,6 @@ namespace lab5
 				char tempName[Person::ArraySize];
 				char tempSurname[Person::ArraySize];
 				char tempWorkPlace[Person::ArraySize];
-				//TODO: Очень много магических цифр ниже, так и не исправили!
-				//исправил
 				int randAge = 18 + rand() % 90;
 				int tempAge = randAge;
 				int randSex = rand() % 2;
@@ -104,13 +100,9 @@ namespace lab5
 				Sex tempSex;
 				//TODO: Почему NULL?
 				//потому что не указатель?
-<<<<<<< HEAD
 				//TODO: Неправильный ответ. Даю подсказку - везде nullptr, а тут NULL - почему?
 				//так пойдёт?) исправил
 				if (&sex != nullptr)
-=======
-				if (sex != NULL)
->>>>>>> parent of b41fdc8... TODO
 				{
 					tempSex = Sex(randSex);
 				}
@@ -177,11 +169,6 @@ namespace lab5
 					"КТЛ", "Столичный лицей", "Школа #5",
 					"Зерде", "Школа-лицей #60", "Гимназия #70"
 				};
-<<<<<<< HEAD
-=======
-				//TODO: Этот метод не должен тут находиться!
-				//исправил
->>>>>>> parent of b41fdc8... TODO
 				char tempName[Person::ArraySize];
 				char tempSurname[Person::ArraySize];
 				char tempSchool[Person::ArraySize];
@@ -194,8 +181,7 @@ namespace lab5
 				Adult* tempMother = nullptr;
 				Adult* tempFather = nullptr;
 				switch (tempSex)
-				{//TODO: Очень много магических цифр ниже, так и не исправили!
-					//исправил
+				{
 					case Female:
 					{
 						lab5::PersonTools::GenerateRandomPerson(tempName, tempSurname, FemaleName[randChar],
