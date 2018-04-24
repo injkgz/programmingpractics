@@ -40,8 +40,8 @@ void DoubleListMenu(TemplateList<double>* list, int number)
 			case 1:
 			{
 				cout << "Введите элемент: ";
-				double tempElem = CheckCin(false);
-				list->Add(&tempElem);
+				double* tempElem = new double(CheckCin(false));
+				list->Add(tempElem);
 				break;
 			}
 			case 2:

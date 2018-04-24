@@ -195,12 +195,12 @@ namespace lab5
 				}
 
 				int index = 0;
-				Type newValue = *Find(index);
+				Type* newValue = Find(index);
 				
 				while (index + 1 < _count)
 				{
 					index++;
-					newValue = *Find(index);
+					newValue = Find(index);
 				}
 			}
 
@@ -237,6 +237,19 @@ namespace lab5
 			}
 			//TODO: Нет такого метода.
 			//исправил
+			
+			friend std::ostream& operator<<(std::ostream& os, TemplateList*& list)
+			{
+				TemplateListItem<Type>* temp = list->_head;
+				int i = 0;
+				cout << "Подсписок: ";
+				while (temp != nullptr)
+				{
+					cout << temp->GetValue() << "  ";
+					temp = temp->Next;
+				}
+				return os;
+			}
 	};
 
 	static std::ostream& operator << (std::ostream &os, lab5::Person* person)
@@ -247,10 +260,9 @@ namespace lab5
 
 	static std::ostream& operator << (std::ostream & os, double* d)
 	{
-		for (int i = 0; i < 5; i++)
-		{
-			os << d[i] << ' ';
-		}
+		os << d[0];
 		return os;
 	}	
+
+	
 }

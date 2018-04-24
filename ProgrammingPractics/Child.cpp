@@ -2,8 +2,10 @@
 
 namespace lab5
 {
-	Child::Child(char* name, char* surname, int age, Sex sex, Adult* mother, Adult* father, char* school) : Person(name, surname, NULL, sex)
+	Child::Child(char* name, char* surname, int age, Sex sex, Adult* mother, 
+		Adult* father, char* school) : Person(name, surname, NULL, sex)
 	{//TODO: Можно сократить, использовав правильно конструктор базового
+		//исправил
 		SetAge(age);
 		if (mother != nullptr)
 		{
@@ -92,6 +94,7 @@ namespace lab5
 			return nullptr;
 		}
 	}
+	
 	
 	Child::~Child()
 	{

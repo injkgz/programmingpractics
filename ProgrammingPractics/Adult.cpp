@@ -23,8 +23,7 @@ namespace lab5
 		enum Sex sex, Adult* marriedOn, char* workPlace)
 	{
 		//TODO: Ещё есть возможность сократить, используя тут и в child конструктор базового класса.
-		//не корректно, потому как конструктор базового класса создаёт объект типа Person
-		//а нам нужен объект дочернего класса.
+		//исправил
 		Adult(name, surname, age, sex, workPlace);
 		SetMarriedOn(marriedOn);
 	}
