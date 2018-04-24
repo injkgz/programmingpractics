@@ -20,9 +20,9 @@ namespace lab5
 		//TODO: Где проверка на передаваемые значения?
 		//исправил
 		bool isTrueName = true;
-		for (int i = 0; i < ArraySize; i++)
+		for (int i = 0; i < strlen(name); i++)
 		{
-			if (i = 0)
+			if (i == 0)
 			{
 				isTrueName = isupper(name[i]);
 			}
@@ -57,7 +57,7 @@ namespace lab5
 		//TODO: Где проверка на передаваемые значения?
 		//исправил
 		bool isTrueName = true;
-		for (int i = 0; i < ArraySize; i++)
+		for (int i = 0; i < strlen(surname); i++)
 		{
 			if (isdigit(surname[i]) || isspace(surname[i]))
 			{
@@ -84,7 +84,7 @@ namespace lab5
 		}
 	}
 
-	void Person::SetAge(int age)
+	void Person::SetAge(unsigned int age)
 	{
 		//TODO: Где проверка на передаваемые значения?
 		//исправил
@@ -122,11 +122,11 @@ namespace lab5
 		return _sex;
 	}
 
-	Person::~Person()
+	/*Person::~Person()
 	{
 		delete _name;
 		delete _surname;
-	}
+	}*/
 
 	bool Person::operator==(const Person& good)
 	{

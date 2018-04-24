@@ -124,13 +124,12 @@
     </ClCompile>
     <ClCompile Include="lab2.cpp" />
     <ClCompile Include="lab3.cpp" />
-    <ClCompile Include="lab5UI.cpp" />
+    <ClCompile Include="UIData.cpp" />
+    <ClCompile Include="UITemplateList.cpp" />
     <ClCompile Include="MenuLab4.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="Person5.cpp" />
-    <ClCompile Include="PersonList.cpp" />
-    <ClCompile Include="PersonListItem.cpp" />
     <ClCompile Include="StackPerson.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,7 +141,8 @@
     <ClInclude Include="lab1.h" />
     <ClInclude Include="lab2.h" />
     <ClInclude Include="lab3.h" />
-    <ClInclude Include="lab5UI.h" />
+    <ClInclude Include="UIData.h" />
+    <ClInclude Include="UITemplateList.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MenuLab3.h" />
     <ClInclude Include="MenuLab4.h" />
@@ -150,8 +150,8 @@
     <ClInclude Include="MenuStack.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Person5.h" />
-    <ClInclude Include="PersonList.h" />
-    <ClInclude Include="PersonListItem.h" />
+    <ClInclude Include="TemplateList.h" />
+    <ClInclude Include="TemplateListItem.h" />
     <ClInclude Include="PersonTools.h" />
     <ClInclude Include="Sex.h" />
     <ClInclude Include="Person.h" />

@@ -15,7 +15,7 @@ namespace lab5
 			char _school[ArraySize];
 		public:
 			Child(char* name, char* surname, int age, Sex sex, Adult* mother, Adult* father, char* school);
-			virtual void SetAge(int Age) override;
+			virtual void SetAge(unsigned int age) override;
 			virtual int GetAge() override;
 			void SetFather(Adult* father);
 			void SetMother(Adult* mother);

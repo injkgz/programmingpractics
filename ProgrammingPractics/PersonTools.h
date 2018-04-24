@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "PersonList.h"
+#include "TemplateList.h"
 
 
 namespace lab5

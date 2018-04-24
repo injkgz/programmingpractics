@@ -3,16 +3,29 @@
 
 namespace lab5
 {
+<<<<<<< HEAD
 	//TODO: Часть проверок можно было бы снять корректным типом данных (беззнаковым)
+	//исправил
+	void Adult::SetAge(unsigned int age)
+=======
 	void Adult::SetAge(int age)
+>>>>>>> parent of b41fdc8... TODO
 	{
+		//TODO: Магические числа повторяются ниже!
+		//исправил
 		if (age >= _minAge && age <= _maxAge)
 		{
 			_age = age;
 		}
 		else
 		{
-			//TODO: Спорный способ, но пусть так.
+<<<<<<< HEAD
+			//TODO: спорный способ, но пусть так.
+			//??????????????????????
+=======
+			//TODO: Таким образом класс привязывается к консольному вводу-выводу, а так не должно быть!
+			//исправил
+>>>>>>> parent of b41fdc8... TODO
 			_age = _minAge;
 		}
 	}
@@ -20,23 +33,34 @@ namespace lab5
 	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age,
 		enum Sex sex, Adult* marriedOn, char* workPlace)
 	{
+<<<<<<< HEAD
 		//TODO: Ещё есть возможность сократить, используя тут и в child конструктор базового класса.
+		//не корректно, потому как конструктор базового класса создаёт объект типа Person
+		//а нам нужен объект дочернего класса.
+=======
+		//TODO: Есть возможность сократить дублирование вызвав следующий конструктор.
+		//исправил
+>>>>>>> parent of b41fdc8... TODO
 		Adult(name, surname, age, sex, workPlace);
 		SetMarriedOn(marriedOn);
 	}
 
-	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age, enum Sex sex, char* workPlace)
+	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age, enum Sex sex, 
+		char* workPlace) : Person(name, surname, NULL, sex)
 	{
-		Person::SetName(name);
-		Person::SetSurname(surname);
-		Person::SetSex(sex);
 		SetAge(age);
 		SetWorkPlace(workPlace);
 	}
 
+<<<<<<< HEAD
+=======
+	//TODO: Этот метод не должен тут находиться!
+	//исправил
 
+>>>>>>> parent of b41fdc8... TODO
 	void  Adult::SetMarriedOn(Adult* marriedOn)
-	{
+	{//TODO: Где проверка на передаваемые значения?
+		//исправил
 		if (marriedOn != nullptr && this->GetSex() != marriedOn->GetSex())
 		{
 			_marriedOn = marriedOn;
@@ -44,7 +68,8 @@ namespace lab5
 	}
 
 	void  Adult::SetWorkPlace(char* workPlace)
-	{
+	{//TODO: Где проверка на передаваемые значения?
+		//исправил
 		if (workPlace != nullptr)
 		{
 			strcpy_s(_workPlace, ArraySize, workPlace);

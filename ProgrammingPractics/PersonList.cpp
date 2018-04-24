@@ -2,16 +2,18 @@
 
 namespace lab5
 {
+	template <class Type>
 	//добавить человека в список
-	PersonList::PersonList()
+	PersonList<Type>::PersonList()
 	{
 		_head = nullptr;
 		_tail = nullptr;
 	}
 
-	void PersonList::Add(Person* person)
+	template <class Type>
+	void PersonList<Type>::Add(Type value)
 	{
-		PersonListItem* temp = new PersonListItem(person);
+		PersonListItem* temp = new PersonListItem(value);
 		if (_head == nullptr)
 		{
 			_head = _tail = temp;
@@ -25,19 +27,21 @@ namespace lab5
 		_count++;
 	}
 
-	void PersonList::ShowList()
+	template <class Type>
+	void PersonList<Type>::ShowList()
 	{
 		int index = 0;
-		Person* newPerson = Find(index);
+		Type* newValue = Find(index);
 		while (index+1 < _count)
 		{
 			index++;
-			newPerson = Find(index);
+			newValue = Find(index);
 		}
 	}
 
 	//найти человека по указанному индексу
-	Person* PersonList::Find(int index)
+	template <class Type>
+	Type PersonList<Type>::Find(int index)
 	{
 		if (index < 0)
 		{
@@ -62,32 +66,34 @@ namespace lab5
 	}
 
 	//вернуть индекс человека, если он есть в списке
-	int PersonList::IndexOf(Person* person)
+	template <class Type>
+	int PersonList<Type>::IndexOf(Type* value)
 	{
-		PersonListItem* searchedPerson = _head;
+		PersonListItem* searchedValue = _head;
 		int index = 0;
-		while (searchedPerson != nullptr)
+		while (searchedValue != nullptr)
 		{
-			if (*searchedPerson->GetValue() == *person)
+			if (*searchedValue->GetValue() == *person)
 			{
-				cout << "Индекс искомой личности = " << index;
+				cout << "Индекс искомого элемента = " << index;
 				return index;
 			}
 			index++;
-			searchedPerson = searchedPerson->Next;
+			searchedValue = searchedValue->Next;
 		}
 		cout << "Такой личности у нас нет!";
 		return -1;
 	}
 
 	//удалить человека из списка
-	void PersonList::Remove(Person* person)
+	template <class Type>
+	void PersonList<Type>::Remove(Type* value)
 	{
 		PersonListItem* deletedItem = _head;
 
 		while (deletedItem != nullptr)
 		{
-			if (*deletedItem->GetValue() == *person)
+			if (*deletedItem->GetValue() == *value)
 			{
 				if (deletedItem == _head)
 				{
@@ -133,19 +139,21 @@ namespace lab5
 	}
 
 	//удалить человека из списка по индексу
-	void PersonList::RemoveAt(int index)
+	template <class Type>
+	void PersonList<Type>::RemoveAt(int index)
 	{
-		Person *deletedPerson = Find(index);
-		if (deletedPerson == nullptr)
+		Type *deletedItem = Find(index);
+		if (deletedItem == nullptr)
 		{
 			return;
 		}
-		Remove(deletedPerson);
+		Remove(deletedItem);
 	}
 
 
 	//очистить список
-	void PersonList::Clear()
+	template <class Type>
+	void PersonList<Type>::Clear()
 	{
 		PersonListItem* temp = _head;
 		while (temp != nullptr)
@@ -160,7 +168,8 @@ namespace lab5
 	}
 
 	//получить количество элементов
-	int PersonList::GetCount()
+	template <class Type>
+	int PersonList<Type>::GetCount()
 	{
 		return _count;
 	}
@@ -215,7 +224,8 @@ namespace lab5
 		return new Person(tempName, tempSurname, tempAge, tempSex);
 	}*/
 
-	bool PersonList::CheckValidName(char name[])
+	template <class Type>
+	bool PersonList<Type>::CheckValidName(char name[])
 	{
 		bool isTrueName = true;
 		for (int i = 0; i < strlen(name); i++)
@@ -242,7 +252,8 @@ namespace lab5
 		return isTrueName;
 	}
 
-	void PersonList:: GetCorrectIndex(int& index)
+	template <class Type>
+	void PersonList<Type>:: GetCorrectIndex(int& index)
 	{
 		index = CheckCin(true);
 		if (_head == nullptr)
@@ -269,8 +280,9 @@ namespace lab5
 		}
 	}
 
-	void PersonList:: ShowPerson(Person* person)
+	template <class Type>
+	void PersonList<Type>:: ShowPerson(Type* value)
 	{
-		cout << person->GetDescription() << endl;
+		cout << value->GetDescription() << endl;
 	}
 }

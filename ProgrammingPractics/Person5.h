@@ -16,14 +16,14 @@ namespace lab5
 			bool operator!=(const Person& good);
 			void SetName(char name[ArraySize]);
 			void SetSurname(char surname[ArraySize]);
-			virtual void SetAge(int age) = 0;
+			virtual void SetAge(unsigned int age);
 			void SetSex(Sex sex);
 			char* GetName();
 			char* GetSurname();
 			virtual int GetAge();
 			Sex GetSex();
-			virtual string GetDescription() = 0;
-			~Person();
+			virtual string GetDescription();
+			//~Person();
 		protected: 
 			int _age;
 		private:

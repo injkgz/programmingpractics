@@ -1,7 +1,8 @@
 ﻿#include "PersonListItem.h"
 namespace lab5
 {
-	Person* lab5::PersonListItem::GetValue()
+	template <class Type>
+	Type lab5::TemplateListItem<Type>::GetValue()
 	{
 		if (this == nullptr)
 		{

@@ -4,7 +4,7 @@
 #include "lab2.h"
 #include "lab3.h"
 #include "MenuLab4.h"
-#include "lab5UI.h"
+#include "UITemplateList.h"
 
 int main()
 {
@@ -26,7 +26,7 @@ int main()
 			<< endl
 			<< "4 - Лабораторная работа #4"
 			<< endl
-			<< "5 - Лабораторная работа #5"
+			<< "5 - Лабораторная работа #5-7"
 			<< endl
 			<< "Программа будет запрашивать ввод до тех пор, пока вы не введёте корректное значение!"
 			<< endl;
@@ -51,7 +51,8 @@ int main()
 				StructChooseMenu();
 				break;
 			case 5://TODO: Где 6 лаба?
-				UILab5();
+				//7-ая лаба отражает всё, что происходит в 5-6
+				UITemplateList();
 				break;
 			default: break;
 		}

@@ -48,20 +48,17 @@
     <ClCompile Include="Person5.cpp">
       <Filter>lab5</Filter>
     </ClCompile>
-    <ClCompile Include="PersonList.cpp">
-      <Filter>lab5</Filter>
-    </ClCompile>
-    <ClCompile Include="lab5UI.cpp">
-      <Filter>lab5</Filter>
-    </ClCompile>
-    <ClCompile Include="PersonListItem.cpp">
-      <Filter>lab5</Filter>
-    </ClCompile>
     <ClCompile Include="Child.cpp">
       <Filter>lab5\lab6</Filter>
     </ClCompile>
     <ClCompile Include="Adult.cpp">
       <Filter>lab5\lab6</Filter>
+    </ClCompile>
+    <ClCompile Include="UITemplateList.cpp">
+      <Filter>lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="UIData.cpp">
+      <Filter>lab5</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,15 +107,6 @@
     <ClInclude Include="Person5.h">
       <Filter>lab5</Filter>
     </ClInclude>
-    <ClInclude Include="PersonList.h">
-      <Filter>lab5</Filter>
-    </ClInclude>
-    <ClInclude Include="PersonListItem.h">
-      <Filter>lab5</Filter>
-    </ClInclude>
-    <ClInclude Include="lab5UI.h">
-      <Filter>lab5</Filter>
-    </ClInclude>
     <ClInclude Include="Sex.h">
       <Filter>lab1</Filter>
     </ClInclude>
@@ -133,6 +121,18 @@
     </ClInclude>
     <ClInclude Include="FamilyTools.h">
       <Filter>lab5\lab6</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateList.h">
+      <Filter>lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateListItem.h">
+      <Filter>lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="UITemplateList.h">
+      <Filter>lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="UIData.h">
+      <Filter>lab5</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,0 +1,22 @@
+diff a/ProgrammingPractics/Adult.cpp b/ProgrammingPractics/Adult.cpp	(rejected hunks)
+@@ -3,18 +3,16 @@
+ 
+ namespace lab5
+ {
++	//TODO: Часть проверок можно было бы снять корректным типом данных (беззнаковым)
+ 	void Adult::SetAge(int age)
+ 	{
+-		//TODO: Магические числа повторяются ниже!
+-		//исправил
+ 		if (age >= _minAge && age <= _maxAge)
+ 		{
+ 			_age = age;
+ 		}
+ 		else
+ 		{
+-			//TODO: Таким образом класс привязывается к консольному вводу-выводу, а так не должно быть!
+-			//исправил
++			//TODO: Спорный способ, но пусть так.
+ 			_age = _minAge;
+ 		}
+ 	}
