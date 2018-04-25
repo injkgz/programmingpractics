@@ -10,6 +10,7 @@ namespace lab5
 		private:
 			//TODO: Зачем они static?
 			//Переменная не должна инициализироваться для каждого объекта отдельно, а для класса в целом один раз!
+			//TODO: И чего вы этим добились?
 			static const int _maxAge = 125;
 			static const int _minAge = 18;
 			Adult * _marriedOn = nullptr;

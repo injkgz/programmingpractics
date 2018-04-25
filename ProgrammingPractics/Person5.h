@@ -3,14 +3,13 @@
 #include "CheckCin.h"
 
 namespace lab5
-{
+{//TODO: Концептуально неверно! Объект класса person не имеет смысла, а в вашем случае его можно создать.
 	class Person
 	{
 		public:
 			static const int ArraySize = 250;
+			//TODO: Зачем пустой конструктор?
 			Person() {};
-			//TODO: Название входных аргументов
-			//исправил
 			Person(char name[ArraySize], char surname[ArraySize], int age, enum Sex sex);
 			bool operator==(const Person& good);
 			bool operator!=(const Person& good);
@@ -23,6 +22,7 @@ namespace lab5
 			virtual int GetAge();
 			Sex GetSex();
 			virtual string GetDescription();
+			//TODO: футакимбыть!
 			//~Person();
 		protected: 
 			int _age;

@@ -3,8 +3,6 @@
 
 namespace lab5
 {
-	//TODO: Часть проверок можно было бы снять корректным типом данных (беззнаковым)
-	//исправил
 	void Adult::SetAge(unsigned int age)
 	{
 		if (age >= _minAge && age <= _maxAge)
@@ -22,14 +20,12 @@ namespace lab5
 	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age,
 		enum Sex sex, Adult* marriedOn, char* workPlace)
 	{
-		//TODO: Ещё есть возможность сократить, используя тут и в child конструктор базового класса.
-		//исправил
 		Adult(name, surname, age, sex, workPlace);
 		SetMarriedOn(marriedOn);
 	}
 
 	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age, enum Sex sex, 
-		char* workPlace) : Person(name, surname, NULL, sex)
+		char* workPlace) : Person(name, surname, NULL, sex) //TODO: Нулл - нафиг!
 	{
 		SetAge(age);
 		SetWorkPlace(workPlace);

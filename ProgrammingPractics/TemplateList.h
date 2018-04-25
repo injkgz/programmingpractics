@@ -15,7 +15,7 @@ namespace lab5
 			{
 				bool isTrueName = true;
 				for (int i = 0; i < strlen(name); i++)
-				{
+				{//TODO: Есть дубль в предыдущей лабе!
 					if (isdigit(name[i]) || isspace(name[i]))
 					{
 						isTrueName = false;
@@ -181,10 +181,7 @@ namespace lab5
 			{
 				return _count;
 			}
-			//TODO: Нет такого метода
-			//исправил, он есть правда закомментирован, потому как выдаёт ошибку,
-			//в связи с тем, что для 6-ой лабы нельзя создать объект класса Person.
-			//Person* Read();
+			
 			void ShowList()
 			{
 				
@@ -209,7 +206,7 @@ namespace lab5
 				index = CheckCin(true);
 				if (_head == nullptr)
 				{
-					cout << "Список пуст!" << endl
+					cout << "Список пуст!" << endl//TODO: Как это я могу работать с позицией 0, если список пуст? Для работы я должен сперва создать список.
 						<< "Вы можете работать только с позицией [0]!"
 						<< endl;
 					while (index != 0)
@@ -235,8 +232,6 @@ namespace lab5
 			{
 				cout << value << endl;
 			}
-			//TODO: Нет такого метода.
-			//исправил
 			
 			friend std::ostream& operator<<(std::ostream& os, TemplateList*& list)
 			{

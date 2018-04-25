@@ -98,10 +98,7 @@ namespace lab5
 				int randSex = rand() % 2;
 				int randChar = rand() % 9;
 				Sex tempSex;
-				//TODO: Почему NULL?
-				//потому что не указатель?
-				//TODO: Неправильный ответ. Даю подсказку - везде nullptr, а тут NULL - почему?
-				//так пойдёт?) исправил
+
 				if (&sex != nullptr)
 				{
 					tempSex = Sex(randSex);

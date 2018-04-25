@@ -19,6 +19,7 @@ namespace lab5
 	{
 		//TODO: Где проверка на передаваемые значения?
 		//исправил
+		//TODO: Исправили с помощью дублирования кода.. Теперь исправляйте дубли!
 		bool isTrueName = true;
 		for (int i = 0; i < strlen(name); i++)
 		{
@@ -56,6 +57,7 @@ namespace lab5
 	{
 		//TODO: Где проверка на передаваемые значения?
 		//исправил
+		//TODO: Исправили с помощью дублирования кода.. Теперь исправляйте дубли!
 		bool isTrueName = true;
 		for (int i = 0; i < strlen(surname); i++)
 		{
@@ -86,8 +88,6 @@ namespace lab5
 
 	void Person::SetAge(unsigned int age)
 	{
-		//TODO: Где проверка на передаваемые значения?
-		//исправил
 		const int minAge = 0;
 		const int maxAge = 125;
 
@@ -121,7 +121,7 @@ namespace lab5
 	{
 		return _sex;
 	}
-
+	//TODO: Не понял, а где переписывание всего под динамику?
 	/*Person::~Person()
 	{
 		delete _name;

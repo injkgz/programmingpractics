@@ -3,9 +3,8 @@
 namespace lab5
 {
 	Child::Child(char* name, char* surname, int age, Sex sex, Adult* mother, 
-		Adult* father, char* school) : Person(name, surname, NULL, sex)
-	{//TODO: Можно сократить, использовав правильно конструктор базового
-		//исправил
+		Adult* father, char* school) : Person(name, surname, NULL, sex) // TODO: Нулл - нафиг!
+	{
 		SetAge(age);
 		if (mother != nullptr)
 		{
@@ -18,8 +17,6 @@ namespace lab5
 		SetSchool(school);
 	};
 
-	//TODO: Именование. Правильный тип.
-	//исправил
 	void Child::SetAge(unsigned int age)
 	{
 		if (age <= _maxAge && age >= _minAge)
@@ -76,8 +73,7 @@ namespace lab5
 			return _mother;
 		}
 		else
-		{//TODO: Привязка к консоли.
-		 //исправил.
+		{
 			return nullptr;
 		}
 	}
@@ -89,8 +85,7 @@ namespace lab5
 			return _father;
 		}
 		else
-		{//TODO: Привязка к консоли.
-			//исправил.
+		{
 			return nullptr;
 		}
 	}
