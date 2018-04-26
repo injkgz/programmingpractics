@@ -16,6 +16,7 @@ void DoubleListMenu(TemplateList<double>* list, int number)
 	{
 		system("cls");
 		cout << endl
+			<< "Вы работаете с типом данных DOUBLE" << endl
 			<< "Введите 0 для выхода в меню выбора структуры или выберите функцию: "
 			<< endl
 			<< "1. Add " << endl
@@ -44,7 +45,7 @@ void DoubleListMenu(TemplateList<double>* list, int number)
 				//Запятая нужна!
 				cout << "Введите элемент (НЕ ИСПОЛЬЗОВАТЬ ТОЧКУ! ЦЕЛУЮ ЧАСТЬ ОТДЕЛИТЬ ЗАПЯТОЙ): ";
 				double* tempElem = new double(CheckCin(false));
-				list->Add(tempElem);
+				list->Add(*tempElem);
 				break;
 			}
 			case 2:
@@ -60,7 +61,7 @@ void DoubleListMenu(TemplateList<double>* list, int number)
 				int index;
 				list->GetCorrectIndex(index);
 				cout << "Найденный элемент: ";
-				double findObject = *list->Find(index);
+				double findObject = list->Find(index);
 				double* findElement = &findObject;
 				if (findElement != nullptr)
 				{
@@ -99,7 +100,7 @@ void DoubleListMenu(TemplateList<double>* list, int number)
 
 void UIPerson()
 {
-	TemplateList<lab5::Person>* list = new TemplateList<lab5::Person>();
+	TemplateList< lab5::Person* >* list = new TemplateList<lab5::Person*>();
 	bool key = true;
 	int choosedFunction;
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -108,6 +109,7 @@ void UIPerson()
 	{
 		system("cls");
 		cout << endl
+			<< "Вы работаете с типом данных Person" << endl
 			<< "Введите 0 для выхода в меню выбора структуры или выберите функцию: "
 			<< endl
 			<< "1. Add " << endl
@@ -189,7 +191,7 @@ void UIPerson()
 
 void UIList()
 {
-	TemplateList<TemplateList<double>>* list = new TemplateList<TemplateList<double>>();
+	TemplateList<TemplateList<double>*>* list = new TemplateList<TemplateList<double>*>();
 	bool key = true;
 	int choosedFunction;
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -198,6 +200,7 @@ void UIList()
 	{
 		system("cls");
 		cout << endl
+			<< "Вы работаете с типом данных list" << endl
 			<< "Введите 0 для выхода в меню выбора структуры или выберите функцию: "
 			<< endl
 			<< "1. Add " << endl
@@ -236,7 +239,10 @@ void UIList()
 				cout << "Поиск элемента по индексу" << endl;
 				cout << "Введите индекс: " << endl;
 				int index;
-				list->GetCorrectIndex(index);
+				if (list->GetCorrectIndex(index)==1)
+				{
+					break;
+				}
 				DoubleListMenu(list->Find(index), index);
 				break;
 			}

@@ -6,23 +6,19 @@ namespace lab5
 	class TemplateListItem
 	{
 		public:
-			TemplateListItem<Type>(Type* value)
+			TemplateListItem<Type>(Type value)
 			{
-				if (value != nullptr)
+				if (value != NULL)
 				{
 					_value = value;
 				}
 			}
 
-			Type* GetValue()
+			Type GetValue()
 			{
 				if (this == nullptr)
 				{
-					return nullptr;
-				}
-				if (this->_value == nullptr)
-				{
-					return nullptr;
+					return NULL;
 				}
 				return _value;
 			}
@@ -30,6 +26,6 @@ namespace lab5
 			TemplateListItem<Type>* Next = nullptr;
 			TemplateListItem<Type>* Prev = nullptr;
 		private:
-			Type* _value;
+			Type _value;
 	};
 }

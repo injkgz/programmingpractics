@@ -18,7 +18,7 @@ namespace lab5
 				_tail = nullptr;
 			}
 
-			void Add(Type* value)
+			void Add(Type value)
 			{
 				TemplateListItem<Type>* temp = new TemplateListItem<Type>(value);
 				if (_head == nullptr)
@@ -34,11 +34,11 @@ namespace lab5
 				_count++;
 			}
 
-			Type* Find(int index)
+			Type Find(int index)
 			{
 				if (index < 0)
 				{
-					return nullptr;
+					return NULL;
 				}
 
 				TemplateListItem<Type>* searchedItem = _head;
@@ -50,15 +50,12 @@ namespace lab5
 						searchedItem = searchedItem->Next;
 					}
 				}
-				if (searchedItem->GetValue() != nullptr)
-				{
-					ShowItem(searchedItem->GetValue());
-					cout << endl << "____________________________" << endl;
-				}
+				cout<<searchedItem->GetValue();
+				cout << endl << "____________________________" << endl;
 				return searchedItem->GetValue();
 			}
 
-			int IndexOf(Type* value)
+			int IndexOf(Type value)
 			{
 				TemplateListItem* searchedValue = _head;
 				int index = 0;
@@ -166,7 +163,7 @@ namespace lab5
 				}
 
 				int index = 0;
-				Type* newValue = Find(index);
+				Type newValue = Find(index);
 				
 				while (index + 1 < _count)
 				{
@@ -175,7 +172,7 @@ namespace lab5
 				}
 			}
 
-			void GetCorrectIndex(int& index)
+			int GetCorrectIndex(int& index)
 			{
 				index = CheckCin(true);
 				if (_head == nullptr)
@@ -184,11 +181,7 @@ namespace lab5
 						//исправил
 						<< "Для начала создайте список!"
 						<< endl;
-					while (index != 0)
-					{
-						cout << "Введите ноль!" << endl;
-						index = CheckCin(true);
-					}
+					return 1;
 				}
 				else if ((index + 1) > _count)
 				{
@@ -200,15 +193,12 @@ namespace lab5
 						index = CheckCin(true);
 
 					}
+					return 0;
 				}
 			}
 
-			void ShowItem(Type* value)
-			{
-				cout << value << endl;
-			}
 			
-			friend std::ostream& operator<<(std::ostream& os, TemplateList*& list)
+			friend std::ostream& operator<<(std::ostream& os, TemplateList* list)
 			{
 				TemplateListItem<Type>* temp = list->_head;
 				int i = 0;

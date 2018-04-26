@@ -24,7 +24,7 @@ namespace lab5
 			char* GetSurname();
 			virtual int GetAge();
 			Sex GetSex();
-			virtual string GetDescription();
+			virtual string GetDescription() = 0;
 			//TODO: футакимбыть!
 			//исправил
 			~Person();
