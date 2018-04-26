@@ -25,7 +25,8 @@ namespace lab5
 	}
 
 	Adult::Adult(char name[ArraySize], char surname[ArraySize], int age, enum Sex sex, 
-		char* workPlace) : Person(name, surname, NULL, sex) //TODO: Нулл - нафиг!
+		char* workPlace) : Person(name, surname, age, sex) //TODO: Нулл - нафиг!
+		//исправил
 	{
 		SetAge(age);
 		SetWorkPlace(workPlace);

@@ -11,32 +11,6 @@ namespace lab5
 			TemplateListItem<Type> * _head;
 			TemplateListItem<Type> * _tail;
 			int _count; 
-			bool CheckValidName(char name[])
-			{
-				bool isTrueName = true;
-				for (int i = 0; i < strlen(name); i++)
-				{//TODO: Есть дубль в предыдущей лабе!
-					if (isdigit(name[i]) || isspace(name[i]))
-					{
-						isTrueName = false;
-						break;
-					}
-
-					if (name[i] == '-')
-					{
-						if (islower(name[i + 1]))
-						{
-							name[i + 1] = toupper(name[i + 1]);
-						}
-						else
-						{
-							isTrueName = false;
-							break;
-						}
-					}
-				}
-				return isTrueName;
-			}
 		public:
 			TemplateList<Type>()
 			{
@@ -207,7 +181,8 @@ namespace lab5
 				if (_head == nullptr)
 				{
 					cout << "Список пуст!" << endl//TODO: Как это я могу работать с позицией 0, если список пуст? Для работы я должен сперва создать список.
-						<< "Вы можете работать только с позицией [0]!"
+						//исправил
+						<< "Для начала создайте список!"
 						<< endl;
 					while (index != 0)
 					{

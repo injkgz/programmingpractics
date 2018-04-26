@@ -33,14 +33,16 @@ void DoubleListMenu(TemplateList<double>* list, int number)
 			case 0:
 			{
 				key = false;//TODO: Что значит выход из программы?
-				cout << endl << "Выход из программы." << endl;
+				//исправил
+				cout << endl << "Выход из меню." << endl;
 				system("pause");
 				break;
 			}
 			case 1:
 			{
 				//TODO: Вводится не корректно, не принимает точку.
-				cout << "Введите элемент: ";
+				//Запятая нужна!
+				cout << "Введите элемент (НЕ ИСПОЛЬЗОВАТЬ ТОЧКУ! ЦЕЛУЮ ЧАСТЬ ОТДЕЛИТЬ ЗАПЯТОЙ): ";
 				double* tempElem = new double(CheckCin(false));
 				list->Add(tempElem);
 				break;
@@ -123,12 +125,15 @@ void UIPerson()
 			case 0:
 			{
 				key = false;//TODO: Что значит выход из программы?
-				cout << endl << "Выход из программы." << endl;
+				//исправил
+				cout << endl << "Выход из меню." << endl;
 				system("pause");
 				break;
 			}
 			case 1:
 			{//TODO: Ничего не говорит при добавлении - это затрудняет воприятие программы.
+				//исправил
+				cout << "Добавляем 3 персоны: 2 Adult и 1 Child!" << endl;
 				list->Add(lab5::FamilyTools::GetRandomAdult(Male));
 				list->Add(lab5::FamilyTools::GetRandomAdult(Female));
 				list->Add(lab5::FamilyTools::GetRandomChild());
@@ -209,8 +214,9 @@ void UIList()
 		{
 			case 0:
 			{//TODO: Что значит выход из программы?
+				//исправил
 				key = false;
-				cout << endl << "Выход из программы." << endl;
+				cout << endl << "Выход из меню." << endl;
 				system("pause");
 				break;
 			}

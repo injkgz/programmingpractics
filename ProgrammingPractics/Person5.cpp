@@ -20,36 +20,18 @@ namespace lab5
 		//TODO: Где проверка на передаваемые значения?
 		//исправил
 		//TODO: Исправили с помощью дублирования кода.. Теперь исправляйте дубли!
-		bool isTrueName = true;
-		for (int i = 0; i < strlen(name); i++)
+		//исправил
+		_name = new char[strlen(name)];
+		if (lab5::PersonTools::CheckValidName(name))
 		{
-			if (i == 0)
+			for (int i = 0; i < strlen(name)+1; i++)
 			{
-				isTrueName = isupper(name[i]);
-			}
-
-			if (isdigit(name[i]) || isspace(name[i]))
-			{
-				isTrueName = false;
-				break;
-			}
-
-			if (name[i] == '-')
-			{
-				if (islower(name[i + 1]))
+				_name[i] = name[i];
+				if (name[i] == '\0')
 				{
-					name[i + 1] = toupper(name[i + 1]);
-				}
-				else
-				{
-					isTrueName = false;
 					break;
 				}
 			}
-		}
-		if (isTrueName)
-		{
-			strcpy_s(_name, ArraySize, name);
 		}
 	}
 
@@ -58,31 +40,18 @@ namespace lab5
 		//TODO: Где проверка на передаваемые значения?
 		//исправил
 		//TODO: Исправили с помощью дублирования кода.. Теперь исправляйте дубли!
-		bool isTrueName = true;
-		for (int i = 0; i < strlen(surname); i++)
+		//исправил
+		_surname = new char[strlen(surname)];
+		if (lab5::PersonTools::CheckValidName(surname))
 		{
-			if (isdigit(surname[i]) || isspace(surname[i]))
+			for (int i = 0; i < strlen(surname)+1; i++)
 			{
-				isTrueName = false;
-				break;
-			}
-
-			if (surname[i] == '-')
-			{
-				if (islower(surname[i + 1]))
+				_surname[i] = surname[i];
+				if (surname[i] == '\0')
 				{
-					surname[i + 1] = toupper(surname[i + 1]);
-				}
-				else
-				{
-					isTrueName = false;
 					break;
 				}
 			}
-		}
-		if (isTrueName)
-		{
-			strcpy_s(_surname, ArraySize, surname);
 		}
 	}
 
@@ -122,11 +91,12 @@ namespace lab5
 		return _sex;
 	}
 	//TODO: Не понял, а где переписывание всего под динамику?
-	/*Person::~Person()
+	//исправил
+	Person::~Person()
 	{
 		delete _name;
 		delete _surname;
-	}*/
+	}
 
 	bool Person::operator==(const Person& good)
 	{

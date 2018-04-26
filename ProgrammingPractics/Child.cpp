@@ -3,7 +3,8 @@
 namespace lab5
 {
 	Child::Child(char* name, char* surname, int age, Sex sex, Adult* mother, 
-		Adult* father, char* school) : Person(name, surname, NULL, sex) // TODO: Нулл - нафиг!
+		Adult* father, char* school) : Person(name, surname, age, sex) // TODO: Нулл - нафиг!
+		//исправил
 	{
 		SetAge(age);
 		if (mother != nullptr)
@@ -44,6 +45,10 @@ namespace lab5
 			{
 				_mother = mother;
 			}
+			else
+			{
+				_mother = nullptr;
+			}
 		}
 	}
 
@@ -54,6 +59,10 @@ namespace lab5
 			if (father->GetSex() == Male)
 			{
 				_father = father;
+			}
+			else
+			{
+				_father = nullptr;
 			}
 		}
 	}

@@ -99,7 +99,7 @@ namespace lab5
 				int randChar = rand() % 9;
 				Sex tempSex;
 
-				if (&sex != nullptr)
+				if (&sex == nullptr)
 				{
 					tempSex = Sex(randSex);
 				}
